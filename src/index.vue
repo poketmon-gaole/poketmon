@@ -1,6 +1,6 @@
 <template>
-  <img alt="포맷몬 가오레 로고" src="./assets/poketmon.png" height="170">
-  <PoketmonMain msg="포맷몬 가오레 레전드 1탄"/>
+  <img alt="포캣몬 가오레 Logo" src="./assets/poketmon.png" height="170">
+  <PoketmonMain msg="포캣몬 가오레 레전드 1탄"/>
 </template>
 
 <script>
