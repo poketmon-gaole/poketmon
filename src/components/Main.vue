@@ -6,7 +6,17 @@
     </p>
     <h3>5성</h3>
     <ul>
-      <li><img alt="포맷몬 가오레" src="../assets/r1_05_01.png"></li>
+      <li>
+          <div>
+            <div class="type-box-top">
+              <img alt="포맷몬 가오레" src="../assets/r1_05_01.png">
+            </div>
+            <div class="type-box-bottom">
+              <span class="type1">프리저(얼음/비행)</span>
+              <span class="type2">방어/특수방어</span>
+            </div>
+          </div>
+      </li>
       <li><img alt="포맷몬 가오레" src="../assets/r1_05_02.png"></li>
       <li><img alt="포맷몬 가오레" src="../assets/r1_05_03.png"></li>
       <li><img alt="포맷몬 가오레" src="../assets/r1_05_04.png"></li>
@@ -48,5 +58,23 @@ li {
 }
 a {
   color: #42b983;
+}
+.type-box-top {
+  float: left;
+  width: 64%;
+}
+.type-box-bottom {
+  float: left;
+  width: 36%;
+}
+.type-box-bottom .type1 {
+    font-weight: bold;
+    color: chocolate;
+    float: left;
+    margin: 0 0 0 5px;
+}
+.type-box-bottom .type2 {
+    margin: 10px 0 0 0;
+    display: inline-block;
 }
 </style>
