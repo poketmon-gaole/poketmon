@@ -1,15 +1,15 @@
 <template>
   <img alt="포맷몬 가오레 로고" src="./assets/poketmon.png" height="170">
-  <HelloWorld msg="박시우 환영해~ ^^"/>
+  <PoketmonMain msg="포맷몬 가오레 레전드 1탄"/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import PoketmonMain from './components/Main.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    PoketmonMain
   }
 }
 </script>
