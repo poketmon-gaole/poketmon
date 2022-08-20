@@ -27,7 +27,23 @@
             <div class="type-box-bottom">
               <span style="margin: 7px 0 0 0">비추천 : </span>
               <span>(땅 <img alt="포캣몬 가오레" src="../assets/t05.png" width="25" height="25">)</span>
-              <button class="btn">포캣몬 공략</button>
+              <button class="btn" @click="openModal">포캣몬 공략</button>
+              <template>
+                <div class="example-modal-window">
+                  <!-- 컴포넌트 MyModal -->
+                  <MyModal @close="closeModal">
+                    <!-- default 슬롯 콘텐츠 -->
+                    <p>Vue.js Modal Window!</p>
+                    <div><input v-model="message"></div>
+                    <!-- /default -->
+                    <!-- footer 슬롯 콘텐츠 -->
+                    <template v-slot:footer>
+                      <button @click="doSend">제출</button>
+                    </template>
+                    <!-- /footer -->
+                  </MyModal>
+                </div>
+              </template>
             </div>
           </div>
       </li>
@@ -51,22 +67,42 @@
 </template>
 
 <script>
+import PocktmonModal from './PocktmonModal.vue'
+
 export default {
   name: 'PocktmonMain',
+  components: PocktmonModal,
   props: {
     msg: String
-  }
+  },
+  data() {
+    return {
+      modal: false,
+      message: ''
+    }
+  },
+  methods: {
+    openModal() {
+      this.modal = true
+    },
+    closeModal() {
+      this.modal = false
+    },
+    doSend() {
+      if (this.message.length > 0) {
+        alert(this.message)
+        this.message = ''
+        this.closeModal()
+      } else {
+        alert('메시지를 입력해주세요.')
+      }
+    }
+  }  
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-html {
-  height: 100%;
-}
-body {
-  background-color: #ffd057 !important;
-}
 h3 {
   display: inline-block;
   color: white;
