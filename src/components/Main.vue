@@ -6,52 +6,34 @@
     </p>
     <h3>5성 포캣몬스터</h3>
     <ul>
-      <li>
-          <div style="background: #2b0046; border-radius: 15px">
+      <li v-for="item in data" :key="item.id">
+          <div class="type-box" @click="doClose">
             <div class="type-box-left">
-              <span class="poketmon-name">프리져 (얼음/비행)</span>
-              <img alt="포캣몬 가오레" src="../assets/r1_05_01.png">
+              <span class="poketmon-name">{{ item.name }} {{ getType(item.type, 0) }}</span>
+              <img :src="getImageUrl(item.id)">
             </div>
             <div class="type-box-right">
-              <span>공격: 135</span>
-              <span>특수공격: 135</span>
-              <span>방어: 135</span>
-              <span>기술: 눈보라</span>
-              <span>Z기술 여부: X</span>
-              <span></span>
+              <span>{{ getType(item.atk, 1) }}</span>
+              <span>{{ getType(item.str, 2) }}</span>
+              <span>{{ getType(item.vit, 3) }}</span>
+              <span>{{ getType(item.def, 4) }}</span>
+              <span>{{ getType(item.skill, 5) }}</span>
+              <span>{{ getType(item.zSkillYn, 6) }}</span>
             </div>
             <div class="type-box-bottom">
-                <span style="margin: 7px 0 0 0">추천 : </span>
-                <span>(얼음<img alt="포캣몬 가오레" src="../assets/t15.png" width="25" height="25">/비행<img alt="포캣몬 가오레" src="../assets/t03.png" width="25" height="25">)</span>
+                <span>{{ getType(item.recommend, 7) }}</span>
             </div>
             <div class="type-box-bottom">
-              <span style="margin: 7px 0 0 0">비추천 : </span>
-              <span>(땅 <img alt="포캣몬 가오레" src="../assets/t05.png" width="25" height="25">)</span>
-              <button class="btn" @click="openModal">포캣몬 공략</button>
-              <template>
-                <div class="example-modal-window">
-                  <!-- 컴포넌트 MyModal -->
-                  <MyModal @close="closeModal">
-                    <!-- default 슬롯 콘텐츠 -->
-                    <p>Vue.js Modal Window!</p>
-                    <div><input v-model="message"></div>
-                    <!-- /default -->
-                    <!-- footer 슬롯 콘텐츠 -->
-                    <template v-slot:footer>
-                      <button @click="doSend">제출</button>
-                    </template>
-                    <!-- /footer -->
-                  </MyModal>
-                </div>
-              </template>
+              <span>{{ getType(item.notRecommend, 8) }}</span>
+              <!-- <button class="btn" @click="doClose">포캣몬 공략</button> -->
             </div>
           </div>
       </li>
-      <li><img alt="포캣몬 가오레" src="../assets/r1_05_02.png"></li>
-      <li><img alt="포캣몬 가오레" src="../assets/r1_05_03.png"></li>
-      <li><img alt="포캣몬 가오레" src="../assets/r1_05_04.png"></li>
-      <li><img alt="포캣몬 가오레" src="../assets/r1_05_05.png"></li>
-      <li><img alt="포캣몬 가오레" src="../assets/r1_05_06.png"></li>
+      <li><img src="../assets/r1_05_02.png"></li>
+      <li><img src="../assets/r1_05_03.png"></li>
+      <li><img src="../assets/r1_05_04.png"></li>
+      <li><img src="../assets/r1_05_05.png"></li>
+      <li><img src="../assets/r1_05_06.png"></li>
     </ul>
     <!--
     <h3>4성</h3>
@@ -64,40 +46,90 @@
     </ul>
     -->
   </div>
+  <div class="modal" v-show="visible">
+      <div class="overlay"></div>
+      <div class="modal-card">
+        <h5>뷰하!</h5>
+        <p>v-if와 v-show로 모달창을 띄워봅시다.</p>
+        <ul style="display: inline-block">
+          <li>
+              <div><img src="../assets/r1_05_02.png" width="150"></div>
+          </li>
+          <li><img src="../assets/r1_05_03.png" width="150"></li>
+          <li><img src="../assets/r1_05_04.png" width="150"></li>
+          <li><img src="../assets/r1_05_05.png" width="150"></li>
+          <li><img src="../assets/r1_05_06.png" width="150"></li>
+        </ul>
+        <span>
+          <button @click="doClose" type="button">
+              닫기
+          </button>
+        </span>
+      </div>
+      <slot/>
+  </div>  
 </template>
 
 <script>
-import PocktmonModal from './PocktmonModal.vue'
+import data from "./data.json";
 
 export default {
   name: 'PocktmonMain',
-  components: PocktmonModal,
+  components: {
+  },
   props: {
     msg: String
   },
   data() {
     return {
-      modal: false,
-      message: ''
+      visible: false,
+      data: data
     }
   },
   methods: {
-    openModal() {
-      this.modal = true
+    doClose() {
+      this.visible = !this.visible;
     },
-    closeModal() {
-      this.modal = false
+    getImageUrl(id) {
+      const images = require.context('../assets/img/')
+      //return images('./' + id + ".png")
+      console.log(images('./' + id + ".png"));
+      //return '../assets/img/' + id + '.png';
     },
-    doSend() {
-      if (this.message.length > 0) {
-        alert(this.message)
-        this.message = ''
-        this.closeModal()
-      } else {
-        alert('메시지를 입력해주세요.')
+    getType(item, index) {
+      let name;
+      switch (index) {
+      case 0:
+        name = '(' + item + ')'
+        break
+      case 1:
+        name = '공격:' + item
+        break
+      case 2:
+        name = '특수공격:' + item
+        break;
+      case 3:
+        name = '방어:' + item
+        break;
+      case 4:
+        name = '특수방어:' + item
+        break;
+      case 5:
+        name = '기술:' + item
+        break;
+      case 6:
+        name = 'Z기술 여부:' + item
+        break;
+      case 7:
+        name = '추천:' + item
+        break;
+      case 8:
+        name = '비추천:' + item
+        break; 
       }
+      return name;
     }
-  }  
+  }
 }
 </script>
 
@@ -132,9 +164,16 @@ img {
   border-radius: 28px;
   height: 100px;
 }
+.type-box {
+  background: #2b0046;
+  border-radius: 15px;
+}
 .type-box-left {
   float: left;
   width: 65%;
+}
+.type-box-left img {
+  width: 240px;
 }
 .type-box-right {
   float: left;
@@ -178,5 +217,28 @@ img {
     border: 0;
     border-radius: 10px;
     font-size: larger;
+}
+.modal,
+.overlay{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left:0;
+  top:0;
+}
+.overlay{
+  opacity:0.5;
+  background-color:black;
+}
+.modal-card{
+  position:relative;
+  max-width: 80%;
+  margin:auto;
+  margin-top:30px;
+  padding:20px;
+  background-color:white;
+  min-height:500px;
+  z-index:10;
+  opacity:1;
 }
 </style>
