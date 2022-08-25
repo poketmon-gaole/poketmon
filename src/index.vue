@@ -1,10 +1,10 @@
 <template>
-  <img alt="포캣몬 가오레 Logo" src="./assets/poketmon.png" height="170">
+  <img alt="포캣몬 가오레 Logo" src="@/assets/img/poketmon.png" height="170">
   <PoketmonMain msg="포캣몬 가오레 레전드 1탄"/>
 </template>
 
 <script>
-import PoketmonMain from './components/Main.vue'
+import PoketmonMain from '@/components/main.vue'
 
 export default {
   name: 'App',
