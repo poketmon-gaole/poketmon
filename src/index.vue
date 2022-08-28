@@ -19,7 +19,10 @@ html {
   height: 100%;
 }
 body {
-  background-color: #ffd057 !important;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
