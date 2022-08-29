@@ -31,49 +31,53 @@
     </template>
     <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div> 
   </div>
-  <div :class="[visible? 'overlay' : '']" @blur="doModal">
-  <div class="modal" v-show="visible">
-      <div class="modal-card" ref="modalCard">
-        <img class="close" src="../assets/img/x.png" @click="doModal">
-        <strong :class="{'grade4': info.grade === 4}">{{ info.name }} ({{ info.type }})</strong>
-        <img class="poketmon-img" :src="require(`@/assets/img/${info.imageName}`)">
-        <div style="display:inline" v-for="recommend in info.recommendArray" :key="recommend">
-          <p>{{ recommend }}</p>
-          <div style="border-bottom: 8px solid #ededed; margin: 14px 0 0 0px;"></div>
-          <ul>
-            <template v-for="item in getSort(data)" :key="item.id">
-              <li style="display: inline-block; width: 164px;" v-if="recommend === getCorrelation(item)">
-                  <div class="modal-type">
-                    <span style="text-align: center">
-                      {{ item.name }}
-                    </span>
-                    <img :src="require(`@/assets/img/${item.imageName}`)" width="150">
-                    <span style="text-align: left; color: #db1919; padding-left: 20px; font-size: 12px;">
-                      <template v-if="item.skill !== undefined">
-                        {{ getSeries(item) }}
-                      </template>
-                      &nbsp;
-                    </span>
-                  </div>
-              </li>
-            </template>
-          </ul>
-        </div>
-        <div style="border-bottom: 2px double #ededed; margin: 0 0 15px 0;"></div>
-        <div>
+  <template>
+    <Teleport to="body">
+      <!-- use the modal component, pass in the prop -->
+      <modal :show="visible" @close="visible = false">
+        <template #header>
+          <img src="../assets/img/x.png" width="16" @click="doModal">
+        </template>
+        <template #body>
+          <strong :ref="top">{{ info.name }} ({{ info.type }})</strong>
+          <img class="poketmon-img" :src="require(`@/assets/img/${info.imageName}`)">
+          <div style="display:inline" v-for="recommend in info.recommendArray" :key="recommend">
+            <p>{{ recommend }}</p>
+            <div style="border-bottom: 8px solid #ededed; margin: 14px 0 0 0px;"></div>
+            <ul>
+              <template v-for="item in getSort(data)" :key="item.id">
+                <li class="summary" v-if="recommend === getCorrelation(item)">
+                    <div class="summary-type">
+                      <span style="text-align: center">
+                        {{ item.name }}
+                      </span>
+                      <img :src="require(`@/assets/img/${item.imageName}`)" width="145">
+                      <span :class="[item.skill === undefined? 'sub-title':'skill']">
+                          {{ getSeries(item) }}
+                        &nbsp;
+                      </span>
+                    </div>
+                </li>
+              </template>
+            </ul>
+          </div>          
+        </template>
+        <template #footer>
           <button @click="doModal" type="button">닫기</button>
-        </div>
-      </div>
-  </div>
-  </div>
+        </template>
+      </modal>
+    </Teleport>
+  </template>  
 </template>
 
 <script>
-import data from "./data.json"
+import Data from "./data.json"
+import Modal from "./modal.vue"
 
 export default {
   name: 'PocktmonMain',
   components: {
+    Modal
   },
   props: {
     msg: String
@@ -81,8 +85,8 @@ export default {
   data() {
     return {
       visible: false,
-      data: data,
-      info: data[0],
+      data: Data,
+      info: Data[0],
       gradeList: [5, 4],
       type: {
         t01 : "노말",
@@ -138,9 +142,17 @@ export default {
       let retVal;
 
       if (series < 5) {
-        retVal = "" + series + "탄 " + item.skill + ""
+        retVal = series + "탄 " + item.skill
       } else {
-        retVal = "" + item.skill + ""
+        retVal = item.skill
+      }
+
+      if (item.skill === undefined) {
+        if (series < 5) {
+          retVal = "가오레" + series + "탄"
+        } else {
+          retVal = "레전드" + (series-4) + "탄"
+        }
       }
 
       return retVal;
@@ -154,11 +166,6 @@ export default {
         // 추천 속성을 배열로 변환 추가
         const recommendArray = this.getDisk(item.type, true)
         this.info.recommendArray = recommendArray
-
-        this.$nextTick(() => {
-            this.$refs.modalCard.scrollTo(0, 0)
-            this.$refs.modalCard.focus();
-        });
       }
     },
     getSolution(type, isRecommend) {
@@ -535,78 +542,32 @@ button {
     border-radius: 10px;
     font-size: larger;
 }
-.modal,
-.overlay,
-.overlay{
-    width: 100%;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);  
-}
-.overlay{
-    background-color:rgba(0, 0, 0, 0.5);  
-    height:100%;
-}
-.modal-card{
-    position:relative;
-    max-width: 80%;
-    margin:auto;
-    margin-top:10px;
-    padding:20px;
-    min-height:500px;
-    z-index:10;
-    opacity:1;
-    background: white;
-    font-weight: bold;
-    font-size: larger;
-    font-family: monospace;
-    overflow-y: auto;
-    max-height: 655px;
-}
-.modal-card .close {
-    width: 16px;
-    position: absolute;
-    left: 9px;
-    top: 10px;
-}
-.modal-card .poketmon-img {
-    width: 328px;
+.poketmon-img {
+    width: 290px;
     margin: 15px 0 20px 0;  
 }
-.modal-card strong {
-    font-family: 'Gmarket Sans TTF';
-    font-size: 20px;
-    font-weight: bold;
-    background: #79258f;
-    color: white;
-    border-radius: unset;
-    width: 100%;
+.summary {
     display: inline-block;
-    padding: 10px 0 10px 0;
-    margin-top: 20px;
+    width: 150px;  
 }
-.modal-card ul {
-    display: inline-block;
-    width: 100%;
-    text-align: left;
-}
-.modal-card p {
-    font-family: 'Gmarket Sans TTF';
-    color: black;
-    text-align: left;
-    margin: 20px 0 0 3px;
-}
-.modal-card .grade4 {
-    background: #838383;
-}
-.modal-type {
-    padding: 0 10px 10px 10px;
+.summary-type {
     width: 142px;
 }
-.modal-type span {
+.summary-type span {
     display: block;
     margin: 3px 0 0 0;
+}
+.summary-type .sub-title {
+    text-align: left;
+    color: #919191;
+    padding-left: 20px;
+    font-size: small;
+}
+.summary-type .skill {
+    text-align: left;
+    color: #db1919;
+    padding-left: 20px;
+    font-size: small;
 }
 .footer {
     display: inline-block;
