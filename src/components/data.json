@@ -1105,12 +1105,12 @@
         "skill": "제트기술"
     },         
     {
-        "id": "02-047",
+        "id": "02-051",
         "grade": 4,
         "name": "보만다",
         "type": "드래곤/비행",
         "correlation": "드래곤",
-        "imageName": "02-047.png",
+        "imageName": "02-051.png",
         "hp": 149,
         "atk": 134,
         "def": 81,
