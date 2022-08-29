@@ -446,6 +446,8 @@ h1 {
     background: #4c3c27;
     border-radius: 10px;
     font-size: 25px;
+    width: 95%;
+    display: inline-block;
 }
 h3 {
     display: inline-block;
@@ -481,10 +483,15 @@ button {
     height: 40px;
     font-weight: bolder;
 }
+.contents{
+    text-align: center;
+}
 .type-box {
     width: 100%;
     background: #2b0046;
     border-radius: 15px;
+    width: 95%;
+    display: inline-block;    
 }
 .type-box-left {
     float: left;
