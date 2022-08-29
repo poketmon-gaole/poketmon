@@ -487,10 +487,9 @@ button {
     text-align: center;
 }
 .type-box {
-    width: 100%;
+    width: 95%;
     background: #2b0046;
     border-radius: 15px;
-    width: 95%;
     display: inline-block;    
 }
 .type-box-left {
@@ -509,17 +508,16 @@ button {
 }
 .type-box-right {
     float: left;
-    width: 33%;
+    width: 28%;
     margin: 55px 0 10px 10px;
     height: 112px;
 }
 .type-box-right span {
     float: left;
-    margin: 0 0px 0 5px;
-    font-family: emoji;
     color: white;
     border-left: thick solid #d8b6f7;
     text-indent: 5px;
+    font-size: small;
 }
 .type-box-right .text {
     border-left: thick solid #efefef
