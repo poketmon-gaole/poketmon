@@ -513,11 +513,12 @@ button {
     height: 112px;
 }
 .type-box-right span {
-    float: left;
-    color: white;
+    color: #fff;
     border-left: thick solid #d8b6f7;
     text-indent: 5px;
     font-size: small;
+    display: block;
+    text-align: left;
 }
 .type-box-right .text {
     border-left: thick solid #efefef
@@ -553,7 +554,7 @@ button {
 }
 .summary {
     display: inline-block;
-    width: 150px;  
+    width: 50%;  
 }
 .summary-type {
     width: 142px;

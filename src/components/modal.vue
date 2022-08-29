@@ -69,6 +69,7 @@ export default {
   margin: 20px 0;
   overflow-y: auto;
   height: 600px;
+  overflow-x: hidden;
 }
 
 .modal-default-button {
