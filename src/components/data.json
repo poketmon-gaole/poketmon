@@ -7,9 +7,9 @@
         "imageName": "05-060.png",
         "correlation": "얼음",
         "hp": 192,
-        "str": 128,
+        "spclAtck": 128,
         "def": 135,
-        "vit": 167,
+        "spclDfns": 167,
         "speed": 115
     },
     {
@@ -20,9 +20,9 @@
         "correlation": "전기",
         "imageName": "05-061.png",
         "hp": 192,
-        "str": 167,
+        "spclAtck": 167,
         "def": 115,
-        "vit": 122,
+        "spclDfns": 122,
         "speed": 135
     },
     {
@@ -33,9 +33,9 @@
         "correlation": "불꽃",
         "imageName": "05-062.png",
         "hp": 192,
-        "str": 167,
+        "spclAtck": 167,
         "def": 122,
-        "vit": 115,
+        "spclDfns": 115,
         "speed": 122
     },
     {
@@ -45,9 +45,9 @@
         "type": "에스퍼",
         "imageName": "05-063.png",
         "hp": 197,
-        "str": 189,
+        "spclAtck": 189,
         "def": 113,
-        "vit": 113,
+        "spclDfns": 113,
         "speed": 161,
         "skill": "메가진화"
     },
@@ -58,9 +58,9 @@
         "type": "에스퍼",
         "imageName": "05-064.png",
         "hp": 197,
-        "str": 189,
+        "spclAtck": 189,
         "def": 113,
-        "vit": 113,
+        "spclDfns": 113,
         "speed": 161,
         "skill": "메가진화"
     },
@@ -71,9 +71,9 @@
         "type": "에스퍼",
         "imageName": "05-065.png",
         "hp": 202,
-        "str": 133,
+        "spclAtck": 133,
         "def": 133,
-        "vit": 133,
+        "spclDfns": 133,
         "speed": 133,
         "skill": "제트기술"
     },        
@@ -85,9 +85,9 @@
         "correlation": "불꽃",
         "imageName": "05-066.png",
         "hp": 187,
-        "str": 182,
+        "spclAtck": 182,
         "def": 123,
-        "vit": 146,
+        "spclDfns": 146,
         "speed": 111,
         "skill": "제트기술"
     },
@@ -99,9 +99,9 @@
         "correlation": "전기",
         "imageName": "05-067.png",
         "hp": 187,
-        "str": 182,
+        "spclAtck": 182,
         "def": 146,
-        "vit": 123,
+        "spclDfns": 123,
         "speed": 111,
         "skill": "제트기술"
     },
@@ -113,9 +113,9 @@
         "correlation": "바위",
         "imageName": "05-068.png",
         "hp": 219,
-        "str": 172,
+        "spclAtck": 172,
         "def": 67,
-        "vit": 177,
+        "spclDfns": 177,
         "speed": 140
     },        
     {
@@ -125,9 +125,9 @@
         "type": "전기",
         "imageName": "05-069.png",
         "hp": 188,
-        "str": 236,
+        "spclAtck": 236,
         "def": 100,
-        "vit": 100,
+        "spclDfns": 100,
         "speed": 116
     },
     {
@@ -137,9 +137,9 @@
         "type": "풀",
         "imageName": "05-004.png",
         "hp": 145,
-        "str": 91,
+        "spclAtck": 91,
         "def": 109,
-        "vit": 109,
+        "spclDfns": 109,
         "speed": 88
     },
     {
@@ -149,9 +149,9 @@
         "type": "불꽃",
         "imageName": "05-008.png",
         "hp": 143,
-        "str": 118,
+        "spclAtck": 118,
         "def": 86,
-        "vit": 93,
+        "spclDfns": 93,
         "speed": 109
     },        
     {
@@ -161,9 +161,9 @@
         "type": "물",
         "imageName": "05-012.png",
         "hp": 150,
-        "str": 87,
+        "spclAtck": 87,
         "def": 109,
-        "vit": 91,
+        "spclDfns": 91,
         "speed": 86
     },            
     {
@@ -173,9 +173,9 @@
         "type": "풀",
         "imageName": "05-016.png",
         "hp": 150,
-        "str": 113,
+        "spclAtck": 113,
         "def": 94,
-        "vit": 113,
+        "spclDfns": 113,
         "speed": 91,
         "skill": "메가진화"
     },                  
@@ -187,9 +187,9 @@
         "correlation": "불꽃",
         "imageName": "05-020.png",
         "hp": 148,
-        "str": 122,
+        "spclAtck": 122,
         "def": 89,
-        "vit": 96,
+        "spclDfns": 96,
         "speed": 113,
         "skill": "메가진화"
     },        
@@ -201,9 +201,9 @@
         "correlation": "불꽃",
         "imageName": "05-021.png",
         "hp": 148,
-        "str": 122,
+        "spclAtck": 122,
         "def": 89,
-        "vit": 96,
+        "spclDfns": 96,
         "speed": 113,
         "skill": "메가진화"
     },           
@@ -214,9 +214,9 @@
         "type": "물",
         "imageName": "05-025.png",
         "hp": 149,
-        "str": 96,
+        "spclAtck": 96,
         "def": 113,
-        "vit": 118,
+        "spclDfns": 118,
         "speed": 89,
         "skill": "메가진화"
     },           
@@ -227,9 +227,9 @@
         "type": "물",
         "imageName": "05-030.png",
         "hp": 197,
-        "str": 119,
+        "spclAtck": 119,
         "def": 67,
-        "vit": 103,
+        "spclDfns": 103,
         "speed": 72
     },         
     {
@@ -239,9 +239,9 @@
         "type": "전기",
         "imageName": "05-032.png",
         "hp": 129,
-        "str": 119,
+        "spclAtck": 119,
         "def": 67,
-        "vit": 103,
+        "spclDfns": 103,
         "speed": 140
     },    
     {
@@ -251,9 +251,9 @@
         "type": "불꽃",
         "imageName": "05-034.png",
         "hp": 129,
-        "str": 103,
+        "spclAtck": 103,
         "def": 67,
-        "vit": 119,
+        "spclDfns": 119,
         "speed": 72
     },            
     {
@@ -263,9 +263,9 @@
         "type": "전기",
         "imageName": "05-043.png",
         "hp": 129,
-        "str": 103,
+        "spclAtck": 103,
         "def": 67,
-        "vit": 119,
+        "spclDfns": 119,
         "speed": 72,
         "skill": "제트기술"
     },                                  
@@ -277,9 +277,9 @@
         "correlation": "바위",
         "imageName": "05-047.png",
         "hp": 191,
-        "atk": 161,
+        "atc": 161,
         "def": 148,
-        "vit": 65,
+        "spclDfns": 65,
         "speed": 47,
         "skill": "제트기술"
     },
@@ -291,9 +291,9 @@
         "correlation": "벌레",
         "imageName": "05-049.png",
         "hp": 137,
-        "atk": 142,
+        "atc": 142,
         "def": 111,
-        "vit": 89,
+        "spclDfns": 89,
         "speed": 73,
         "skill": "메가진화"
     },           
@@ -305,9 +305,9 @@
         "correlation": "드래곤",
         "imageName": "05-053.png",
         "hp": 163,
-        "atk": 148,
+        "atc": 148,
         "def": 89,
-        "vit": 89,
+        "spclDfns": 89,
         "speed": 111,
         "skill": "메가진화"
     },           
@@ -319,9 +319,9 @@
         "correlation": "페어리",
         "imageName": "05-054.png",
         "hp": 193,
-        "atk": 86,
+        "atc": 86,
         "def": 134,
-        "vit": 145,
+        "spclDfns": 145,
         "speed": 96
     },             
     {
@@ -331,9 +331,9 @@
         "type": "물",
         "imageName": "05-055.png",
         "hp": 169,
-        "atk": 111,
+        "atc": 111,
         "def": 111,
-        "vit": 111,
+        "spclDfns": 111,
         "speed": 111
     },       
     {
@@ -344,9 +344,9 @@
         "correlation": "불꽃",
         "imageName": "05-056.png",
         "hp": 162,
-        "str": 145,
+        "spclAtck": 145,
         "def": 119,
-        "vit": 119,
+        "spclDfns": 119,
         "speed": 88
     },        
     {
@@ -357,9 +357,9 @@
         "correlation": "노말",
         "imageName": "05-057.png",
         "hp": 172,
-        "str": 145,
+        "spclAtck": 145,
         "def": 88,
-        "vit": 143,
+        "spclDfns": 143,
         "speed": 102
     },        
     {
@@ -370,9 +370,9 @@
         "correlation": "격투",
         "imageName": "05-058.png",
         "hp": 172,
-        "atk": 145,
+        "atc": 145,
         "def": 102,
-        "vit": 88,
+        "spclDfns": 88,
         "speed": 145
     },         
     {
@@ -383,9 +383,9 @@
         "correlation": "노말",
         "imageName": "05-059.png",
         "hp": 140,
-        "str": 134,
+        "spclAtck": 134,
         "def": 107,
-        "vit": 107,
+        "spclDfns": 107,
         "speed": 111
     }, 
     {
@@ -395,9 +395,9 @@
         "type": "드래곤",
         "imageName": "04-023.png",
         "hp": 147,
-        "str": 112,
+        "spclAtck": 112,
         "def": 73,
-        "vit": 152,
+        "spclDfns": 152,
         "speed": 83
     },
     {
@@ -408,9 +408,9 @@
         "correlation": "벌레",
         "imageName": "04-026.png",
         "hp": 137,
-        "atk": 132,
+        "atc": 132,
         "def": 147,
-        "vit": 96,
+        "spclDfns": 96,
         "speed": 44
     },       
     {
@@ -421,9 +421,9 @@
         "correlation": "드래곤",
         "imageName": "04-030.png",
         "hp": 154,
-        "atk": 112,
+        "atc": 112,
         "def": 96,
-        "vit": 96,
+        "spclDfns": 96,
         "speed": 104,
         "skill": "제트기술"
     },        
@@ -435,9 +435,9 @@
         "correlation": "드래곤",
         "imageName": "04-034.png",
         "hp": 137,
-        "str": 107,
+        "spclAtck": 107,
         "def": 132,
-        "vit": 112,
+        "spclDfns": 112,
         "speed": 91,
         "skill": "제트기술"
     },        
@@ -449,9 +449,9 @@
         "correlation": "격투",
         "imageName": "04-038.png",
         "hp": 123,
-        "atk": 125,
+        "atc": 125,
         "def": 67,
-        "vit": 115,
+        "spclDfns": 115,
         "speed": 81,
         "skill": "제트기술"
     },      
@@ -463,9 +463,9 @@
         "correlation": "불꽃",
         "imageName": "04-040.png",
         "hp": 115,
-        "str": 92,
+        "spclAtck": 92,
         "def": 134,
-        "vit": 86,
+        "spclDfns": 86,
         "speed": 38,
         "skill": "제트기술"
     },      
@@ -477,9 +477,9 @@
         "correlation": "땅",
         "imageName": "04-044.png",
         "hp": 164,
-        "atk": 132,
+        "atc": 132,
         "def": 98,
-        "vit": 88,
+        "spclDfns": 88,
         "speed": 104,
         "skill": "메가진화"
     },        
@@ -490,9 +490,9 @@
         "type": "노말",
         "imageName": "04-046.png",
         "hp": 161,
-        "atk": 98,
+        "atc": 98,
         "def": 83,
-        "vit": 83,
+        "spclDfns": 83,
         "speed": 93,
         "skill": "메가진화"
     },        
@@ -504,9 +504,9 @@
         "correlation": "불꽃",
         "imageName": "04-049.png",
         "hp": 178,
-        "str": 173,
+        "spclAtck": 173,
         "def": 117,
-        "vit": 139,
+        "spclDfns": 139,
         "speed": 105
     },   
     {
@@ -517,9 +517,9 @@
         "correlation": "전기",
         "imageName": "04-050.png",
         "hp": 178,
-        "str": 173,
+        "spclAtck": 173,
         "def": 139,
-        "vit": 117,
+        "spclDfns": 117,
         "speed": 105
     },
     {
@@ -529,9 +529,9 @@
         "type": "에스퍼",
         "imageName": "04-051.png",
         "hp": 183,
-        "str": 154,
+        "spclAtck": 154,
         "def": 124,
-        "vit": 110,
+        "spclDfns": 110,
         "speed": 98
     },       
     {
@@ -542,9 +542,9 @@
         "correlation": "얼음",
         "imageName": "04-052.png",
         "hp": 209,
-        "str": 153,
+        "spclAtck": 153,
         "def": 107,
-        "vit": 107,
+        "spclDfns": 107,
         "speed": 113
     },       
     {
@@ -555,9 +555,9 @@
         "correlation": "드래곤",
         "imageName": "04-054.png",
         "hp": 134,
-        "str": 82,
+        "spclAtck": 82,
         "def": 76,
-        "vit": 76,
+        "spclDfns": 76,
         "speed": 82
     },        
     {
@@ -568,9 +568,9 @@
         "correlation": "독",
         "imageName": "04-055.png",
         "hp": 157,
-        "str": 157,
+        "spclAtck": 157,
         "def": 92,
-        "vit": 92,
+        "spclDfns": 92,
         "speed": 150
     },     
     {
@@ -581,9 +581,9 @@
         "correlation": "드래곤",
         "imageName": "04-056.png",
         "hp": 174,
-        "str": 164,
+        "spclAtck": 164,
         "def": 100,
-        "vit": 100,
+        "spclDfns": 100,
         "speed": 105
     },      
     {
@@ -593,9 +593,9 @@
         "type": "전기",
         "imageName": "04-057.png",
         "hp": 100,
-        "str": 58,
+        "spclAtck": 58,
         "def": 47,
-        "vit": 58,
+        "spclDfns": 58,
         "speed": 100,
         "skill": "제트기술"
     },   
@@ -606,9 +606,9 @@
         "type": "바위",
         "imageName": "04-060.png",
         "hp": 132,
-        "str": 119,
+        "spclAtck": 119,
         "def": 68,
-        "vit": 68,
+        "spclDfns": 68,
         "speed": 112
     },                
     {
@@ -618,9 +618,9 @@
         "type": "바위",
         "imageName": "04-061.png",
         "hp": 150,
-        "str": 136,
+        "spclAtck": 136,
         "def": 77,
-        "vit": 77,
+        "spclDfns": 77,
         "speed": 128,
         "skill": "제트기술"
     },
@@ -632,9 +632,9 @@
         "correlation": "강철",
         "imageName": "04-062.png",
         "hp": 189,
-        "atk": 136,
+        "atc": 136,
         "def": 107,
-        "vit": 90,
+        "spclDfns": 90,
         "speed": 98
     },
     {
@@ -645,9 +645,9 @@
         "correlation": "강철",
         "imageName": "04-063.png",
         "hp": 215,
-        "atk": 155,
+        "atc": 155,
         "def": 122,
-        "vit": 102,
+        "spclDfns": 102,
         "speed": 111
     },
     {
@@ -658,9 +658,9 @@
         "correlation": "고스트",
         "imageName": "04-064.png",
         "hp": 189,
-        "str": 136,
+        "spclAtck": 136,
         "def": 90,
-        "vit": 107,
+        "spclDfns": 107,
         "speed": 98
     },
     {
@@ -671,9 +671,9 @@
         "correlation": "고스트",
         "imageName": "04-065.png",
         "hp": 215,
-        "str": 155,
+        "spclAtck": 155,
         "def": 102,
-        "vit": 122,
+        "spclDfns": 122,
         "speed": 111
     },
     {
@@ -684,9 +684,9 @@
         "correlation": "물",
         "imageName": "04-066.png",
         "hp": 129,
-        "atk": 98,
+        "atc": 98,
         "def": 70,
-        "vit": 74,
+        "spclDfns": 74,
         "speed": 124
     },
     {
@@ -696,9 +696,9 @@
         "type": "풀",
         "imageName": "03-004.png",
         "hp": 132,
-        "str": 78,
+        "spclAtck": 78,
         "def": 98,
-        "vit": 98,
+        "spclDfns": 98,
         "speed": 115,
         "skill":"제트기술"
     },    
@@ -710,9 +710,9 @@
         "correlation": "불꽃",
         "imageName": "03-008.png",
         "hp": 166,
-        "atk": 125,
+        "atc": 125,
         "def": 68,
-        "vit": 68,
+        "spclDfns": 68,
         "speed": 68,
         "skill":"제트기술"
     },     
@@ -724,9 +724,9 @@
         "correlation": "땅",
         "imageName": "03-032.png",
         "hp": 155,
-        "str": 122,
+        "spclAtck": 122,
         "def": 85,
-        "vit": 75,
+        "spclDfns": 75,
         "speed": 97
     },        
     {
@@ -737,9 +737,9 @@
         "correlation": "바위",
         "imageName": "03-036.png",
         "hp": 157,
-        "atk": 136,
+        "atc": 136,
         "def": 112,
-        "vit": 103,
+        "spclDfns": 103,
         "speed": 64,
         "skill": "제트기술"
     },        
@@ -751,9 +751,9 @@
         "correlation": "강철",
         "imageName": "03-040.png",
         "hp": 127,
-        "str": 132,
+        "spclAtck": 132,
         "def": 117,
-        "vit": 93,
+        "spclDfns": 93,
         "speed": 63,
         "skill": "제트기술"
     },   
@@ -764,9 +764,9 @@
         "type": "전기",
         "imageName": "03-044.png",
         "hp": 145,
-        "str": 110,
+        "spclAtck": 110,
         "def": 85,
-        "vit": 85,
+        "spclDfns": 85,
         "speed": 55,
         "skill": "제트기술"
     },            
@@ -778,9 +778,9 @@
         "correlation": "고스트",
         "imageName": "03-046.png",
         "hp": 115,
-        "str": 129,
+        "spclAtck": 129,
         "def": 62,
-        "vit": 77,
+        "spclDfns": 77,
         "speed": 110,
         "skill": "메가진화"
     },          
@@ -792,9 +792,9 @@
         "correlation": "강철",
         "imageName": "03-048.png",
         "hp": 130,
-        "atk": 86,
+        "atc": 86,
         "def": 197,
-        "vit": 67,
+        "spclDfns": 67,
         "speed": 32,
         "skill": "메가진화"
     },       
@@ -806,9 +806,9 @@
         "correlation": "바위",
         "imageName": "03-049.png",
         "hp": 110,
-        "atk": 105,
+        "atc": 105,
         "def": 155,
-        "vit": 155,
+        "spclDfns": 155,
         "speed": 55
     },       
     {
@@ -818,9 +818,9 @@
         "type": "물",
         "imageName": "03-050.png",
         "hp": 110,
-        "str": 170,
+        "spclAtck": 170,
         "def": 104,
-        "vit": 159,
+        "spclDfns": 159,
         "speed": 104
     },        
     {
@@ -830,9 +830,9 @@
         "type": "땅",
         "imageName": "03-051.png",
         "hp": 175,
-        "str": 170,
+        "spclAtck": 170,
         "def": 159,
-        "vit": 104,
+        "spclDfns": 104,
         "speed": 104
     },                
     {
@@ -843,9 +843,9 @@
         "correlation": "강철",
         "imageName": "03-052.png",
         "hp": 219,
-        "str": 158,
+        "spclAtck": 158,
         "def": 124,
-        "vit": 104,
+        "spclDfns": 104,
         "speed": 113,
         "skill": "제트기술"
     },      
@@ -857,9 +857,9 @@
         "correlation": "고스트",
         "imageName": "03-053.png",
         "hp": 219,
-        "str": 158,
+        "spclAtck": 158,
         "def": 104,
-        "vit": 124,
+        "spclDfns": 124,
         "speed": 113,
         "skill": "제트기술"
     },    
@@ -871,9 +871,9 @@
         "correlation": "에스퍼",
         "imageName": "03-054.png",
         "hp": 137,
-        "str": 152,
+        "spclAtck": 152,
         "def": 63,
-        "vit": 132,
+        "spclDfns": 132,
         "speed": 73
     },          
     {
@@ -884,9 +884,9 @@
         "correlation": "악",
         "imageName": "03-055.png",
         "hp": 155,
-        "atk": 184,
+        "atc": 184,
         "def": 71,
-        "vit": 150,
+        "spclDfns": 150,
         "speed": 94
     },         
     {
@@ -897,9 +897,9 @@
         "correlation": "물",
         "imageName": "03-056.png",
         "hp": 166,
-        "str": 161,
+        "spclAtck": 161,
         "def": 149,
-        "vit": 113,
+        "spclDfns": 113,
         "speed": 89
     },   
     {
@@ -909,9 +909,9 @@
         "type": "바위",
         "imageName": "03-059.png",
         "hp": 135,
-        "atk": 120,
+        "atc": 120,
         "def": 70,
-        "vit": 70,
+        "spclDfns": 70,
         "speed": 117
     },     
     {
@@ -921,9 +921,9 @@
         "type": "바위",
         "imageName": "03-060.png",
         "hp": 152,
-        "atk": 136,
+        "atc": 136,
         "def": 79,
-        "vit": 79,
+        "spclDfns": 79,
         "speed": 132,
         "skill": "제트기술"
     },            
@@ -934,9 +934,9 @@
         "type": "바위",
         "imageName": "03-062.png",
         "hp": 145,
-        "atk": 120,
+        "atc": 120,
         "def": 80,
-        "vit": 80,
+        "spclDfns": 80,
         "speed": 87
     },                  
     {
@@ -946,9 +946,9 @@
         "type": "바위",
         "imageName": "03-063.png",
         "hp": 163,
-        "atk": 136,
+        "atc": 136,
         "def": 90,
-        "vit": 90,
+        "spclDfns": 90,
         "speed": 98,
         "skill": "제트기술"
     },      
@@ -960,9 +960,9 @@
         "correlation": "고스트",
         "imageName": "03-065.png",
         "hp": 117,
-        "atk": 96,
+        "atc": 96,
         "def": 86,
-        "vit": 112,
+        "spclDfns": 112,
         "speed": 102
     },             
     {
@@ -973,9 +973,9 @@
         "correlation": "페어리",
         "imageName": "03-066.png",
         "hp": 131,
-        "atk": 109,
+        "atc": 109,
         "def": 97,
-        "vit": 126,
+        "spclDfns": 126,
         "speed": 116,
         "skill": "제트기술"
     },                 
@@ -987,9 +987,9 @@
         "correlation": "풀",
         "imageName": "02-004.png",
         "hp": 132,
-        "str": 99,
+        "spclAtck": 99,
         "def": 83,
-        "vit": 99,
+        "spclDfns": 99,
         "speed": 80,
         "skill": "제트기술"
     },           
@@ -1001,9 +1001,9 @@
         "correlation": "불꽃",
         "imageName": "02-008.png",
         "hp": 130,
-        "str": 107,
+        "spclAtck": 107,
         "def": 78,
-        "vit": 84,
+        "spclDfns": 84,
         "speed": 99,
         "skill": "제트기술"
     },      
@@ -1015,9 +1015,9 @@
         "correlation": "물",
         "imageName": "02-012.png",
         "hp": 131,
-        "str": 84,
+        "spclAtck": 84,
         "def": 99,
-        "vit": 103,
+        "spclDfns": 103,
         "speed": 78,
         "skill": "제트기술"
     },       
@@ -1029,9 +1029,9 @@
         "correlation": "전기",
         "imageName": "02-028.png",
         "hp": 132,
-        "atk": 117,
+        "atc": 117,
         "def": 79,
-        "vit": 79,
+        "spclDfns": 79,
         "speed": 70
     },     
     {
@@ -1042,9 +1042,9 @@
         "correlation": "노말",
         "imageName": "02-032.png",
         "hp": 215,
-        "atk": 112,
+        "atc": 112,
         "def": 68,
-        "vit": 112,
+        "spclDfns": 112,
         "speed": 33,
         "skill": "제트기술"
     },       
@@ -1056,9 +1056,9 @@
         "correlation": "풀",
         "imageName": "02-036.png",
         "hp": 132,
-        "atk": 125,
+        "atc": 125,
         "def": 103,
-        "vit": 103,
+        "spclDfns": 103,
         "speed": 77,
         "skill": "제트기술"
     },        
@@ -1070,9 +1070,9 @@
         "correlation": "강철",
         "imageName": "02-040.png",
         "hp": 130,
-        "atk": 115,
+        "atc": 115,
         "def": 185,
-        "vit": 65,
+        "spclDfns": 65,
         "speed": 55,
         "skill": "제트기술"
     },     
@@ -1084,9 +1084,9 @@
         "correlation": "바위",
         "imageName": "02-044.png",
         "hp": 130,
-        "atk": 115,
+        "atc": 115,
         "def": 67,
-        "vit": 67,
+        "spclDfns": 67,
         "speed": 112,
         "skill": "제트기술"
     },        
@@ -1098,9 +1098,9 @@
         "correlation": "바위",
         "imageName": "02-047.png",
         "hp": 139,
-        "atk": 115,
+        "atc": 115,
         "def": 77,
-        "vit": 77,
+        "spclDfns": 77,
         "speed": 83,
         "skill": "제트기술"
     },         
@@ -1112,9 +1112,9 @@
         "correlation": "드래곤",
         "imageName": "02-051.png",
         "hp": 149,
-        "atk": 134,
+        "atc": 134,
         "def": 81,
-        "vit": 81,
+        "spclDfns": 81,
         "speed": 101,
         "skill": "메가진화"
     },   
@@ -1126,9 +1126,9 @@
         "correlation": "강철",
         "imageName": "02-055.png",
         "hp": 134,
-        "atk": 134,
+        "atc": 134,
         "def": 129,
-        "vit": 91,
+        "spclDfns": 91,
         "speed": 72,
         "skill": "메가진화"
     },                                    
@@ -1140,9 +1140,9 @@
         "correlation": "바위",
         "imageName": "02-056.png",
         "hp": 140,
-        "atk": 105,
+        "atc": 105,
         "def": 205,
-        "vit": 105,
+        "spclDfns": 105,
         "speed": 55
     },    
     {
@@ -1153,9 +1153,9 @@
         "correlation": "얼음",
         "imageName": "02-057.png",
         "hp": 140,
-        "str": 105,
+        "spclAtck": 105,
         "def": 105,
-        "vit": 205,
+        "spclDfns": 205,
         "speed": 55
     },   
     {
@@ -1166,9 +1166,9 @@
         "correlation": "강철",
         "imageName": "02-058.png",
         "hp": 140,
-        "str": 80,
+        "spclAtck": 80,
         "def": 155,
-        "vit": 155,
+        "spclDfns": 155,
         "speed": 55
     },       
     {
@@ -1179,9 +1179,9 @@
         "correlation": "노말",
         "imageName": "02-059.png",
         "hp": 192,
-        "atk": 187,
+        "atc": 187,
         "def": 130,
-        "vit": 130,
+        "spclDfns": 130,
         "speed": 119
     },        
     {
@@ -1192,9 +1192,9 @@
         "correlation": "드래곤",
         "imageName": "02-060.png",
         "hp": 181,
-        "str": 176,
+        "spclAtck": 176,
         "def": 141,
-        "vit": 119,
+        "spclDfns": 119,
         "speed": 107
     },      
     {
@@ -1205,9 +1205,9 @@
         "correlation": "드래곤",
         "imageName": "02-061.png",
         "hp": 169,
-        "str": 176,
+        "spclAtck": 176,
         "def": 119,
-        "vit": 141,
+        "spclDfns": 141,
         "speed": 119
     },  
     {
@@ -1218,9 +1218,9 @@
         "correlation": "고스트",
         "imageName": "02-062.png",
         "hp": 238,
-        "atk": 119,
+        "atc": 119,
         "def": 141,
-        "vit": 141,
+        "spclDfns": 141,
         "speed": 107
     },        
     {
@@ -1231,9 +1231,9 @@
         "correlation": "고스트",
         "imageName": "02-063.png",
         "hp": 238,
-        "atk": 141,
+        "atc": 141,
         "def": 119,
-        "vit": 119,
+        "spclDfns": 119,
         "speed": 107
     },      
     {
@@ -1244,9 +1244,9 @@
         "correlation": "강철",
         "imageName": "02-064.png",
         "hp": 204,
-        "atk": 147,
+        "atc": 147,
         "def": 116,
-        "vit": 97,
+        "spclDfns": 97,
         "speed": 105
     },          
     {
@@ -1257,9 +1257,9 @@
         "correlation": "고스트",
         "imageName": "02-065.png",
         "hp": 204,
-        "str": 147,
+        "spclAtck": 147,
         "def": 97,
-        "vit": 116,
+        "spclDfns": 116,
         "speed": 105
     },    
     {
@@ -1270,9 +1270,9 @@
         "correlation": "악",
         "imageName": "02-066.png",
         "hp": 146,
-        "str": 158,
+        "spclAtck": 158,
         "def": 107,
-        "vit": 107,
+        "spclDfns": 107,
         "speed": 147
     },             
     {
@@ -1283,9 +1283,9 @@
         "correlation": "노말",
         "imageName": "02-067.png",
         "hp": 190,
-        "str": 132,
+        "spclAtck": 132,
         "def": 132,
-        "vit": 132,
+        "spclDfns": 132,
         "speed": 132
     },                                  
     {
@@ -1296,9 +1296,9 @@
         "correlation": "전기",
         "imageName": "02-068.png",
         "hp": 118,
-        "str": 69,
+        "spclAtck": 69,
         "def": 56,
-        "vit": 69,
+        "spclDfns": 69,
         "speed": 120,
         "skill": "제트기술"
     },     
@@ -1310,9 +1310,9 @@
         "correlation": "고스트",
         "imageName": "01-004.png",
         "hp": 130,
-        "str": 105,
+        "spclAtck": 105,
         "def": 75,
-        "vit": 99,
+        "spclDfns": 99,
         "speed": 70,
         "skill": "제트기술"
     },     
@@ -1324,9 +1324,9 @@
         "correlation": "악",
         "imageName": "01-008.png",
         "hp": 146,
-        "atk": 113,
+        "atc": 113,
         "def": 89,
-        "vit": 89,
+        "spclDfns": 89,
         "speed": 61,
         "skill": "제트기술"
     },     
@@ -1338,9 +1338,9 @@
         "correlation": "물",
         "imageName": "01-012.png",
         "hp": 132,
-        "atk": 123,
+        "atc": 123,
         "def": 74,
-        "vit": 114,
+        "spclDfns": 114,
         "speed": 61,
         "skill": "제트기술"
     },     
@@ -1352,9 +1352,9 @@
         "correlation": "풀",
         "imageName": "01-016.png",
         "hp": 134,
-        "str": 101,
+        "spclAtck": 101,
         "def": 84,
-        "vit": 101,
+        "spclDfns": 101,
         "speed": 81,
         "skill": "메가진화"
     },     
@@ -1366,9 +1366,9 @@
         "correlation": "불꽃",
         "imageName": "01-020.png",
         "hp": 132,
-        "str": 109,
+        "spclAtck": 109,
         "def": 79,
-        "vit": 86,
+        "spclDfns": 86,
         "speed": 101,
         "skill": "메가진화"
     },     
@@ -1380,9 +1380,9 @@
         "correlation": "물",
         "imageName": "01-024.png",
         "hp": 133,
-        "str": 86,
+        "spclAtck": 86,
         "def": 101,
-        "vit": 105,
+        "spclDfns": 105,
         "speed": 79,
         "skill": "메가진화"
     },     
@@ -1394,9 +1394,9 @@
         "correlation": "드래곤",
         "imageName": "01-047.png",
         "hp": 145,
-        "str": 133,
+        "spclAtck": 133,
         "def": 96,
-        "vit": 101,
+        "spclDfns": 101,
         "speed": 81,
         "skill": "제트기술"
     },     
@@ -1408,9 +1408,9 @@
         "correlation": "격투",
         "imageName": "01-051.png",
         "hp": 186,
-        "str": 135,
+        "spclAtck": 135,
         "def": 88,
-        "vit": 67,
+        "spclDfns": 67,
         "speed": 67,
         "skill": "제트기술"
     },     
@@ -1422,9 +1422,9 @@
         "correlation": "격투",
         "imageName": "01-055.png",
         "hp": 122,
-        "str": 113,
+        "spclAtck": 113,
         "def": 70,
-        "vit": 70,
+        "spclDfns": 70,
         "speed": 89,
         "skill": "제트기술"
     },     
@@ -1435,9 +1435,9 @@
         "type": "전기",
         "imageName": "01-058.png",
         "hp": 91,
-        "str": 53,
+        "spclAtck": 53,
         "def": 43,
-        "vit": 53,
+        "spclDfns": 53,
         "speed": 91,
         "skill": "제트기술"
     },     
@@ -1448,9 +1448,9 @@
         "type": "전기",
         "imageName": "01-059.png",
         "hp": 141,
-        "atk": 84,
+        "atc": 84,
         "def": 75,
-        "vit": 99,
+        "spclDfns": 99,
         "speed": 113
     },
     {
@@ -1460,9 +1460,9 @@
         "type": "전기",
         "imageName": "01-060.png",
         "hp": 158,
-        "str": 126,
+        "spclAtck": 126,
         "def": 84,
-        "vit": 111,
+        "spclDfns": 111,
         "speed": 126
     },    
     {
@@ -1472,9 +1472,9 @@
         "type": "불꽃",
         "imageName": "01-061.png",
         "hp": 165,
-        "atk": 113,
+        "atc": 113,
         "def": 84,
-        "vit": 75,
+        "spclDfns": 75,
         "speed": 99
     },    
     {
@@ -1484,9 +1484,9 @@
         "type": "불꽃",
         "imageName": "01-062.png",
         "hp": 184,
-        "str": 100,
+        "spclAtck": 100,
         "def": 95,
-        "vit": 84,
+        "spclDfns": 84,
         "speed": 111
     },       
     {
@@ -1496,9 +1496,9 @@
         "type": "물",
         "imageName": "01-063.png",
         "hp": 151,
-        "atk": 89,
+        "atc": 89,
         "def": 113,
-        "vit": 113,
+        "spclDfns": 113,
         "speed": 84
     },      
     {
@@ -1509,9 +1509,9 @@
         "correlation": "불꽃",
         "imageName": "01-065.png",
         "hp": 178,
-        "str": 145,
+        "spclAtck": 145,
         "def": 102,
-        "vit": 171,
+        "spclDfns": 171,
         "speed": 102
     },      
     {
@@ -1522,9 +1522,9 @@
         "correlation": "비행",
         "imageName": "01-066.png",
         "hp": 178,
-        "str": 102,
+        "spclAtck": 102,
         "def": 145,
-        "vit": 171,
+        "spclDfns": 171,
         "speed": 123
     },
     {
@@ -1535,9 +1535,9 @@
         "correlation": "강철",
         "imageName": "01-067.png",
         "hp": 200,
-        "str": 144,
+        "spclAtck": 144,
         "def": 114,
-        "vit": 95,
+        "spclDfns": 95,
         "speed": 102
     },                   
     {
@@ -1547,9 +1547,9 @@
         "type": "물",
         "imageName": "01-064.png",
         "hp": 169,
-        "str": 100,
+        "spclAtck": 100,
         "def": 126,
-        "vit": 126,
+        "spclDfns": 126,
         "speed": 95
     },    
     {
@@ -1560,9 +1560,9 @@
         "correlation": "고스트",
         "imageName": "01-068.png",
         "hp": 200,
-        "str": 144,
+        "spclAtck": 144,
         "def": 95,
-        "vit": 114,
+        "spclDfns": 114,
         "speed": 103
     },               
     {
@@ -1573,9 +1573,9 @@
         "correlation": "전기",
         "imageName": "01-069.png",
         "hp": 132,
-        "atk": 122,
+        "atc": 122,
         "def": 91,
-        "vit": 81,
+        "spclDfns": 81,
         "speed": 137
     },        
     {
@@ -1586,9 +1586,9 @@
         "correlation": "불꽃",
         "imageName": "01-070.png",
         "hp": 150,
-        "str": 124,
+        "spclAtck": 124,
         "def": 90,
-        "vit": 98,
+        "spclDfns": 98,
         "speed": 115,
         "skill": "메가진화"
     },     
@@ -1600,9 +1600,9 @@
         "correlation": "불꽃",
         "imageName": "01-071.png",
         "hp": 150,
-        "atk": 124,
+        "atc": 124,
         "def": 90,
-        "vit": 98,
+        "spclDfns": 98,
         "speed": 115,
         "skill": "메가진화"
     }                                                                                 
