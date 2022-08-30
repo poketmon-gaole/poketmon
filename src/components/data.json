@@ -262,11 +262,11 @@
         "name": "피카츄",
         "type": "전기",
         "imageName": "05-043.png",
-        "hp": 129,
-        "spclAtck": 103,
-        "def": 67,
-        "spclDfns": 119,
-        "speed": 72,
+        "hp": 103,
+        "spclAtck": 60,
+        "def": 49,
+        "spclDfns": 60,
+        "speed": 104,
         "skill": "제트기술"
     },                                  
     {
