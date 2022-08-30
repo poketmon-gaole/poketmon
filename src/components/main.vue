@@ -73,6 +73,7 @@
 <script>
 import Data from "./data.json"
 import Modal from "./modal.vue"
+import _ from 'lodash'
 
 export default {
   name: 'PocktmonMain',
@@ -416,22 +417,20 @@ export default {
       })
       
       if (isRecommend) {
-        weakEffectArr.concat(notRecommendArr) // "효과 약함", "비추천"을 배열에 합치기
-        const arr = recommendArr.filter(x => !weakEffectArr.includes(x))
+        // 비추천 배열 합치기
+        const tmpArr = _.concat(weakEffectArr, notRecommendArr);
 
-        const result = arr.reduce((accu, curr) => { 
-          accu[curr] = (accu[curr] || 0) + 1
-          return accu
-        }, {})
+        let arr = []
+        // 추천배열에서 제외하여 반환
+        _.forEach(recommendArr, function(value) {
+          if (!_.includes(tmpArr, value)) {
+            arr.push(value)
+          }
+        })
 
-        return Object.keys(result)
+        return _.uniq(arr)
       } else {
-        const notRecommendResult = notRecommendArr.reduce((accu, curr) => { 
-          accu[curr] = (accu[curr] || 0) + 1
-          return accu
-        }, {})
-
-        return Object.keys(notRecommendResult)
+        return _.uniq(notRecommendArr)
       }
     }
   }
