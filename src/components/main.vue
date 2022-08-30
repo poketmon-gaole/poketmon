@@ -15,8 +15,8 @@
                   <span v-if="item.hp !== undefined" :class="[grade == 4? 'text' : '']">HP: {{ item.hp }}</span>
                   <span v-if="item.atk !== undefined" :class="[grade == 4? 'text' : '']">공격: {{ item.atk }}</span>
                   <span v-if="item.str !== undefined" :class="[grade == 4? 'text' : '']">특수공격: {{ item.str }}</span>
-                  <span v-if="item.vit !== undefined" :class="[grade == 4? 'text' : '']">방어: {{ item.vit }}</span>
-                  <span v-if="item.def !== undefined" :class="[grade == 4? 'text' : '']">특수방어: {{ item.def }}</span>
+                  <span v-if="item.vit !== undefined" :class="[grade == 4? 'text' : '']">방어: {{ item.def }}</span>
+                  <span v-if="item.def !== undefined" :class="[grade == 4? 'text' : '']">특수방어: {{ item.vit }}</span>
                   <span v-if="item.speed !== undefined" :class="[grade == 4? 'text' : '']">스피드: {{ item.speed }}</span>
                   <span v-if="item.skill !== undefined" :class="[grade == 4? 'text' : '']">{{ item.skill }}</span>
                 </div>
