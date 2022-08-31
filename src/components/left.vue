@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="left" :style="[isScrollTop? 'top:23px': 'top:0']">
+    <div class="left">
       <div class="close-box">
         <img class="close" src="../assets/img/close.png" width="16">
         <button @click="leave()">CLOSE</button>
