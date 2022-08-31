@@ -76,7 +76,6 @@ import _ from 'lodash'
 import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
 import Left from '@/components/left.vue'
-import {useLoading} from 'vue-loading-overlay'
 
 export default {
   name: 'PocktmonMain',
@@ -119,13 +118,6 @@ export default {
   methods: { 
     getData(data) {
       let retVal = []
-      const $loading = useLoading()
-
-      const loader = $loading.show({
-        color: '#fff',
-        backgroundColor: '#000',
-        opacity: 0.3
-      });
 
       data.forEach((item) => {
         // 시리즈별 조회
@@ -133,10 +125,6 @@ export default {
           retVal.push(item)
         }
       })
-
-      // setTimeout(() => {
-        loader.hide()
-      // }, 1000)
 
       return retVal;
     },
