@@ -1,6 +1,6 @@
 <template>
   <div class="contents">
-    <h1>{{ msg }}</h1>
+    <h1>{{ setTitle(msg, series) }}</h1>
     <template v-for="grade in gradeList" :key="grade">
       <h3>GRADE {{ grade }}</h3>
       <ul>
@@ -9,7 +9,7 @@
               <div class="type-box" :style="[grade == 4? 'background: #838383' : '']" @click="doModal(item)">
                 <div class="type-box-left">
                   <span class="poketmon-name">{{ item.name }} ({{ item.type }})</span>
-                  <img :src="require(`@/assets/img/${item.imageName}`)">
+                  <img :src="require(`@/assets/img/disk/${item.imageName}`)">
                 </div>
                 <div class="type-box-right">
                   <span v-if="item.hp !== undefined" :class="[grade == 4? 'text' : '']">HP: {{ item.hp }}</span>
@@ -29,8 +29,9 @@
         </template>
       </ul>
     </template>
-    <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div> 
+    <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div>
   </div>
+  <left :series=series ref="left"></left>
   <template>
     <Teleport to="body">
       <!-- use the modal component, pass in the prop -->
@@ -40,7 +41,7 @@
         </template>
         <template #body>
           <strong :ref="top">{{ info.name }} ({{ info.type }})</strong>
-          <img class="poketmon-img" :src="require(`@/assets/img/${info.imageName}`)">
+          <img class="poketmon-img" :src="require(`@/assets/img/disk/${info.imageName}`)">
           <div style="display:inline" v-for="recommend in info.recommendArray" :key="recommend">
             <p>{{ recommend }}</p>
             <div style="border-bottom: 8px solid #ededed; margin: 14px 0 0 0px;"></div>
@@ -51,7 +52,7 @@
                       <span style="text-align: center">
                         {{ item.name }}
                       </span>
-                      <img :src="require(`@/assets/img/${item.imageName}`)" width="145">
+                      <img :src="require(`@/assets/img/disk/${item.imageName}`)" width="145">
                       <span :class="[item.skill === undefined? 'sub-title':'skill']">
                           {{ getSeries(item) }}
                         &nbsp;
@@ -71,14 +72,17 @@
 </template>
 
 <script>
-import Data from "./data.json"
-import Modal from "./modal.vue"
 import _ from 'lodash'
+import Data from "@/components/data.json"
+import Modal from "@/components/common/modal.vue"
+import Left from '@/components/left.vue'
+import {useLoading} from 'vue-loading-overlay'
 
 export default {
   name: 'PocktmonMain',
   components: {
-    Modal
+    Modal,
+    Left
   },
   props: {
     msg: String
@@ -89,6 +93,7 @@ export default {
       data: Data,
       info: Data[0],
       gradeList: [5, 4],
+      series: "05",
       type: {
         t01 : "노말",
         t02 : "격투",
@@ -111,16 +116,27 @@ export default {
       }
     }
   },
-  methods: {
+  methods: { 
     getData(data) {
       let retVal = []
+      const $loading = useLoading()
+
+      const loader = $loading.show({
+        color: '#fff',
+        backgroundColor: '#000',
+        opacity: 0.3
+      });
 
       data.forEach((item) => {
-        // 레전트 1탄 '05' 조회
-        if (item.id.substr(0, 2) == '05') {
+        // 시리즈별 조회
+        if (item.id.substr(0, 2) == this.series) {
           retVal.push(item)
         }
       })
+
+      // setTimeout(() => {
+        loader.hide()
+      // }, 1000)
 
       return retVal;
     },
@@ -138,6 +154,13 @@ export default {
 
       return retVal;
     },
+    setTitle(msg, series) {
+      if (series < 5) {
+        return msg + " " + Number(series) + "탄";
+      } else {
+        return msg + " 레전드 " + Number(series-4) + "탄";
+      }  
+    },
     getSeries(item) {
       const series = Number(item.id.substr(0, 2))
       let retVal;
@@ -150,13 +173,18 @@ export default {
 
       if (item.skill === undefined) {
         if (series < 5) {
-          retVal = "가오레" + series + "탄"
+          retVal = " 가오레 " + series + "탄"
         } else {
-          retVal = "레전드" + (series-4) + "탄"
+          retVal = " 레전드 " + (series-4) + "탄"
         }
       }
 
       return retVal;
+    },
+    setSeries(series) {
+      this.series = series
+      window.scrollTo(0, 0)
+      this.getData(Data)
     },
     doModal(item) {
       this.visible = !this.visible
@@ -167,6 +195,9 @@ export default {
         // 추천 속성을 배열로 변환 추가
         const recommendArray = this.getDisk(item.type, true)
         this.info.recommendArray = recommendArray
+
+        // 좌측메뉴 닫기
+        this.$refs.left.leave();
       }
     },
     getSolution(type, isRecommend) {
