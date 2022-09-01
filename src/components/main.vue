@@ -34,7 +34,6 @@
   <left :series=series ref="left"></left>
   <template>
     <Teleport to="body">
-      <!-- use the modal component, pass in the prop -->
       <modal :show="visible" @close="visible = false">
         <template #header>
           <img src="../assets/img/x.png" width="16" @click="doModal">
@@ -42,7 +41,13 @@
         <template #body>
           <strong :ref="top">{{ info.name }} ({{ info.type }})</strong>
           <img class="poketmon-img" :src="require(`@/assets/img/disk/${info.imageName}`)">
-          <div style="display:inline" v-for="recommend in info.recommendArray" :key="recommend">
+          <div v-if="info.notRecommendArray.length > 0" style="text-align: center">
+            <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option1" name="test" value="option1" checked="checked">
+            <label for="option1">추천</label>
+            <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option2" name="test" value="option2">
+            <label for="option2" >비추천</label>       
+          </div>
+          <div style="display:inline" v-for="recommend in getRecommendData()" :key="recommend">
             <p>{{ recommend }}</p>
             <div style="border-bottom: 8px solid #ededed; margin: 14px 0 0 0px;"></div>
             <ul>
@@ -128,6 +133,13 @@ export default {
 
       return retVal;
     },
+    getRecommendData() {
+      if (this.info.isRecommend) {
+        return this.info.recommendArray
+      } else {
+        return this.info.notRecommendArray
+      }
+    },
     getSort(data) {
       const retVal = _.orderBy(data, ['grade', 'skill', 'id'], ['desc', 'asc', 'asc'])
       return retVal;
@@ -165,8 +177,11 @@ export default {
         this.info = item
 
         // 추천 속성을 배열로 변환 추가
-        const recommendArray = this.getDisk(item.type, true)
-        this.info.recommendArray = recommendArray
+        this.info.recommendArray = this.getDisk(item.type, true)
+        this.info.notRecommendArray = this.getDisk(item.type, false)
+
+        // 추천 상태 추가
+        this.info.isRecommend = true        
 
         // 좌측메뉴 닫기
         this.$refs.left.leave();
@@ -581,5 +596,32 @@ button {
     display: inline-block;
     margin: 10px 0px 20px 0;
     width: 100%;
+}
+input[type=radio]{
+	width: 0;
+  height: 0;
+  position: absolute;
+  left: -9999px;
+}
+input[type=radio] + label{
+  margin: 0;
+  padding: .75em 1.5em;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: solid 1px #DDD;
+  background-color: #FFF;
+  line-height: 140%;
+  text-align: center;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
+  cursor: pointer;
+}
+input[type=radio]:checked + label{
+	background-color: #8f43c2;
+  color: #FFF;
+  box-shadow: 0 0 10px rgba(204, 102, 251, 0.5);
+  border-color: #8f43c2;
+  z-index: 1;
 }
 </style>
