@@ -129,17 +129,7 @@ export default {
       return retVal;
     },
     getSort(data) {
-      let retVal = []
-
-      data.forEach((item) => {
-        // 정렬을 위해 5성이면 앞에, 4성이면 뒤에 추가
-        if (item.grade === 5) {
-          retVal.unshift(item) 
-        } else {
-          retVal.push(item)
-        }
-      })
-
+      const retVal = _.orderBy(data, ['grade', 'skill', 'id'], ['desc', 'asc', 'asc'])
       return retVal;
     },
     setTitle(msg, series) {
@@ -150,21 +140,15 @@ export default {
       }  
     },
     getSeries(item) {
+      let retVal, skill
+
       const series = Number(item.id.substr(0, 2))
-      let retVal;
+      skill = item.skill !== undefined? item.skill : ""
 
       if (series < 5) {
-        retVal = series + "탄 " + item.skill
+        retVal = "가오레" + series + "탄 " + skill
       } else {
-        retVal = item.skill
-      }
-
-      if (item.skill === undefined) {
-        if (series < 5) {
-          retVal = " 가오레 " + series + "탄"
-        } else {
-          retVal = " 레전드 " + (series-4) + "탄"
-        }
+        retVal = "레전드" + (series-4) + "탄 " + skill
       }
 
       return retVal;
@@ -572,7 +556,8 @@ button {
 }
 .summary {
     display: inline-block;
-    width: 50%;  
+    width: 50%;
+    margin: 5px 0 10px 0;
 }
 .summary-type {
     width: 142px;
@@ -582,15 +567,14 @@ button {
     margin: 3px 0 0 0;
 }
 .summary-type .sub-title {
-    text-align: left;
+    text-align: center;
     color: #919191;
-    padding-left: 20px;
     font-size: small;
 }
 .summary-type .skill {
     text-align: left;
-    color: #db1919;
-    padding-left: 20px;
+    color: #a51515;
+    padding-left: 15px;
     font-size: small;
 }
 .footer {
