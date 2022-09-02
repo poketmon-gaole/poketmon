@@ -41,7 +41,7 @@
         <template #body>
           <strong :ref="top">{{ info.name }} ({{ info.type }})</strong>
           <img class="poketmon-img" :src="require(`@/assets/img/disk/${info.imageName}`)">
-          <div v-if="info.notRecommendArray.length > 0" style="text-align: center">
+          <div class="recommend-box" v-if="info.notRecommendArray.length > 0">
             <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option1" name="test" value="option1" checked="checked">
             <label for="option1">추천</label>
             <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option2" name="test" value="option2">
@@ -623,5 +623,9 @@ input[type=radio]:checked + label{
   box-shadow: 0 0 10px rgba(204, 102, 251, 0.5);
   border-color: #8f43c2;
   z-index: 1;
+}
+.recommend-box {
+  text-align: center;
+  padding: 5px 0 20px 0;
 }
 </style>
