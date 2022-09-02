@@ -47,10 +47,10 @@
             <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option2" name="test" value="option2">
             <label for="option2" >비추천</label>       
           </div>
-          <div style="display:inline" v-for="recommend in getRecommendData()" :key="recommend">
+          <div class="summary-box" v-for="recommend in getRecommendData()" :key="recommend">
             <p>{{ recommend }}</p>
             <div style="border-bottom: 8px solid #ededed; margin: 14px 0 0 0px;"></div>
-            <ul>
+            <ul style="width:100%">
               <template v-for="item in getSort(data)" :key="item.id">
                 <li class="summary" v-if="recommend === getCorrelation(item)">
                     <div class="summary-type">
@@ -146,7 +146,7 @@ export default {
     },
     setTitle(msg, series) {
       if (series < 5) {
-        return msg + " " + Number(series) + "탄";
+        return msg + " 가오레 " + Number(series) + "탄";
       } else {
         return msg + " 레전드 " + Number(series-4) + "탄";
       }  
@@ -459,24 +459,24 @@ export default {
 <style scoped>
 h1 {
     color: white;
-    padding: 25px 0 25px 0;
+    padding: 15px 0px 15px 0;
     background: #4c3c27;
-    border-radius: 10px;
-    font-size: 25px;
     width: 95%;
     display: inline-block;
+    font-weight: bold;
 }
 h3 {
     display: inline-block;
     color: black;
     font-size: 25px;
     padding: 15px 0 15px 10px;
-    width: 100%;
+    width: 95%;
     margin: 25px 0 0 0;
     text-align: left;
 }
 ul {
-    width: 100%;
+    display: inline-block;
+    width: 95%;
     list-style-type: none;
     padding: 0;
 }
@@ -504,7 +504,7 @@ button {
     text-align: center;
 }
 .type-box {
-    width: 95%;
+    width: 100%;
     background: #2b0046;
     border-radius: 15px;
     display: inline-block;    
@@ -568,6 +568,9 @@ button {
 .poketmon-img {
     width: 290px;
     margin: 15px 0 20px 0;  
+}
+.summary-box {
+    display: inline;
 }
 .summary {
     display: inline-block;

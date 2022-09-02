@@ -1,6 +1,6 @@
 <template>
   <img alt="포캣몬 가오레 Logo" src="@/assets/img/poketmon.png" height="170">
-  <PoketmonMain msg="포캣몬 가오레"/>
+  <PoketmonMain msg="포캣몬"/>
 </template>
 
 <script>
