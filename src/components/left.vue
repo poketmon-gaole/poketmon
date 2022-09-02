@@ -2,8 +2,7 @@
   <div>
     <div class="left">
       <div class="close-box">
-        <img src="../assets/img/close.png" @click="leave()" width="21">
-        <!-- b-button @click="leave()">CLOSE</b-button> -->
+        <div class="close close-btn" @click="leave()"></div>
       </div>
       <ul>
         <li class="title">
@@ -132,8 +131,8 @@ export default {
 .left-btn {position:fixed; top:495px; left:-25px; cursor:pointer}
 .close-box {
   background-color: black;
-  padding: 15px 7px 15px 0;
-  text-align: right;  
+  padding: 10px 7px 0px 0;
+  text-align: right;
 }
 .close-box button {
   display: inline-block;
@@ -144,4 +143,6 @@ export default {
   top: -3px;
   font-size: 16px;    
 }
+.close {display:inline-block}
+.close-btn:after {content: "\00d7"; font-size:50pt;line-height:35px;}
 </style>
