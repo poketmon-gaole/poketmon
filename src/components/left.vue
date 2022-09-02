@@ -2,30 +2,44 @@
   <div>
     <div class="left">
       <div class="close-box">
-        <img class="close" src="../assets/img/close.png" width="16">
-        <button @click="leave()">CLOSE</button>
+        <img src="../assets/img/close.png" @click="leave()" width="21">
+        <!-- b-button @click="leave()">CLOSE</b-button> -->
       </div>
       <ul>
-        <li id="logo">
-          <div>▶ 포켓몬 가오레 공략</div>
+        <li class="title">
+          <div>▶ 포켓몬 레전드 시리즈</div>
         </li>
-        <li v-for="item in seriesList" :key="item.seires">
-          <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
+        <li v-for="item in seriesList" :key="item.series">
+          <template v-if="Number(item.series) > 4">
+            <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(Number(item.series))">- {{ item.content }}</div>
+          </template>
+        </li>
+      </ul>
+      <ul>
+        <li class="title">
+          <div>▶ 포켓몬 가오레 시리즈</div>
+        </li>
+        <li v-for="item in seriesList" :key="item.series">
+          <template v-if="Number(item.series) < 5">
+            <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(Number(item.series))">- {{ item.content }}</div>
+          </template>
         </li>
       </ul>
     </div>
-    <img class="left-btn" id="left_btn" @click="toggle" src="../assets/img/left_btn.png" width="50">
+    <img class="left-btn" @click="toggle" src="../assets/img/left_btn.png" width="50">
   </div>
 </template>
 
 <script>
-import $ from 'jquery';
+import $ from 'jquery'
 
 export default {
   name: 'left',
   props: {
     series: String
-  },  
+  },
+  components: {
+  },
   watch: {
     scrollTop: function(newValue, oldValue) {
       if (newValue > oldValue) {
@@ -42,11 +56,12 @@ export default {
     return {
       toggle: this.enter,
       seriesList: [
-        {content: '가오레 1탄', series: '01'},
-        {content: '가오레 2탄', series: '02'},
-        {content: '가오레 3탄', series: '03'},
+        {content: '레전드 2탄', series: '06'},
+        {content: '레전드 1탄', series: '05'},
         {content: '가오레 4탄', series: '04'},
-        {content: '레전드 1탄', series: '05'}
+        {content: '가오레 3탄', series: '03'},
+        {content: '가오레 2탄', series: '02'},
+        {content: '가오레 1탄', series: '01'}
       ],
       scrollTop: 0,
       isScrollTop: false
@@ -62,37 +77,34 @@ export default {
       }
     },    
     enter() {
+      this.show = true;
       this.toggle = this.leave
-      var left = (200 - (parseInt($('#left_btn').css('width')) / 2)) + 'px'
+      var left = (200 - (parseInt($('.left-btn').css('width')) / 2)) + 'px'
       $('.left').stop().animate({left: '0px'}, 250)
-      $('#left_btn').stop().animate({left: left}, 250)
-      $('#left_btn').css({transform: 'rotate(180deg)'})
+      $('.left-btn').stop().animate({left: left}, 250)
+      $('.left-btn').css({transform: 'rotate(180deg)'})
     },
     leave() {
+      this.show = false;
       this.toggle = this.enter
-      var left = (0 - (parseInt($('#left_btn').css('width')) / 2)) + 'px'
+      var left = (0 - (parseInt($('.left-btn').css('width')) / 2)) + 'px'
       $('.left').stop().animate({left: '-200px'}, 250)
-      $('#left_btn').stop().animate({left: left}, 250)
-      $('#left_btn').css({transform: 'rotate(0deg)'})
-    },
-    resize() {
-      $(window).resize(function () {
-        var height = (window.innerHeight / 2) + 'px'
-        $('#left_btn').css({'top': height})
-      })
+      $('.left-btn').stop().animate({left: left}, 250)
+      $('.left-btn').css({transform: 'rotate(0deg)'})
     },
     doSeries(series) {
-      this.leave()
-      this.$parent.setSeries(series)
+      if (series < 6) {
+        this.leave()
+        this.$parent.setSeries(series)
+      } else {
+        this.$alert("준비중입니다.")
+      }
     }
-  },
-  created () {
-    this.resize()
-  },
+  }
 }
 </script>
 <style>
-.left{
+.left {
   position:fixed; 
   top:0px; 
   left:-200px; 
@@ -107,17 +119,17 @@ export default {
   list-style-type: none;
   padding: 0;
   text-align: left;
-  margin: 10px 0 0 25px;
+  margin: 10px 0 20px 0;
 }
 .left li {
   width: 100%;
   margin: 0 0 10px 0;
+  text-indent: 25px;
+}
+.left .title {
   text-indent: 10px;
 }
-#logo {
-  text-indent: inherit;
-}
-#left_btn {position:fixed; top:495px; left:-25px; cursor:pointer}
+.left-btn {position:fixed; top:495px; left:-25px; cursor:pointer}
 .close-box {
   background-color: black;
   padding: 15px 7px 15px 0;
