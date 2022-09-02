@@ -144,5 +144,5 @@ export default {
   font-size: 16px;    
 }
 .close {display:inline-block}
-.close-btn:after {content: "\00d7"; font-size:50pt;line-height:35px;}
+.close-btn:after {content: "\00d7"; font-size:35pt;line-height:35px;}
 </style>

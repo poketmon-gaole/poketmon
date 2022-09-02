@@ -77,6 +77,7 @@ export default {
 }
 
 .modal-footer {
+  display: block !important;
   text-align: center;
 }
 
