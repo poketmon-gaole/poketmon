@@ -605,7 +605,8 @@ input[type=radio]{
 }
 input[type=radio] + label{
   margin: 0;
-  padding: .75em 1.5em;
+  width: 100px;
+  padding: 10px 0 10px 0;
   box-sizing: border-box;
   position: relative;
   display: inline-block;
@@ -615,7 +616,6 @@ input[type=radio] + label{
   text-align: center;
   box-shadow: 0 0 0 rgba(255, 255, 255, 0);
   transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
-  cursor: pointer;
 }
 input[type=radio]:checked + label{
 	background-color: #8f43c2;
