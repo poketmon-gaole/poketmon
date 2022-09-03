@@ -500,6 +500,9 @@ button {
     height: 40px;
     font-weight: bolder;
 }
+strong {
+  display: block;
+}
 .contents{
     text-align: center;
 }
@@ -576,11 +579,9 @@ button {
 }
 .summary {
     display: inline-block;
-    width: 50%;
+    width: 155px;
     margin: 5px 0 10px 0;
-}
-.summary-type {
-    width: 142px;
+    text-align: center;
 }
 .summary-type span {
     display: block;
