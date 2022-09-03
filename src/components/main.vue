@@ -4,11 +4,11 @@
     <template v-for="grade in gradeList" :key="grade">
       <h3>GRADE {{ grade }}</h3>
       <ul>
-        <template v-for="item in getData(data)" :key="item.id">
+        <template v-for="item in getData()" :key="item.id">
           <li v-if="item.grade == grade">
               <div class="type-box" :style="[grade == 4? 'background: #838383' : '']" @click="doModal(item)">
+                <label class="poketmon-name">{{ item.name }} [{{ item.type }}]</label>
                 <div class="type-box-left">
-                  <span class="poketmon-name">{{ item.name }} ({{ item.type }})</span>
                   <img :src="require(`@/assets/img/disk/${item.imageName}`)">
                 </div>
                 <div class="type-box-right">
@@ -39,7 +39,7 @@
           <img src="../assets/img/x.png" width="16" @click="doModal">
         </template>
         <template #body>
-          <strong :ref="top">{{ info.name }} ({{ info.type }})</strong>
+          <strong :ref="top">{{ info.name }} [{{ info.type }}]</strong>
           <img class="poketmon-img" :src="require(`@/assets/img/disk/${info.imageName}`)">
           <div class="recommend-box" v-if="info.notRecommendArray.length > 0">
             <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option1" name="test" value="option1" checked="checked">
@@ -51,7 +51,7 @@
             <p>{{ recommend }}</p>
             <div style="border-bottom: 8px solid #ededed; margin: 14px 0 0 0px;"></div>
             <ul style="width:100%">
-              <template v-for="item in getSort(data)" :key="item.id">
+              <template v-for="item in getSort()" :key="item.id">
                 <li class="summary" v-if="recommend === getCorrelation(item)">
                     <div class="summary-type">
                       <span style="text-align: center">
@@ -121,10 +121,10 @@ export default {
     }
   },
   methods: { 
-    getData(data) {
+    getData() {
       let retVal = []
 
-      data.forEach((item) => {
+      this.data.forEach((item) => {
         // 시리즈별 조회
         if (item.id.substr(0, 2) == this.series) {
           retVal.push(item)
@@ -140,8 +140,8 @@ export default {
         return this.info.notRecommendArray
       }
     },
-    getSort(data) {
-      const retVal = _.orderBy(data, ['grade', 'skill', 'id'], ['desc', 'asc', 'asc'])
+    getSort() {
+      const retVal = _.orderBy(this.data, ['grade', 'skill', 'id'], ['desc', 'asc', 'asc'])
       return retVal;
     },
     setTitle(msg, series) {
@@ -168,7 +168,7 @@ export default {
     setSeries(series) {
       this.series = series
       window.scrollTo(0, 0)
-      this.getData(Data)
+      this.getData()
     },
     doModal(item) {
       this.visible = !this.visible
@@ -509,15 +509,17 @@ button {
     border-radius: 15px;
     display: inline-block;    
 }
-.type-box-left {
-    float: left;
-}
-.type-box-left .poketmon-name {
+.type-box .poketmon-name {
     display: block;
     font-weight: bolder;
     color: white;
     font-size: large;
     padding: 5px 0 5px 0;
+    text-align: left;
+    text-indent: 20px;
+}
+.type-box-left {
+    float: left;
 }
 .type-box-left img {
     width: 240px;
@@ -526,7 +528,7 @@ button {
 .type-box-right {
     float: left;
     width: 28%;
-    margin: 55px 0 10px 10px;
+    margin: 15px 0 10px 10px;
     height: 112px;
 }
 .type-box-right span {
@@ -583,6 +585,7 @@ button {
 .summary-type span {
     display: block;
     margin: 3px 0 0 0;
+    font-size: 13px;
 }
 .summary-type .sub-title {
     text-align: center;

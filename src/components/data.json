@@ -75,7 +75,7 @@
         "def": 133,
         "spclDfns": 133,
         "speed": 133,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },        
     {
         "id": "05-066",
@@ -89,7 +89,7 @@
         "def": 123,
         "spclDfns": 146,
         "speed": 111,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },
     {
         "id": "05-067",
@@ -103,7 +103,7 @@
         "def": 146,
         "spclDfns": 123,
         "speed": 111,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },
     {
         "id": "05-068",
@@ -267,7 +267,7 @@
         "def": 49,
         "spclDfns": 60,
         "speed": 104,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },                                  
     {
         "id": "05-047",
@@ -281,7 +281,7 @@
         "def": 148,
         "spclDfns": 65,
         "speed": 47,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },
     {
         "id": "05-049",
@@ -425,7 +425,7 @@
         "def": 96,
         "spclDfns": 96,
         "speed": 104,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },        
     {
         "id": "04-034",
@@ -439,7 +439,7 @@
         "def": 132,
         "spclDfns": 112,
         "speed": 91,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },        
     {
         "id": "04-038",
@@ -453,7 +453,7 @@
         "def": 67,
         "spclDfns": 115,
         "speed": 81,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },      
     {
         "id": "04-040",
@@ -467,7 +467,7 @@
         "def": 134,
         "spclDfns": 86,
         "speed": 38,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },      
     {
         "id": "04-044",
@@ -597,7 +597,7 @@
         "def": 47,
         "spclDfns": 58,
         "speed": 100,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },   
     {
         "id": "04-060",
@@ -622,7 +622,7 @@
         "def": 77,
         "spclDfns": 77,
         "speed": 128,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },
     {
         "id": "04-062",
@@ -700,7 +700,7 @@
         "def": 98,
         "spclDfns": 98,
         "speed": 115,
-        "skill":"제트기술"
+        "skill":"Z기술"
     },    
     {
         "id": "03-008",
@@ -714,7 +714,7 @@
         "def": 68,
         "spclDfns": 68,
         "speed": 68,
-        "skill":"제트기술"
+        "skill":"Z기술"
     },     
     {
         "id": "03-032",
@@ -741,7 +741,7 @@
         "def": 112,
         "spclDfns": 103,
         "speed": 64,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },        
     {
         "id": "03-040",
@@ -755,7 +755,7 @@
         "def": 117,
         "spclDfns": 93,
         "speed": 63,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },   
     {
         "id": "03-044",
@@ -768,7 +768,7 @@
         "def": 85,
         "spclDfns": 85,
         "speed": 55,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },            
     {
         "id": "03-046",
@@ -847,7 +847,7 @@
         "def": 124,
         "spclDfns": 104,
         "speed": 113,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },      
     {
         "id": "03-053",
@@ -861,7 +861,7 @@
         "def": 104,
         "spclDfns": 124,
         "speed": 113,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },    
     {
         "id": "03-054",
@@ -925,7 +925,7 @@
         "def": 79,
         "spclDfns": 79,
         "speed": 132,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },            
     {
         "id": "03-062",
@@ -950,7 +950,7 @@
         "def": 90,
         "spclDfns": 90,
         "speed": 98,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },      
     {
         "id": "03-065",
@@ -977,7 +977,7 @@
         "def": 97,
         "spclDfns": 126,
         "speed": 116,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },                 
     {
         "id": "02-004",
@@ -991,7 +991,7 @@
         "def": 83,
         "spclDfns": 99,
         "speed": 80,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },           
     {
         "id": "02-008",
@@ -1005,7 +1005,7 @@
         "def": 78,
         "spclDfns": 84,
         "speed": 99,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },      
     {
         "id": "02-012",
@@ -1019,7 +1019,7 @@
         "def": 99,
         "spclDfns": 103,
         "speed": 78,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },       
     {
         "id": "02-028",
@@ -1046,7 +1046,7 @@
         "def": 68,
         "spclDfns": 112,
         "speed": 33,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },       
     {
         "id": "02-036",
@@ -1060,7 +1060,7 @@
         "def": 103,
         "spclDfns": 103,
         "speed": 77,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },        
     {
         "id": "02-040",
@@ -1074,7 +1074,7 @@
         "def": 185,
         "spclDfns": 65,
         "speed": 55,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "02-044",
@@ -1088,7 +1088,7 @@
         "def": 67,
         "spclDfns": 67,
         "speed": 112,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },        
     {
         "id": "02-047",
@@ -1102,7 +1102,7 @@
         "def": 77,
         "spclDfns": 77,
         "speed": 83,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },         
     {
         "id": "02-051",
@@ -1300,7 +1300,7 @@
         "def": 56,
         "spclDfns": 69,
         "speed": 120,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "01-004",
@@ -1314,7 +1314,7 @@
         "def": 75,
         "spclDfns": 99,
         "speed": 70,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "01-008",
@@ -1328,7 +1328,7 @@
         "def": 89,
         "spclDfns": 89,
         "speed": 61,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "01-012",
@@ -1342,7 +1342,7 @@
         "def": 74,
         "spclDfns": 114,
         "speed": 61,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "01-016",
@@ -1398,7 +1398,7 @@
         "def": 96,
         "spclDfns": 101,
         "speed": 81,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "01-051",
@@ -1412,7 +1412,7 @@
         "def": 88,
         "spclDfns": 67,
         "speed": 67,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "01-055",
@@ -1426,7 +1426,7 @@
         "def": 70,
         "spclDfns": 70,
         "speed": 89,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "01-058",
@@ -1439,7 +1439,7 @@
         "def": 43,
         "spclDfns": 53,
         "speed": 91,
-        "skill": "제트기술"
+        "skill": "Z기술"
     },     
     {
         "id": "01-059",
@@ -1605,5 +1605,396 @@
         "spclDfns": 98,
         "speed": 115,
         "skill": "메가진화"
-    }                                                                                 
+    },
+    {
+        "id":"06-004",
+        "grade":4,
+        "name":"모크나이퍼",
+        "type":"풀/고스트",
+        "correlation":"고스트",
+        "imageName":"06-004.png",
+        "hp":143,
+        "atc":116,
+        "def":83,
+        "spclDfns":109,
+        "speed":77,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-008",
+        "grade":4,
+        "name":"어흥염",
+        "type":"불꽃/악",
+        "correlation":"악",
+        "imageName":"06-008.png",
+        "hp":160,
+        "atc":124,
+        "def":98,
+        "spclDfns":98,
+        "speed":67,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-012",
+        "grade":4,
+        "name":"누리레느",
+        "type":"물/페어리",
+        "correlation":"물",
+        "imageName":"06-012.png",
+        "hp":145,
+        "atc":136,
+        "def":81,
+        "spclDfns":125,
+        "speed":67,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-014",
+        "grade":4,
+        "name":"에브이",
+        "type":"에스퍼",
+        "correlation":"에스퍼",
+        "imageName":"06-014.png",
+        "hp":129,
+        "atc":140,
+        "def":67,
+        "spclDfns":103,
+        "speed":119
+     },
+     {
+        "id":"06-016",
+        "grade":4,
+        "name":"블래키",
+        "type":"악",
+        "correlation":"악",
+        "imageName":"06-016.png",
+        "hp":160,
+        "atc":72,
+        "def":119,
+        "spclDfns":14,
+        "speed":72
+     },
+     {
+        "id":"06-022",
+        "grade":4,
+        "name":"골루그",
+        "type":"땅/고스트",
+        "correlation":"땅",
+        "imageName":"06-022.png",
+        "hp":157,
+        "atc":136,
+        "def":89,
+        "spclDfns":89,
+        "speed":63
+     },
+     {
+        "id":"06-026",
+        "grade":4,
+        "name":"에레키블",
+        "type":"전기",
+        "correlation":"전기",
+        "imageName":"06-026.png",
+        "hp":150,
+        "atc":142,
+        "def":79,
+        "spclDfns":100,
+        "speed":111
+     },
+     {
+        "id":"06-030",
+        "grade":4,
+        "name":"마그마번",
+        "type":"불꽃",
+        "correlation":"불꽃",
+        "imageName":"06-030.png",
+        "hp":150,
+        "atc":146,
+        "def":79,
+        "spclDfns":111,
+        "speed":97
+     },
+     {
+        "id":"06-034",
+        "grade":4,
+        "name":"망나뇽",
+        "type":"드래곤/비행",
+        "correlation":"드래곤",
+        "imageName":"06-034.png",
+        "hp":162,
+        "atc":149,
+        "def":107,
+        "spclDfns":113,
+        "speed":91,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-038",
+        "grade":4,
+        "name":"기가이어스",
+        "type":"바위",
+        "correlation":"바위",
+        "imageName":"06-038.png",
+        "hp":153,
+        "atc":148,
+        "def":142,
+        "spclDfns":89,
+        "speed":31,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-042",
+        "grade":4,
+        "name":"괴력몬",
+        "type":"격투",
+        "correlation":"격투",
+        "imageName":"06-042.png",
+        "hp":164,
+        "atc":148,
+        "def":93,
+        "spclDfns":98,
+        "speed":65,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-046",
+        "grade":4,
+        "name":"메가후딘",
+        "type":"에스퍼",
+        "correlation":"에스퍼",
+        "imageName":"06-046.png",
+        "hp":123,
+        "atc":150,
+        "def":53,
+        "spclDfns":107,
+        "speed":134,
+        "skill":"메가진화"
+     },
+     {
+        "id":"06-050",
+        "grade":4,
+        "name":"메가팬텀",
+        "type":"고스트/독",
+        "correlation":"고스트",
+        "imageName":"06-050.png",
+        "hp":128,
+        "atc":145,
+        "def":69,
+        "spclDfns":86,
+        "speed":123,
+        "skill":"메가진화"
+     },
+     {
+        "id":"06-054",
+        "grade":4,
+        "name":"루카리오",
+        "type":"격투/강철",
+        "correlation":"격투",
+        "imageName":"06-054.png",
+        "hp":134,
+        "atc":124,
+        "def":77,
+        "spclDfns":77,
+        "speed":98,
+        "skill":"메가진화"
+     },
+     {
+        "id":"06-055",
+        "grade":4,
+        "name":"지라치",
+        "type":"강철/에스퍼",
+        "correlation":"강철",
+        "imageName":"06-055.png",
+        "hp":172,
+        "atc":113,
+        "def":113,
+        "spclDfns":113,
+        "speed":113
+     },
+     {
+        "id":"06-056",
+        "grade":4,
+        "name":"쉐이미(랜드)",
+        "type":"풀",
+        "correlation":"풀",
+        "imageName":"06-056.png",
+        "hp":172,
+        "atc":113,
+        "def":113,
+        "spclDfns":113,
+        "speed":113
+     },
+     {
+        "id":"06-057",
+        "grade":4,
+        "name":"쉐이미(스카이폼)",
+        "type":"풀/비행",
+        "correlation":"풀",
+        "imageName":"06-057.png",
+        "hp":172,
+        "atc":134,
+        "def":87,
+        "spclDfns":87,
+        "speed":144
+     },
+     {
+        "id":"06-058",
+        "grade":4,
+        "name":"비크티니",
+        "type":"에스퍼/불꽃",
+        "correlation":"불꽃",
+        "imageName":"06-058.png",
+        "hp":172,
+        "atc":113,
+        "def":113,
+        "spclDfns":113,
+        "speed":113
+     },
+     {
+        "id":"06-059",
+        "grade":5,
+        "name":"솔가레오 (황혼의 갈기)",
+        "type":"에스퍼/강철",
+        "correlation":"에스퍼",
+        "imageName":"06-059.png",
+        "hp":189,
+        "atc":196,
+        "def":159,
+        "spclDfns":137,
+        "speed":98,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-060",
+        "grade":5,
+        "name":"루나아라 (새벽의 날개)",
+        "type":"에스퍼/고스트",
+        "correlation":"에스퍼",
+        "imageName":"06-060.png",
+        "hp":189,
+        "atc":196,
+        "def":137,
+        "spclDfns":159,
+        "speed":98,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-061",
+        "grade":5,
+        "name":"화이트 규레무",
+        "type":"드래곤/얼음",
+        "correlation":"얼음",
+        "imageName":"06-061.png",
+        "hp":216,
+        "atc":205,
+        "def":111,
+        "spclDfns":123,
+        "speed":117,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-062",
+        "grade":5,
+        "name":"블랙 큐레무",
+        "type":"드래곤/얼음",
+        "correlation":"얼음",
+        "imageName":"06-062.png",
+        "hp":216,
+        "atc":205,
+        "def":123,
+        "spclDfns":111,
+        "speed":117,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-063",
+        "grade":5,
+        "name":"라티아스",
+        "type":"드래곤/에스퍼",
+        "correlation":"에스퍼",
+        "imageName":"06-063.png",
+        "hp":166,
+        "atc":137,
+        "def":113,
+        "spclDfns":161,
+        "speed":137
+     },
+     {
+        "id":"06-064",
+        "grade":5,
+        "name":"라티오스",
+        "type":"드래곤/에스퍼",
+        "correlation":"에스퍼",
+        "imageName":"06-064.png",
+        "hp":166,
+        "atc":161,
+        "def":101,
+        "spclDfns":137,
+        "speed":137
+     },
+     {
+        "id":"06-065",
+        "grade":4,
+        "name":"케르디오",
+        "type":"물/격투",
+        "correlation":"물",
+        "imageName":"06-065.png",
+        "hp":162,
+        "atc":146,
+        "def":102,
+        "spclDfns":102,
+        "speed":122
+     },
+     {
+        "id":"06-066",
+        "grade":5,
+        "name":"케르디오(각오)",
+        "type":"물/격투",
+        "correlation":"격투",
+        "imageName":"06-066.png",
+        "hp":187,
+        "atc":168,
+        "def":117,
+        "spclDfns":117,
+        "speed":141
+     },
+     {
+        "id":"06-067",
+        "grade":5,
+        "name":"다크라이",
+        "type":"악",
+        "correlation":"악",
+        "imageName":"06-067.png",
+        "hp":156,
+        "atc":169,
+        "def":114,
+        "spclDfns":114,
+        "speed":157,
+        "skill":"Z기술"
+     },
+     {
+        "id":"06-068",
+        "grade":5,
+        "name":"메시붕",
+        "type":"벌레/격투",
+        "correlation":"격투",
+        "imageName":"06-068.png",
+        "hp":217,
+        "atc":188,
+        "def":188,
+        "spclDfns":74,
+        "speed":109
+     },
+     {
+        "id":"06-069",
+        "grade":5,
+        "name":"페르코체",
+        "type":"벌레/격투",
+        "correlation":"벌레",
+        "imageName":"06-069.png",
+        "hp":176,
+        "atc":195,
+        "def":54,
+        "spclDfns":54,
+        "speed":215
+     }
 ]

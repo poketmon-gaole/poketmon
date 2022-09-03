@@ -55,6 +55,7 @@ export default {
     return {
       toggle: this.enter,
       seriesList: [
+        {content: '레전드 3탄', series: '07'},
         {content: '레전드 2탄', series: '06'},
         {content: '레전드 1탄', series: '05'},
         {content: '가오레 4탄', series: '04'},
@@ -92,7 +93,7 @@ export default {
       $('.left-btn').css({transform: 'rotate(0deg)'})
     },
     doSeries(series) {
-      if (series < 6) {
+      if (series < 7) {
         this.leave()
         this.$parent.setSeries(series)
       } else {
