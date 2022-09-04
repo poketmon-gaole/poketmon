@@ -6,12 +6,12 @@
       <ul>
         <template v-for="item in getData()" :key="item.id">
           <li v-if="item.grade == grade">
-              <div class="type-box" :style="[grade == 4? 'background: #838383' : '']" @click="doModal(item)">
-                <label class="poketmon-name">{{ item.name }} [{{ item.type }}]</label>
-                <div class="type-box-left">
+              <div class="type-box" :style="[grade == 4? 'background: #838383' : '']">
+                <label class="type-box-top" @click="doModal(item)">{{ item.name }} [{{ item.type }}]</label>
+                <div class="type-box-left" @click="doModal(item)">
                   <img :src="require(`@/assets/img/disk/${item.imageName}`)">
                 </div>
-                <div class="type-box-right">
+                <div class="type-box-right" @click="doModal(item)">
                   <span v-if="item.hp !== undefined" :class="[grade == 4? 'text' : '']">HP: {{ item.hp }}</span>
                   <span v-if="item.atc !== undefined" :class="[grade == 4? 'text' : '']">공격: {{ item.atc }}</span>
                   <span v-if="item.spclAtck !== undefined" :class="[grade == 4? 'text' : '']">특수공격: {{ item.spclAtck }}</span>
@@ -21,8 +21,20 @@
                   <span v-if="item.skill !== undefined" :class="[grade == 4? 'text' : '']">{{ item.skill }}</span>
                 </div>
                 <div class="type-box-bottom">
-                    <span>{{ getSolution(item.type, true) }}</span>
-                    <span>{{ getSolution(item.type, false) }}</span>
+                    <div class="solution">
+                      <span>{{ getSolution(item.type, true) }}</span>
+                      <span>{{ getSolution(item.type, false) }}</span>
+                    </div>
+                    <div style="display: inline-block;">
+                      <b-button v-if="grade == 5" pill variant="info" @click="showSingle()">서포트 포켓몬</b-button>
+                      <VueEasyLightbox
+                        :visible="isSupport"
+                        :imgs="imgs"
+                        :index="index"
+                        @hide="close"
+                        moveDisabled 
+                      ></VueEasyLightbox>              
+                    </div>
                 </div>
               </div>
           </li>
@@ -69,7 +81,7 @@
           </div>          
         </template>
         <template #footer>
-          <button @click="doModal" type="button">닫기</button>
+          <b-button class="modal-close" pill @click="doModal" squared variant="outline-secondary">닫기</b-button>
         </template>
       </modal>
     </Teleport>
@@ -78,15 +90,18 @@
 
 <script>
 import _ from 'lodash'
+import $ from 'jquery'
 import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
 import Left from '@/components/left.vue'
+import VueEasyLightbox from 'vue-easy-lightbox'
 
 export default {
   name: 'PocktmonMain',
   components: {
     Modal,
-    Left
+    Left,
+    VueEasyLightbox
   },
   props: {
     msg: String
@@ -94,6 +109,9 @@ export default {
   data() {
     return {
       visible: false,
+      isSupport: false,
+      imgs: '',
+      index: 0,
       data: Data,
       info: Data[0],
       gradeList: [5, 4],
@@ -202,6 +220,20 @@ export default {
       } else {
         return item.correlation
       }
+    },
+    showSingle() {
+      this.imgs = 'https://blog.kakaocdn.net/dn/c1mSzP/btrAXA5Te8L/RfFxJ62jRnLVXOcnkyio41/img.jpg'
+      this.show()
+    },
+    show() {
+      this.isSupport = true
+    },
+    async close() {
+      await this.handleHide();
+      $("body").css({"overflowY":""});
+    },
+    handleHide() {
+      this.isSupport = false
     },
     getDisk(type, isRecommend) {
       let recommendArr = [] // 추천
@@ -490,16 +522,6 @@ a {
 img {
     vertical-align: bottom;
 }
-button {
-    border: 1px solid #c3c3c3;
-    font-family: 'Gmarket Sans TTF';
-    background: #ffffff;
-    border-radius: 10px;
-    font-size: 17px;
-    width: 128px;
-    height: 40px;
-    font-weight: bolder;
-}
 strong {
   display: block;
 }
@@ -512,7 +534,7 @@ strong {
     border-radius: 15px;
     display: inline-block;    
 }
-.type-box .poketmon-name {
+.type-box-top {
     display: block;
     font-weight: bolder;
     color: white;
@@ -559,16 +581,10 @@ strong {
     color: white;
     font-weight: bold;
 }
-.btn {
-    float: right;
-    background: #4c3c27;
-    color: white;
-    margin: -19px 23px 0 0;
-    width: 160px;
-    height: 40px;
-    border: 0;
-    border-radius: 10px;
-    font-size: larger;
+.type-box-bottom button {
+  background: #4c2667;
+  color: white;
+  border: 1px solid #eee;
 }
 .poketmon-img {
     width: 290px;
@@ -634,5 +650,19 @@ input[type=radio]:checked + label{
 .recommend-box {
   text-align: center;
   padding-bottom: 20px;
+}
+.solution {
+  width: 60%;
+  display: inline-block;
+}
+.support {
+  display: inline-block;
+  color: #ffbc00;
+  font-weight: bold;
+  font-size: initial;
+}
+.modal-close {
+  width: 100px;
+  border-color: #c8c8c8;
 }
 </style>
