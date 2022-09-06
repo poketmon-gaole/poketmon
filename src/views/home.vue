@@ -1,15 +1,14 @@
 <template>
-  <!-- <PoketmonMain msg="포캣몬"/> -->
-  <router-view />
+  <PoketmonMain msg="포캣몬"/>
 </template>
 
 <script>
-// import PoketmonMain from '@/components/main.vue'
+import PoketmonMain from '@/components/main.vue'
 
 export default {
-  name: 'App',
+  name: 'Home',
   components: {
-    // PoketmonMain
+    PoketmonMain
   }
 }
 </script>

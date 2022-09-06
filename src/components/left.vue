@@ -10,7 +10,7 @@
         </li>
         <li v-for="item in seriesList" :key="item.series">
           <template v-if="Number(item.series) > 4">
-            <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(Number(item.series))">- {{ item.content }}</div>
+            <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
           </template>
         </li>
       </ul>
@@ -20,7 +20,7 @@
         </li>
         <li v-for="item in seriesList" :key="item.series">
           <template v-if="Number(item.series) < 5">
-            <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(Number(item.series))">- {{ item.content }}</div>
+            <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
           </template>
         </li>
       </ul>

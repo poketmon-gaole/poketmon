@@ -1,4 +1,5 @@
 <template>
+  <img alt="포캣몬 가오레 Logo" src="@/assets/img/poketmon.png" height="170"/>
   <div class="contents">
     <h1>{{ setTitle(msg, series) }}</h1>
     <template v-for="grade in gradeList" :key="grade">
@@ -127,7 +128,14 @@ export default {
       }
     }
   },
+  mounted() {
+    this.init()
+  },
   methods: { 
+    init() {
+      const series = this.$route.params.series
+      this.series = series !== undefined? series : '05'
+    },
     getData() {
       let retVal = []
 
