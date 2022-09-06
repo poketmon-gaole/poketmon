@@ -1,5 +1,19 @@
 [
     {
+        "id":"05-000",
+        "grade":4,
+        "name":"망나뇽",
+        "type":"드래곤/비행",
+        "correlation":"드래곤",
+        "imageName":"05-000.png",
+        "hp":145,
+        "atc":133,
+        "def":96,
+        "spclDfns":101,
+        "speed":81,
+        "skill":"Z기술"
+    },
+    {
         "id": "05-060",
         "grade": 5,
         "name": "프리져",
@@ -388,6 +402,20 @@
         "spclDfns": 107,
         "speed": 111
     }, 
+    {
+        "id": "04-000",
+        "grade": 4,
+        "name": "리자몽",
+        "type": "불꽃/비행",
+        "correlation": "불꽃",
+        "imageName": "04-000.png",
+        "hp": 132,
+        "spclAtck": 109,
+        "def": 79,
+        "spclDfns": 86,
+        "speed": 101,
+        "skill": "메가진화"
+    },    
     {
         "id": "04-023",
         "grade": 4,
