@@ -25,16 +25,11 @@
                       <span>{{ getSolution(item.type, true) }}</span>
                       <span>{{ getSolution(item.type, false) }}</span>
                     </div>
+                    <!--
                     <div style="display: inline-block;">
                       <b-button v-if="grade == 5" pill variant="info" @click="showSingle()">서포트 포켓몬</b-button>
-                      <VueEasyLightbox
-                        :visible="isSupport"
-                        :imgs="imgs"
-                        :index="index"
-                        @hide="close"
-                        moveDisabled 
-                      ></VueEasyLightbox>              
                     </div>
+                    -->
                 </div>
               </div>
           </li>
@@ -69,7 +64,7 @@
                       <span style="text-align: center">
                         {{ item.name }}
                       </span>
-                      <img :src="require(`@/assets/img/disk/${item.imageName}`)" width="145">
+                       <img :src="require(`@/assets/img/disk/${item.imageName}`)" width="145">
                       <span :class="[item.skill === undefined? 'sub-title':'skill']">
                           {{ getSeries(item) }}
                         &nbsp;
@@ -85,23 +80,20 @@
         </template>
       </modal>
     </Teleport>
-  </template>  
+  </template>
 </template>
 
 <script>
 import _ from 'lodash'
-import $ from 'jquery'
 import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
 import Left from '@/components/left.vue'
-import VueEasyLightbox from 'vue-easy-lightbox'
 
 export default {
   name: 'PocktmonMain',
   components: {
     Modal,
-    Left,
-    VueEasyLightbox
+    Left
   },
   props: {
     msg: String
@@ -109,9 +101,6 @@ export default {
   data() {
     return {
       visible: false,
-      isSupport: false,
-      imgs: '',
-      index: 0,
       data: Data,
       info: Data[0],
       gradeList: [5, 4],
@@ -220,20 +209,6 @@ export default {
       } else {
         return item.correlation
       }
-    },
-    showSingle() {
-      this.imgs = 'https://blog.kakaocdn.net/dn/c1mSzP/btrAXA5Te8L/RfFxJ62jRnLVXOcnkyio41/img.jpg'
-      this.show()
-    },
-    show() {
-      this.isSupport = true
-    },
-    async close() {
-      await this.handleHide();
-      $("body").css({"overflowY":""});
-    },
-    handleHide() {
-      this.isSupport = false
     },
     getDisk(type, isRecommend) {
       let recommendArr = [] // 추천
