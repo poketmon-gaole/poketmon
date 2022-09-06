@@ -1635,6 +1635,20 @@
         "skill": "메가진화"
     },
     {
+        "id":"06-000",
+        "grade":4,
+        "name":"리자몽X",
+        "type":"불꽃/비행",
+        "correlation":"불꽃",
+        "imageName":"06-000.png",
+        "hp":148,
+        "atc":122,
+        "def":89,
+        "spclDfns":96,
+        "speed":113,
+        "skill":"메가진화"
+     },    
+    {
         "id":"06-004",
         "grade":4,
         "name":"모크나이퍼",
