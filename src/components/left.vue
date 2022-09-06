@@ -24,6 +24,9 @@
           </template>
         </li>
       </ul>
+      <span class="support">
+        <b-button variant="light" @click="onRedirect()">개발자 후원</b-button>
+      </span>
     </div>
     <img class="left-btn" @click="toggle" src="../assets/img/left_btn.png" width="50">
   </div>
@@ -68,6 +71,9 @@ export default {
     }
   },
   methods: {
+    onRedirect() {
+      window.open("https://toss.me/포켓몬가오레/1500", "_self")
+    },
     handleScroll () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       this.scrollTop = scrollTop
@@ -146,4 +152,11 @@ export default {
 }
 .close {display:inline-block}
 .close-btn:after {content: "\00d7"; font-size:35pt;line-height:35px;}
+.support {
+  display: inline-block;
+  margin: 10px 0 0 0;  
+}
+.support button {
+  width: 173px;
+}
 </style>
