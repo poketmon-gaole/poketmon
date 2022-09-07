@@ -27,7 +27,7 @@
                       <span>{{ getSolution(item.type, false) }}</span>
                     </div>
                     <div style="display: inline-block;">
-                      <b-button id="show-btn" v-if="grade == 5" pill variant="info" @click="show(item)">서포트 포켓몬</b-button>
+                      <b-button id="show-btn" :style="[grade == 4? 'background: #565656' : '']" pill variant="info" @click="show(item)">서포트 포켓몬</b-button>
                       <template>
                         <div>
                           <viewer :options="options" 
@@ -169,7 +169,7 @@ export default {
     inited (viewer) {
         this.$viewer = viewer
     },
-    show (item) {
+    show(item) {
       this.support = this.getImages(item)
 
       if (this.support == '') {
