@@ -26,11 +26,23 @@
                       <span>{{ getSolution(item.type, true) }}</span>
                       <span>{{ getSolution(item.type, false) }}</span>
                     </div>
-                    <!--
                     <div style="display: inline-block;">
-                      <b-button v-if="grade == 5" pill variant="info" @click="showSingle()">서포트 포켓몬</b-button>
+                      <b-button id="show-btn" v-if="grade == 5" pill variant="info" @click="show">서포트 포켓몬</b-button>
+                      <template>
+                        <div>
+                          <viewer :options="options" :images="getImages(item)"
+                                  @inited="inited"
+                                  class="viewer" ref="viewer"
+                                  >
+                            <template #default="scope">
+                              <img v-for="src in scope.images" :src="src" :key="src">
+                              {{scope.options}}
+                            </template>
+                          </viewer>
+                          <button type="button" @click="show">Show</button>
+                        </div>
+                    </template>                     
                     </div>
-                    -->
                 </div>
               </div>
           </li>
@@ -89,12 +101,15 @@ import _ from 'lodash'
 import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
 import Left from '@/components/left.vue'
+import 'viewerjs/dist/viewer.css'
+import { component as Viewer } from "v-viewer"
 
 export default {
   name: 'PocktmonMain',
   components: {
     Modal,
-    Left
+    Left,
+    Viewer
   },
   props: {
     msg: String
@@ -105,6 +120,20 @@ export default {
       data: Data,
       info: Data[0],
       gradeList: [5, 4],
+      images: [
+        "t01-008.png",
+        "t04-010.png",
+        "t08-040.png",
+        "t09-023.png",
+        "t10-019.png",
+        "t11-005.png",
+        "t11-032.png",
+        "t12-001.png",
+        "t13-003.png",
+        "t13-024.png",
+        "t16-017.png",
+        "t16-009.png"
+      ],
       series: "05",
       type: {
         t01 : "노말",
@@ -135,6 +164,40 @@ export default {
     init() {
       const series = this.$route.params.series
       this.series = series !== undefined? series : '05'
+    },
+    inited (viewer) {
+        this.$viewer = viewer
+    },
+    show () {
+      this.$viewer.show()
+    },
+    getImages(item) {
+      //if (item.grade === 4) return;
+
+      let retVal = []
+      let typeArr = []
+
+      const recommendArray = this.getDisk(item.type, true)
+
+      recommendArray.forEach((recommend) => {
+        Object.entries(this.type).forEach(([key, value]) => {
+          //console.log(`${key} ${value}`)
+          if (recommend == value) {
+            typeArr.push(key)
+          }
+        })
+      })
+
+      _.forEach(this.images, function(value) {
+        // typeArr.forEach((type) => {
+          // if (value.substr(0, 3) == type) {
+            const src = require("@/assets/img/support/" + value)
+            retVal.push(src)
+          // }
+        // })
+      })
+
+      return retVal
     },
     getData() {
       let retVal = []
