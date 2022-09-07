@@ -172,7 +172,7 @@ export default {
     show(item) {
       this.support = this.getImages(item)
 
-      if (this.support == '') {
+      if (this.support.length == 0) {
         this.$alert("추천 서포트 포켓몬이 없습니다.")
       } else {
         this.$viewer.show()
@@ -181,6 +181,7 @@ export default {
     getImages(item) {
       let retVal = []
       let typeArr = []
+      let arr = []
 
       // 추천 타입
       const recommendArray = this.getDisk(item.type, true)
@@ -198,12 +199,18 @@ export default {
       // 추천 코드에 해당하는 서포트 이미지
       _.forEach(this.images, function(value) {
         typeArr.forEach((type) => {
-          if (value.substr(0, 3) == type && retVal.length == 0) {
+          if (value.substr(0, 3) == type) {
             const src = require("@/assets/img/support/" + value)
-            retVal.push(src)
+            arr.push(src)
           }
         })
       })
+
+      // 랜덤하게 나오도록 수정
+      if (arr.length > 0) {
+        const index = Math.ceil(Math.random()*arr.length)
+        retVal.push(arr[index-1])
+      }
 
       return retVal
     },
