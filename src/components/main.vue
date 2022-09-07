@@ -27,10 +27,11 @@
                       <span>{{ getSolution(item.type, false) }}</span>
                     </div>
                     <div style="display: inline-block;">
-                      <b-button id="show-btn" v-if="grade == 5" pill variant="info" @click="show">서포트 포켓몬</b-button>
+                      <b-button id="show-btn" v-if="grade == 5" pill variant="info" @click="show(item)">서포트 포켓몬</b-button>
                       <template>
                         <div>
-                          <viewer :options="options" :images="getImages(item)"
+                          <viewer :options="options" 
+                                  :images="support"
                                   @inited="inited"
                                   class="viewer" ref="viewer"
                                   >
@@ -39,7 +40,6 @@
                               {{scope.options}}
                             </template>
                           </viewer>
-                          <button type="button" @click="show">Show</button>
                         </div>
                     </template>                     
                     </div>
@@ -134,6 +134,7 @@ export default {
         "t16-017.png",
         "t16-009.png"
       ],
+      support: [],      
       series: "05",
       type: {
         t01 : "노말",
@@ -168,33 +169,40 @@ export default {
     inited (viewer) {
         this.$viewer = viewer
     },
-    show () {
-      this.$viewer.show()
+    show (item) {
+      this.support = this.getImages(item)
+
+      if (this.support == '') {
+        this.$alert("추천 서포트 포켓몬이 없습니다.")
+      } else {
+        this.$viewer.show()
+      }
     },
     getImages(item) {
-      //if (item.grade === 4) return;
-
       let retVal = []
       let typeArr = []
 
+      // 추천 타입
       const recommendArray = this.getDisk(item.type, true)
 
+      // 추천 타입에 해당하는 코드
       recommendArray.forEach((recommend) => {
         Object.entries(this.type).forEach(([key, value]) => {
-          //console.log(`${key} ${value}`)
+          console.log(`${key} ${value}`)
           if (recommend == value) {
             typeArr.push(key)
           }
         })
       })
 
+      // 추천 코드에 해당하는 서포트 이미지
       _.forEach(this.images, function(value) {
-        // typeArr.forEach((type) => {
-          // if (value.substr(0, 3) == type) {
+        typeArr.forEach((type) => {
+          if (value.substr(0, 3) == type && retVal.length == 0) {
             const src = require("@/assets/img/support/" + value)
             retVal.push(src)
-          // }
-        // })
+          }
+        })
       })
 
       return retVal
