@@ -4,8 +4,10 @@ const path = require('path')
 
 const app = express()
 const port = process.env.PORT || 3000
+const distDir = __dirname + "/dist/";
 
 // SERVES FILES from our dist directory which now contains out index.html
+app.use(express.static(distDir));
 app.use('/', serverStatic(path.join(__dirname, '/dist')))
 app.listen(port)
 console.log('Listening on port:' + port)
