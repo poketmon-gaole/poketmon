@@ -85,6 +85,7 @@ export default {
     enter() {
       this.isShow = true;
       this.toggle = this.leave
+      this.scrollDisable()
       var left = (200 - (parseInt($('.left-btn').css('width')) / 2)) + 'px'
       $('.left').stop().animate({left: '0px'}, 250)
       $('.left-btn').stop().animate({left: left}, 250)
@@ -93,6 +94,7 @@ export default {
     leave() {
       this.isShow = false;
       this.toggle = this.enter
+      this.scrollAble()
       var left = (0 - (parseInt($('.left-btn').css('width')) / 2)) + 'px'
       $('.left').stop().animate({left: '-200px'}, 250)
       $('.left-btn').stop().animate({left: left}, 250)
@@ -105,6 +107,16 @@ export default {
       } else {
         this.$alert("준비중입니다.")
       }
+    },
+    scrollDisable() {
+      $('#app').on('scroll touchmove mousewheel', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+      });      
+    },
+    scrollAble() {
+      $('#app').off('scroll touchmove mousewheel');
     }
   }
 }
@@ -158,8 +170,14 @@ export default {
   top: -3px;
   font-size: 16px;    
 }
-.close {display:inline-block}
-.close-btn:after {content: "\00d7"; font-size:35pt;line-height:35px;}
+.close {
+  display:inline-block
+}
+.close-btn:after {
+  content: "\00d7";
+  font-size:35pt;
+  line-height:35px;
+}
 .support {
   display: inline-block;
   margin: 10px 0 0 0;  
