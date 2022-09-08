@@ -99,6 +99,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import _ from 'lodash'
 import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
@@ -262,8 +263,8 @@ export default {
     },
     setSeries(series) {
       this.series = series
-      window.scrollTo(0, 0)
       this.getData()
+      document.body.scrollTop = 0;
     },
     doModal(item) {
       this.visible = !this.visible

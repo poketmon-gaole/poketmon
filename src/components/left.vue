@@ -45,20 +45,6 @@ export default {
   props: {
     series: String
   },
-  components: {
-  },
-  watch: {
-    scrollTop: function(newValue, oldValue) {
-      if (newValue > oldValue) {
-        this.isScrollTop = true
-      } else {
-        this.isScrollTop = false
-      }
-    }
-  },    
-  mounted () {
-    window.addEventListener('scroll', this.handleScroll)
-  },  
   data () {
     return {
       isShow: false,
@@ -71,23 +57,13 @@ export default {
         {content: '가오레 3탄', series: '03'},
         {content: '가오레 2탄', series: '02'},
         {content: '가오레 1탄', series: '01'}
-      ],
-      scrollTop: 0,
-      isScrollTop: false
+      ]
     }
   },
   methods: {
     onRedirect() {
       window.open("https://toss.me/포켓몬가오레/1500", "_self")
     },
-    handleScroll () {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      this.scrollTop = scrollTop
-
-      if (scrollTop > 0) {
-        this.leave()
-      }
-    },    
     enter() {
       this.isShow = true;
       this.toggle = this.leave
