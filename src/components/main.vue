@@ -22,7 +22,7 @@
                   <span v-if="item.skill !== undefined" :class="[grade == 4? 'text' : '']">{{ item.skill }}</span>
                 </div>
                 <div class="type-box-bottom">
-                    <div class="solution">
+                    <div class="solution" @click="doModal(item)">
                       <span>{{ getSolution(item.type, true) }}</span>
                       <span>{{ getSolution(item.type, false) }}</span>
                     </div>
