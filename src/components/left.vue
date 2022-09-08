@@ -4,29 +4,35 @@
       <div class="close-box">
         <div class="close close-btn" @click="leave()"></div>
       </div>
-      <ul>
-        <li class="title">
-          <div>▶ 포켓몬 레전드 시리즈</div>
-        </li>
-        <li v-for="item in seriesList" :key="item.series">
-          <template v-if="Number(item.series) > 4">
-            <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
-          </template>
-        </li>
-      </ul>
-      <ul>
-        <li class="title">
-          <div>▶ 포켓몬 가오레 시리즈</div>
-        </li>
-        <li v-for="item in seriesList" :key="item.series">
-          <template v-if="Number(item.series) < 5">
-            <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
-          </template>
-        </li>
-      </ul>
-      <span class="support">
-        <b-button variant="light" @click="onRedirect()">개발자 후원</b-button>
-      </span>
+      <div>
+        <ul>
+          <li class="title">
+            <div>▶ 포켓몬 레전드 시리즈</div>
+          </li>
+          <li v-for="item in seriesList" :key="item.series">
+            <template v-if="Number(item.series) > 4">
+              <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
+            </template>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li class="title">
+            <div>▶ 포켓몬 가오레 시리즈</div>
+          </li>
+          <li v-for="item in seriesList" :key="item.series">
+            <template v-if="Number(item.series) < 5">
+              <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
+            </template>
+          </li>
+        </ul>
+      </div>
+      <div class="support">
+        <span>
+          <b-button variant="light" @click="onRedirect()">개발자 후원</b-button>
+        </span>
+      </div>
     </div>
     <img class="left-btn" @click="toggle" src="../assets/img/left_btn.png" width="50">
 </template>
@@ -156,10 +162,16 @@ export default {
 }
 .left .title {
   text-indent: 10px;
+  color: #c0c0c0;
 }
-.left-btn {position:fixed; top:495px; left:-25px; cursor:pointer}
+.left-btn {
+  position:fixed;
+  top:495px;
+  left:-25px;
+  cursor:pointer;
+}
 .left .close-box {
-  background-color: black;
+  background:black;
   padding: 10px 7px 0px 0;
   text-align: right;
 }
@@ -180,7 +192,7 @@ export default {
   font-size:35pt;
   line-height:35px;
 }
-.left .support {
+.left .support span {
   display: inline-block;
   margin: 10px 0 0 0;  
 }

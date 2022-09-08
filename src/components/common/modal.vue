@@ -47,11 +47,14 @@ export default {
 
 .modal-wrapper {
   display: table-cell;
-  padding-top: 30px;
+  position: fixed;
+  width: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  
 }
 
 .modal-container {
-  width: 90%;
   margin: 0px auto;
   padding: 20px 30px;
   background-color: #fff;
@@ -59,16 +62,19 @@ export default {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
 }
-
+.modal-header {
+  display: inline-block;
+  width: 100%;
+}
 .modal-header h3 {
   margin-top: 0;
   color: #42b983;
 }
 
 .modal-body {
-  margin: 20px 0;
+  margin: 0 0 10px 0;
   overflow-y: auto;
-  height: 610px;
+  height: 600px;
   overflow-x: hidden;
 }
 

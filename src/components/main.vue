@@ -56,7 +56,7 @@
     <Teleport to="body">
       <modal :show="visible" @close="visible = false">
         <template #header>
-          <div class="close-box">
+          <div class="header">
             <div class="close close-btn" @click="doModal"></div>
           </div>
         </template>
@@ -79,7 +79,7 @@
                       <span style="text-align: center">
                         {{ item.name }}
                       </span>
-                       <img :src="require(`@/assets/img/disk/${item.imageName}`)" width="145">
+                       <img :src="require(`@/assets/img/disk/${item.imageName}`)">
                       <span :class="[item.skill === undefined? 'sub-title':'skill']">
                           {{ getSeries(item) }}
                         &nbsp;
@@ -99,7 +99,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
 import _ from 'lodash'
 import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
@@ -683,6 +682,9 @@ strong {
     padding-left: 15px;
     font-size: small;
 }
+.summary-type img {
+  width: 145px;
+}
 .footer {
     display: inline-block;
     margin: 10px 0px 20px 0;
@@ -729,13 +731,12 @@ input[type=radio]:checked + label{
   font-weight: bold;
   font-size: initial;
 }
+.header {
+  float: right;
+}
 .modal-close {
   width: 100px;
   border-color: #c8c8c8;
-}
-.close-box {
-  padding: 10px 7px 0px 0;
-  text-align: right;
 }
 .close {
   display:inline-block;
@@ -743,7 +744,7 @@ input[type=radio]:checked + label{
 }
 .close-btn:after {
   content: "\00d7";
-  font-size:35pt;
-  line-height:35px;
+  font-size: 30pt;
+  line-height: 30px;
 }
 </style>
