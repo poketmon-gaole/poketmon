@@ -47,7 +47,7 @@ export default {
 
 .modal-wrapper {
   display: table-cell;
-  vertical-align: middle;
+  padding-top: 30px;
 }
 
 .modal-container {
@@ -68,7 +68,7 @@ export default {
 .modal-body {
   margin: 20px 0;
   overflow-y: auto;
-  height: 600px;
+  height: 660px;
   overflow-x: hidden;
 }
 

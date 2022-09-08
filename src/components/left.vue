@@ -109,13 +109,15 @@ export default {
       }
     },
     scrollDisable() {
+      $('html, body').css({'overflow': 'hidden', 'height': '100%'});
       $('#app').on('scroll touchmove mousewheel', function(event) {
         event.preventDefault();
         event.stopPropagation();
         return false;
-      });      
+      });
     },
     scrollAble() {
+      $('html, body').css({'overflow': 'auto', 'height': '100%'});
       $('#app').off('scroll touchmove mousewheel');
     }
   }
@@ -156,12 +158,12 @@ export default {
   text-indent: 10px;
 }
 .left-btn {position:fixed; top:495px; left:-25px; cursor:pointer}
-.close-box {
+.left .close-box {
   background-color: black;
   padding: 10px 7px 0px 0;
   text-align: right;
 }
-.close-box button {
+.left .close-box button {
   display: inline-block;
   border: 0;
   background: black;
@@ -170,19 +172,19 @@ export default {
   top: -3px;
   font-size: 16px;    
 }
-.close {
+.left .close {
   display:inline-block
 }
-.close-btn:after {
+.left .close-btn:after {
   content: "\00d7";
   font-size:35pt;
   line-height:35px;
 }
-.support {
+.left .support {
   display: inline-block;
   margin: 10px 0 0 0;  
 }
-.support button {
+.left .support button {
   width: 173px;
 }
 </style>

@@ -56,7 +56,9 @@
     <Teleport to="body">
       <modal :show="visible" @close="visible = false">
         <template #header>
-          <img src="../assets/img/x.png" width="16" @click="doModal">
+          <div class="close-box">
+            <div class="close close-btn" @click="doModal"></div>
+          </div>
         </template>
         <template #body>
           <strong :ref="top">{{ info.name }} [{{ info.type }}]</strong>
@@ -97,6 +99,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import _ from 'lodash'
 import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
@@ -276,8 +279,12 @@ export default {
         // 추천 상태 추가
         this.info.isRecommend = true        
 
-        // 좌측메뉴 닫기
-        this.$refs.left.leave();
+        // 스크롤 이동 방지
+        this.$refs.left.scrollDisable()
+        this.$refs.top.focus()
+      } else {
+        // 스크롤 이동 해제
+        this.$refs.left.scrollAble()
       }
     },
     getSolution(type, isRecommend) {
@@ -725,5 +732,18 @@ input[type=radio]:checked + label{
 .modal-close {
   width: 100px;
   border-color: #c8c8c8;
+}
+.close-box {
+  padding: 10px 7px 0px 0;
+  text-align: right;
+}
+.close {
+  display:inline-block;
+  color: #b9b9b9;
+}
+.close-btn:after {
+  content: "\00d7";
+  font-size:35pt;
+  line-height:35px;
 }
 </style>
