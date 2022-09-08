@@ -713,7 +713,7 @@ input[type=radio]:checked + label{
   padding-bottom: 20px;
 }
 .solution {
-  width: 60%;
+  width: 250px;
   display: inline-block;
 }
 .support {
