@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="left">
+  <div v-show="isShow" class="left-background" @click="leave()"></div>
+  <div class="left">
       <div class="close-box">
         <div class="close close-btn" @click="leave()"></div>
       </div>
@@ -29,7 +29,6 @@
       </span>
     </div>
     <img class="left-btn" @click="toggle" src="../assets/img/left_btn.png" width="50">
-  </div>
 </template>
 
 <script>
@@ -56,6 +55,7 @@ export default {
   },  
   data () {
     return {
+      isShow: false,
       toggle: this.enter,
       seriesList: [
         {content: '레전드 3탄', series: '07'},
@@ -83,7 +83,7 @@ export default {
       }
     },    
     enter() {
-      this.show = true;
+      this.isShow = true;
       this.toggle = this.leave
       var left = (200 - (parseInt($('.left-btn').css('width')) / 2)) + 'px'
       $('.left').stop().animate({left: '0px'}, 250)
@@ -91,7 +91,7 @@ export default {
       $('.left-btn').css({transform: 'rotate(180deg)'})
     },
     leave() {
-      this.show = false;
+      this.isShow = false;
       this.toggle = this.enter
       var left = (0 - (parseInt($('.left-btn').css('width')) / 2)) + 'px'
       $('.left').stop().animate({left: '-200px'}, 250)
@@ -110,6 +110,14 @@ export default {
 }
 </script>
 <style>
+.left-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
 .left {
   position:fixed; 
   top:0px; 
