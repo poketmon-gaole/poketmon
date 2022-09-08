@@ -68,7 +68,7 @@ export default {
 .modal-body {
   margin: 20px 0;
   overflow-y: auto;
-  height: 660px;
+  height: 610px;
   overflow-x: hidden;
 }
 
