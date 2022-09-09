@@ -8,7 +8,7 @@ const routes = [
     component: () => import('@/views/home'), // 동적 import
   },
   {
-    path: '/login/:series',
+    path: '/login',
     name: 'Login',
     component: () => import('@/views/login'),
   }
