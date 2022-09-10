@@ -28,11 +28,13 @@
           </li>
         </ul>
       </div>
+      <!--
       <div class="support">
         <span>
           <b-button variant="light" @click="onRedirect()">개발자 후원</b-button>
         </span>
       </div>
+      -->
     </div>
     <img class="left-btn" @click="toggle" src="../assets/img/left_btn.png" width="50">
 </template>
