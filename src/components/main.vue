@@ -1,50 +1,50 @@
 <template>
-  <img alt="포캣몬 가오레 Logo" src="@/assets/img/poketmon.png" height="170"/>
+  <img alt="Logo" src="@/assets/img/poketmon.png" height="170"/>
   <div class="contents">
     <h1>{{ setTitle(msg, series) }}</h1>
     <template v-for="grade in gradeList" :key="grade">
       <h3>GRADE {{ grade }}</h3>
       <ul>
-        <template v-for="item in getData()" :key="item.id">
+        <template v-for="(item, index) in getData()" :key="index">
           <li v-if="item.grade == grade">
-              <div class="type-box" :style="[grade == 4? 'background: #838383' : '']">
-                <label class="type-box-top" @click="doModal(item)">{{ item.name }} [{{ item.type }}]</label>
-                <div class="type-box-left" @click="doModal(item)">
-                  <img :src="require(`@/assets/img/disk/${item.imageName}`)">
-                </div>
-                <div class="type-box-right" @click="doModal(item)">
-                  <span v-if="item.hp !== undefined" :class="[grade == 4? 'text' : '']">HP: {{ item.hp }}</span>
-                  <span v-if="item.atc !== undefined" :class="[grade == 4? 'text' : '']">공격: {{ item.atc }}</span>
-                  <span v-if="item.spclAtck !== undefined" :class="[grade == 4? 'text' : '']">특수공격: {{ item.spclAtck }}</span>
-                  <span v-if="item.def !== undefined" :class="[grade == 4? 'text' : '']">방어: {{ item.def }}</span>
-                  <span v-if="item.spclDfns !== undefined" :class="[grade == 4? 'text' : '']">특수방어: {{ item.spclDfns }}</span>
-                  <span v-if="item.speed !== undefined" :class="[grade == 4? 'text' : '']">스피드: {{ item.speed }}</span>
-                  <span v-if="item.skill !== undefined" :class="[grade == 4? 'text' : '']">{{ item.skill }}</span>
-                </div>
-                <div class="type-box-bottom">
-                    <div class="solution" @click="doModal(item)">
-                      <span>{{ getSolution(item.type, true) }}</span>
-                      <span>{{ getSolution(item.type, false) }}</span>
-                    </div>
-                    <div style="display: inline-block;">
-                      <b-button id="show-btn" :style="[grade == 4? 'background: #565656' : '']" pill variant="info" @click="show(item)">서포트 포켓몬</b-button>
-                      <template>
-                        <div>
-                          <viewer :options="options" 
-                                  :images="support"
-                                  @inited="inited"
-                                  class="viewer" ref="viewer"
-                                  >
-                            <template #default="scope">
-                              <img v-for="src in scope.images" :src="src" :key="src">
-                              {{scope.options}}
-                            </template>
-                          </viewer>
-                        </div>
-                    </template>                     
-                    </div>
-                </div>
+            <div class="type-box" :style="[grade == 4? 'background: #838383' : '']">
+              <label class="type-box-top" @click="doModal(item)">{{ item.name }} [{{ item.type }}]</label>
+              <div class="type-box-left" @click="doModal(item)">
+                <img :src="require(`@/assets/img/disk/${item.imageName}`)">
               </div>
+              <div class="type-box-right" @click="doModal(item)">
+                <span v-if="item.hp !== undefined" :class="[grade == 4? 'text' : '']">HP: {{ item.hp }}</span>
+                <span v-if="item.atc !== undefined" :class="[grade == 4? 'text' : '']">공격: {{ item.atc }}</span>
+                <span v-if="item.spclAtck !== undefined" :class="[grade == 4? 'text' : '']">특수공격: {{ item.spclAtck }}</span>
+                <span v-if="item.def !== undefined" :class="[grade == 4? 'text' : '']">방어: {{ item.def }}</span>
+                <span v-if="item.spclDfns !== undefined" :class="[grade == 4? 'text' : '']">특수방어: {{ item.spclDfns }}</span>
+                <span v-if="item.speed !== undefined" :class="[grade == 4? 'text' : '']">스피드: {{ item.speed }}</span>
+                <span v-if="item.skill !== undefined" :class="[grade == 4? 'text' : '']">{{ item.skill }}</span>
+              </div>
+              <div class="type-box-bottom">
+                  <div class="solution" @click="doModal(item)">
+                    <span>{{ getSolution(item.type, true) }}</span>
+                    <span>{{ getSolution(item.type, false) }}</span>
+                  </div>
+                  <div style="display: inline-block;">
+                    <b-button id="show-btn" :style="[grade == 4? 'background: #565656' : '']" pill variant="info" @click="show(item)">서포트 포켓몬</b-button>
+                    <template>
+                      <div>
+                        <viewer :options="options" 
+                                :images="support"
+                                @inited="inited"
+                                class="viewer" ref="viewer"
+                                >
+                          <template #default="scope">
+                            <img v-for="src in scope.images" :src="src" :key="src">
+                            {{scope.options}}
+                          </template>
+                        </viewer>
+                      </div>
+                  </template>                     
+                  </div>
+              </div>
+            </div>
           </li>
         </template>
       </ul>
@@ -223,11 +223,13 @@ export default {
       this.data.forEach((item) => {
         // 시리즈별 조회
         if (item.id.substr(0, 2) == this.series) {
+          // 행운디스크 제외
+          if (item.id.substr(3, item.id.length) == '000') return
           retVal.push(item)
         }
       })
 
-      return retVal;
+      return _.orderBy(retVal, ['id'], ['asc']);
     },
     getRecommendData() {
       if (this.info.isRecommend) {
@@ -242,9 +244,9 @@ export default {
     },
     setTitle(msg, series) {
       if (series < 5) {
-        return msg + " 가오레 " + Number(series) + "탄";
+        return "제" + Number(series) + "탄";
       } else {
-        return msg + " 레전드 " + Number(series-4) + "탄";
+        return "레전드 " + Number(series-4) + "탄";
       }  
     },
     getSeries(item) {
