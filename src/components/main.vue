@@ -137,6 +137,13 @@ export default {
         "t16-017.png",
         "t16-009.png"
       ],
+      options: {
+        loop: false,
+        scalable: false,
+        title: false,
+        movable: true,
+        initialViewIndex: 0
+      },
       support: [],      
       series: "05",
       type: {
@@ -170,21 +177,21 @@ export default {
       this.series = series !== undefined? series : '05'
     },
     inited (viewer) {
-        this.$viewer = viewer
+      this.$viewer = viewer
     },
     show(item) {
       this.support = this.getImages(item)
 
       if (this.support.length == 0) {
-        this.$alert("추천 서포트 포켓몬이 없습니다.")
+        this.$notify({ type: "warn", text: "<b>추천 서포트 포켓몬이 없습니다.</b>" });
       } else {
+        this.$viewer.view(this.options.initialViewIndex)
         this.$viewer.show()
       }
     },
     getImages(item) {
       let retVal = []
       let typeArr = []
-      let arr = []
 
       // 추천 타입
       const recommendArray = this.getDisk(item.type, true)
@@ -204,16 +211,10 @@ export default {
         typeArr.forEach((type) => {
           if (value.substr(0, 3) == type) {
             const src = require("@/assets/img/support/" + value)
-            arr.push(src)
+            retVal.push(src)
           }
         })
       })
-
-      // 랜덤하게 나오도록 수정
-      if (arr.length > 0) {
-        const index = Math.ceil(Math.random()*arr.length)
-        retVal.push(arr[index-1])
-      }
 
       return retVal
     },
@@ -239,7 +240,7 @@ export default {
       }
     },
     getSort() {
-      const retVal = _.orderBy(this.data, ['grade', 'skill', 'id'], ['desc', 'asc', 'asc'])
+      const retVal = _.orderBy(this.data, ['grade', "luckYn", 'skill', 'id'], ['desc', 'desc', 'asc', 'asc'])
       return retVal;
     },
     setTitle(msg, series) {

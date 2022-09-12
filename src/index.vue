@@ -1,16 +1,11 @@
 <template>
-  <!-- <PoketmonMain msg="포캣몬"/> -->
   <router-view />
+  <notifications position="bottom" width="100%"/>
 </template>
 
 <script>
-// import PoketmonMain from '@/components/main.vue'
-
 export default {
   name: 'App',
-  components: {
-    // PoketmonMain
-  }
 }
 </script>
 

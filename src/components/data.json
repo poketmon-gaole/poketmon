@@ -11,7 +11,8 @@
         "def":96,
         "spclDfns":101,
         "speed":81,
-        "skill":"Z기술"
+        "skill":"Z기술",
+        "luckYn": "Y"
     },
     {
         "id": "05-060",
@@ -414,7 +415,8 @@
         "def": 79,
         "spclDfns": 86,
         "speed": 101,
-        "skill": "메가진화"
+        "skill": "메가진화",
+        "luckYn": "Y"
     },    
     {
         "id": "04-023",
@@ -1646,7 +1648,8 @@
         "def":89,
         "spclDfns":96,
         "speed":113,
-        "skill":"메가진화"
+        "skill":"메가진화",
+        "luckYn": "Y"
      },    
     {
         "id":"06-004",
