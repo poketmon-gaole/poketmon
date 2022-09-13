@@ -6,7 +6,7 @@
       <ins v-if="grade == 4" class="kakao_ad_area" style="display:none;"
         data-ad-unit    = "DAN-p7nNGyfhJYBPvnQl"
         data-ad-width   = "320"
-        data-ad-height  = "50">
+        data-ad-height  = "100">
       </ins>
       <h3>GRADE {{ grade }}</h3>
       <ul>
