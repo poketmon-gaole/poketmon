@@ -183,7 +183,11 @@ export default {
       this.support = this.getImages(item)
 
       if (this.support.length == 0) {
-        this.$notify({ type: "warn", text: "<b>추천 서포트 포켓몬이 없습니다.</b>" });
+        this.$notify({
+          type: "warn",
+          title: "[알림]",
+          text: "추천 서포트 포켓몬이 없습니다."
+        });
       } else {
         this.$viewer.view(this.options.initialViewIndex)
         this.$viewer.show()
