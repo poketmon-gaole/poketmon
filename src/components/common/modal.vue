@@ -48,7 +48,7 @@ export default {
 .modal-wrapper {
   display: table-cell;
   position: fixed;
-  width: 90%;
+  width: 367px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);  

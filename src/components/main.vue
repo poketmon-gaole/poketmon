@@ -3,51 +3,48 @@
   <div class="contents">
     <h1>{{ setTitle(msg, series) }}</h1>
     <template v-for="grade in gradeList" :key="grade">
-      <ins v-if="grade == 4" class="kakao_ad_area" style="display:none;"
-        data-ad-unit    = "DAN-p7nNGyfhJYBPvnQl"
-        data-ad-width   = "320"
-        data-ad-height  = "100">
-      </ins>
       <h3>GRADE {{ grade }}</h3>
       <ul>
         <template v-for="(item, index) in getData()" :key="index">
           <li v-if="item.grade == grade">
             <div class="type-box" :style="[grade == 4? 'background: #838383' : '']">
-              <label class="type-box-top" @click="doModal(item)">{{ item.name }} [{{ item.type }}]</label>
-              <div class="type-box-left" @click="doModal(item)">
-                <img :src="require(`@/assets/img/disk/${item.imageName}`)">
-              </div>
-              <div class="type-box-right" @click="doModal(item)">
-                <span v-if="item.hp !== undefined" :class="[grade == 4? 'text' : '']">HP: {{ item.hp }}</span>
-                <span v-if="item.atc !== undefined" :class="[grade == 4? 'text' : '']">공격: {{ item.atc }}</span>
-                <span v-if="item.spclAtck !== undefined" :class="[grade == 4? 'text' : '']">특수공격: {{ item.spclAtck }}</span>
-                <span v-if="item.def !== undefined" :class="[grade == 4? 'text' : '']">방어: {{ item.def }}</span>
-                <span v-if="item.spclDfns !== undefined" :class="[grade == 4? 'text' : '']">특수방어: {{ item.spclDfns }}</span>
-                <span v-if="item.speed !== undefined" :class="[grade == 4? 'text' : '']">스피드: {{ item.speed }}</span>
-                <span v-if="item.skill !== undefined" :class="[grade == 4? 'text' : '']">{{ item.skill }}</span>
-              </div>
-              <div class="type-box-bottom">
-                  <div class="solution" @click="doModal(item)">
-                    <span>{{ getSolution(item.type, true) }}</span>
-                    <span>{{ getSolution(item.type, false) }}</span>
-                  </div>
-                  <div style="display: inline-block;">
-                    <b-button id="show-btn" :style="[grade == 4? 'background: #565656' : '']" pill variant="info" @click="show(item)">서포트 포켓몬</b-button>
-                    <template>
-                      <div>
-                        <viewer :options="options" 
-                                :images="support"
-                                @inited="inited"
-                                class="viewer" ref="viewer"
-                                >
-                          <template #default="scope">
-                            <img v-for="src in scope.images" :src="src" :key="src">
-                            {{scope.options}}
-                          </template>
-                        </viewer>
-                      </div>
-                  </template>                     
-                  </div>
+              <div class="type-box-container">
+                <label class="type-box-top" @click="doModal(item)">{{ item.name }} [{{ item.type }}]</label>
+                <div class="type-box-left" @click="doModal(item)">
+                  <img :src="require(`@/assets/img/disk/${item.imageName}`)">
+                </div>
+                <div class="type-box-right" @click="doModal(item)">
+                  <span v-if="item.hp !== undefined" :class="[grade == 4? 'text' : '']">HP: {{ item.hp }}</span>
+                  <span v-if="item.atc !== undefined" :class="[grade == 4? 'text' : '']">공격: {{ item.atc }}</span>
+                  <span v-if="item.spclAtck !== undefined" :class="[grade == 4? 'text' : '']">특수공격: {{ item.spclAtck }}</span>
+                  <span v-if="item.def !== undefined" :class="[grade == 4? 'text' : '']">방어: {{ item.def }}</span>
+                  <span v-if="item.spclDfns !== undefined" :class="[grade == 4? 'text' : '']">특수방어: {{ item.spclDfns }}</span>
+                  <span v-if="item.speed !== undefined" :class="[grade == 4? 'text' : '']">스피드: {{ item.speed }}</span>
+                  <span v-if="item.skill !== undefined" :class="[grade == 4? 'text' : '']">{{ item.skill }}</span>
+                </div>
+                <div class="type-box-bottom">
+                    <div class="solution" @click="doModal(item)">
+                      <span>{{ getSolution(item.type, true) }}</span>
+                      <span>{{ getSolution(item.type, false) }}</span>
+                    </div>
+                    <div style="display: inline-block;">
+                      <b-button id="show-btn" :style="[grade == 4? 'background: #565656' : '']" pill variant="info" @click="show(item)">서포트 포켓몬</b-button>
+                      <template>
+                        <div>
+                          <viewer :options="options" 
+                                  :images="support"
+                                  @inited="inited"
+                                  class="viewer" ref="viewer"
+                                  >
+                            <template #default="scope">
+                              <img v-for="src in scope.images" :src="src" :key="src">
+                              {{scope.options}}
+                            </template>
+                          </viewer>
+                        </div>
+                    </template>                     
+                    </div>
+                </div>
               </div>
             </div>
           </li>
@@ -66,7 +63,7 @@
           </div>
         </template>
         <template #body>
-          <strong :ref="top">{{ info.name }} [{{ info.type }}]</strong>
+          <strong>{{ info.name }} [{{ info.type }}]</strong>
           <img class="poketmon-img" :src="require(`@/assets/img/disk/${info.imageName}`)">
           <div class="recommend-box" v-if="info.notRecommendArray.length > 0">
             <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option1" name="test" value="option1" checked="checked">
@@ -77,9 +74,9 @@
           <div class="summary-box" v-for="recommend in getRecommendData()" :key="recommend">
             <p>{{ recommend }}</p>
             <div style="border-bottom: 8px solid #ededed; margin: 14px 0 0 0px;"></div>
-            <ul style="width:100%">
-              <template v-for="item in getSort()" :key="item.id">
-                <li class="summary" v-if="recommend === getCorrelation(item)">
+            <ul style="width:100%; text-align:center;">
+              <template v-for="item in getCorrelation(recommend)" :key="item.id">
+                <li class="summary" :style="[item.visibility !== undefined? 'visibility: hidden' : '']">
                     <div class="summary-type">
                       <span style="text-align: center">
                         {{ item.name }}
@@ -93,7 +90,7 @@
                 </li>
               </template>
             </ul>
-          </div>          
+          </div>
         </template>
         <template #footer>
           <b-button class="modal-close" pill @click="doModal" squared variant="outline-secondary">닫기</b-button>
@@ -104,7 +101,6 @@
 </template>
 
 <script>
-import $ from 'jquery'
 import _ from 'lodash'
 import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
@@ -212,7 +208,6 @@ export default {
       // 추천 타입에 해당하는 코드
       recommendArray.forEach((recommend) => {
         Object.entries(this.type).forEach(([key, value]) => {
-          console.log(`${key} ${value}`)
           if (recommend == value) {
             typeArr.push(key)
           }
@@ -246,15 +241,15 @@ export default {
       return _.orderBy(retVal, ['id'], ['asc']);
     },
     getRecommendData() {
+      let retVal;
+
       if (this.info.isRecommend) {
-        return this.info.recommendArray
+        retVal = this.info.recommendArray
       } else {
-        return this.info.notRecommendArray
+        retVal = this.info.notRecommendArray
       }
-    },
-    getSort() {
-      const retVal = _.orderBy(this.data, ['grade', "luckYn", 'skill', 'id'], ['desc', 'desc', 'asc', 'asc'])
-      return retVal;
+
+      return retVal
     },
     setTitle(msg, series) {
       if (series < 5) {
@@ -297,7 +292,6 @@ export default {
 
         // 스크롤 이동 방지
         this.$refs.left.scrollDisable()
-        this.$refs.top.focus()
       } else {
         // 스크롤 이동 해제
         this.$refs.left.scrollAble()
@@ -313,11 +307,18 @@ export default {
       }
     },
     getCorrelation(item) {
-      if (typeof item.correlation === 'undefined') {
-        return item.type
-      } else {
-        return item.correlation
+      const data = _.filter(this.data, {correlation: item});
+      let retVal = _.orderBy(data, ['grade', "luckYn", 'skill', 'id'], ['desc', 'desc', 'asc', 'asc'])
+
+      // 짝수로 안될경우 데이터 생성 후 감추기
+      if (retVal.length % 2 !== 0) {
+        let item = _.cloneDeep(retVal[retVal.length-1])
+        item.visibility = true
+
+        retVal.push(item)
       }
+
+      return retVal;
     },
     getDisk(type, isRecommend) {
       let recommendArr = [] // 추천
@@ -618,6 +619,10 @@ strong {
     border-radius: 15px;
     display: inline-block;    
 }
+.type-box-container {
+  display:block;
+  width: 391px;
+}
 .type-box-top {
     display: block;
     font-weight: bolder;
@@ -652,8 +657,8 @@ strong {
     border-left: thick solid #efefef
 }
 .type-box-bottom {
-    display: inline-block;
-    width: 100%;
+    float: left;
+    width: 362px;
     text-align: start;
     margin: 15px 0 10px 7px;
     font-size: 15px;
@@ -679,7 +684,7 @@ strong {
 }
 .summary {
     display: inline-block;
-    width: 155px;
+    width: 145px;
     margin: 5px 0 10px 0;
     text-align: center;
 }
@@ -700,7 +705,7 @@ strong {
     font-size: small;
 }
 .summary-type img {
-  width: 145px;
+  width: 140px;
 }
 .footer {
     display: inline-block;
@@ -739,7 +744,7 @@ input[type=radio]:checked + label{
   padding-bottom: 20px;
 }
 .solution {
-  width: 250px;
+  width: 62.5%;
   display: inline-block;
 }
 .support {
@@ -749,7 +754,7 @@ input[type=radio]:checked + label{
   font-size: initial;
 }
 .header {
-  float: right;
+  float: left;
 }
 .modal-close {
   width: 100px;

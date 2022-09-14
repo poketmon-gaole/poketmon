@@ -28,6 +28,9 @@
           </li>
         </ul>
       </div>
+      <div class="banner">
+        <iframe src="https://ads-partners.coupang.com/widgets.html?id=606219&template=carousel&trackingCode=AF3681542&subId=&width=150&height=150" width="150" height="150" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>
+      </div>
       <!--
       <div class="support">
         <span>
@@ -52,7 +55,7 @@ export default {
       isShow: false,
       toggle: this.enter,
       seriesList: [
-        //{content: '레전드 3탄', series: '07'},
+        {content: '레전드 3탄', series: '07'},
         {content: '레전드 2탄', series: '06'},
         {content: '레전드 1탄', series: '05'},
         {content: '가오레 4탄', series: '04'},
@@ -172,5 +175,10 @@ export default {
 }
 .left .support button {
   width: 173px;
+}
+.banner {
+  position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 </style>
