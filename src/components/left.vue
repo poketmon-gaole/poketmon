@@ -155,10 +155,7 @@ export default {
 }
 .left .close-box span {
   float: left;
-  margin: 3px 0 0 6px;
-  border-radius: 13px;
-  border: 1px solid #fff;
-  padding: 2px 13px 2px 11px;
+  margin: 6px 0 0 6px;
 }
 .left .close-box button {
   display: inline-block;
