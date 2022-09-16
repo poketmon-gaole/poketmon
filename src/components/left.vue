@@ -2,6 +2,7 @@
   <div v-show="isShow" class="left-background" @click="leave()"></div>
   <div class="left">
       <div class="close-box">
+        <span>Gaole Series</span>
         <div class="close close-btn" @click="leave()"></div>
       </div>
       <div>
@@ -151,6 +152,13 @@ export default {
   background:black;
   padding: 10px 7px 0px 0;
   text-align: right;
+}
+.left .close-box span {
+  float: left;
+  margin: 3px 0 0 6px;
+  border-radius: 13px;
+  border: 1px solid #fff;
+  padding: 2px 13px 2px 11px;
 }
 .left .close-box button {
   display: inline-block;
