@@ -179,15 +179,17 @@ export default {
   },
   mounted() {
     this.init()
-
-    let recaptchaScript = document.createElement('script')
-    recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
-    document.head.appendChild(recaptchaScript)
   },
   methods: { 
     init() {
       const series = this.$route.params.series
       this.series = series !== undefined? series : '05'
+
+      this.$refs.left.scrollAble()
+
+      let recaptchaScript = document.createElement('script')
+      recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
+      document.head.appendChild(recaptchaScript)      
     },
     inited (viewer) {
       this.$viewer = viewer
