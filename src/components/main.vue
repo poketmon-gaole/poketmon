@@ -1,13 +1,16 @@
 <template>
+  <ins class="kakao_ad_area" style="display:none;"
+  data-ad-unit    = "DAN-e5cqaGXR9fpc4zco"
+  data-ad-width   = "320"
+  data-ad-height  = "50"></ins>
   <img alt="Logo" src="@/assets/img/poketmon.png" height="170"/>
-  <div class="contents">
+  <div class="contents">   
     <h1>{{ setTitle(msg, series) }}</h1>
     <template v-for="grade in gradeList" :key="grade">
       <ins v-if="grade == 4" class="kakao_ad_area" style="display:none;"
         data-ad-unit    = "DAN-p7nNGyfhJYBPvnQl"
         data-ad-width   = "320"
-        data-ad-height  = "100">
-      </ins>      
+        data-ad-height  = "100"></ins>
       <h3>GRADE {{ grade }}</h3>
       <ul>
         <template v-for="(item, index) in getData()" :key="index">
@@ -580,18 +583,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-    color: white;
+    color: black;
     padding: 15px 0px 15px 0;
-    background: #4c3c27;
-    width: 95%;
-    display: inline-block;
     font-weight: bold;
 }
 h3 {
     display: inline-block;
     color: black;
     font-size: 25px;
-    padding: 15px 0 15px 10px;
+    padding: 0 0 15px 10px;
     width: 95%;
     margin: 25px 0 0 0;
     text-align: left;
