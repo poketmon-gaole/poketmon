@@ -10,7 +10,13 @@ const routes = [
     path: '/series/:series',
     name: 'Series',
     component: () => import('@/views/home'),
-  }
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('@/components/search'),
+    props: true
+  }  
 ];
 
 export const router = createRouter({

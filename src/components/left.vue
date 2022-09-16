@@ -1,8 +1,10 @@
 <template>
   <div v-show="isShow" class="left-background" @click="leave()"></div>
   <div class="left">
-      <div class="close-box">
-        <div class="close close-btn" @click="leave()"></div>
+      <div class="search">
+        <b-form-input id="searchBox" v-model="text" type="search" placeholder="Search"></b-form-input>
+        <img src="../assets/img/search.png" @click="doSearch()">
+        <!--<div class="close close-btn" @click="leave()"></div>-->
       </div>
       <div>
         <ul>
@@ -48,6 +50,8 @@
 
 <script>
 import $ from 'jquery'
+import _ from 'lodash'
+import Data from "@/components/data.json"
 
 export default {
   name: 'left',
@@ -58,6 +62,7 @@ export default {
     return {
       isShow: false,
       toggle: this.enter,
+      text: '',
       seriesList: [
         {content: '레전드 3탄', series: '07'},
         {content: '레전드 2탄', series: '06'},
@@ -93,8 +98,18 @@ export default {
     },
     doSeries(series) {
       this.leave()
-      this.$parent.setSeries(series)
+      this.$router.push({
+        name: "Series",
+        params: { series: series }
+      });
     },
+    doSearch() {     
+      this.leave()      
+      this.$router.push({
+        name: "Search",
+        params: { name: this.text }
+      });
+    },    
     scrollDisable() {
       $('html, body').css({'overflow': 'hidden', 'height': '100%'});
       $('#app').on('scroll touchmove mousewheel', function(event) {
@@ -152,19 +167,18 @@ export default {
   left:-25px;
   cursor:pointer;
 }
-.left .close-box {
-  background:#ededed;
-  padding: 10px 7px 0px 0;
-  text-align: right;
+.left .search {
+  background: #ededed;
+  padding: 5px 7px 5px 4px;
+  text-align: left;
 }
-.left .close-box button {
+#searchBox {
+  width: 155px;
   display: inline-block;
-  border: 0;
-  background: black;
-  color: white;
-  position: relative;
-  top: -3px;
-  font-size: 16px;    
+}
+.left .search img {
+  margin: 0 0 0 9px;
+  width: 20px;
 }
 .left .close {
   display:inline-block
