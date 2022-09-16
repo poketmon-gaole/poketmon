@@ -17,6 +17,7 @@
           </li>
         </ul>
       </div>
+      <div class="left-line"></div>
       <div>
         <ul>
           <li class="title">
@@ -29,6 +30,7 @@
           </li>
         </ul>
       </div>
+      <div class="left-line"></div>
       <div class="banner">
         <div class="banner-box">
           <iframe src="https://ads-partners.coupang.com/widgets.html?id=606219&template=carousel&trackingCode=AF3681542&subId=&width=150&height=150" width="150" height="150" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>
@@ -127,6 +129,7 @@ export default {
   background: #ffffff;
   overflow: hidden;
   color: black;
+  font-size: 15px;
 }
 .left ul {
   width: 100%;
@@ -182,6 +185,9 @@ export default {
 }
 .left .support button {
   width: 173px;
+}
+.left-line {
+  border-bottom: 1px solid #ededed;
 }
 .banner {
   bottom: 0;
