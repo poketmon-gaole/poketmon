@@ -12,7 +12,7 @@
           </li>
           <li v-for="item in seriesList" :key="item.series">
             <template v-if="Number(item.series) > 4">
-              <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
+              <div :style="[series == item.series? 'font-weight:bold; color:orangered;' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
             </template>
           </li>
         </ul>
@@ -24,13 +24,15 @@
           </li>
           <li v-for="item in seriesList" :key="item.series">
             <template v-if="Number(item.series) < 5">
-              <div :style="[series == item.series? 'font-weight: bold' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
+              <div :style="[series == item.series? 'font-weight:bold; color:orangered;' : '']" @click="doSeries(item.series)">- {{ item.content }}</div>
             </template>
           </li>
         </ul>
       </div>
       <div class="banner">
-        <iframe src="https://ads-partners.coupang.com/widgets.html?id=606219&template=carousel&trackingCode=AF3681542&subId=&width=150&height=150" width="150" height="150" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>
+        <div class="banner-box">
+          <iframe src="https://ads-partners.coupang.com/widgets.html?id=606219&template=carousel&trackingCode=AF3681542&subId=&width=150&height=150" width="150" height="150" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>
+        </div>
       </div>
       <!--
       <div class="support">
@@ -117,14 +119,14 @@ export default {
   background: rgba(0, 0, 0, 0.6);
 }
 .left {
-  position:fixed; 
-  top:0px; 
-  left:-200px; 
-  width:200px; 
-  height:100%; 
-  background:#5a5a5a;
+  position: fixed;
+  top: 0px;
+  left: -200px;
+  width: 200px;
+  height: 100%;
+  background: #ffffff;
   overflow: hidden;
-  color: white;
+  color: black;
 }
 .left ul {
   width: 100%;
@@ -140,7 +142,7 @@ export default {
 }
 .left .title {
   text-indent: 10px;
-  color: #c0c0c0;
+  color: #bbbbbb;
 }
 .left-btn {
   position:fixed;
@@ -149,7 +151,7 @@ export default {
   cursor:pointer;
 }
 .left .close-box {
-  background:black;
+  background:#ededed;
   padding: 10px 7px 0px 0;
   text-align: right;
 }
@@ -182,8 +184,14 @@ export default {
   width: 173px;
 }
 .banner {
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+}
+.banner-box {
   position: absolute;
-    bottom: 0;
-    width: 100%;
+  bottom: 0;
+  left: 23px;
 }
 </style>
