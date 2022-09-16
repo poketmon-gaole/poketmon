@@ -177,19 +177,20 @@ export default {
       }
     }
   },
+  watch: {
+    $route(to, from) {
+      this.setSeries()
+    }
+  },  
   mounted() {
-    this.init()
+    this.init()  
   },
   methods: { 
     init() {
       const series = this.$route.params.series
       this.series = series !== undefined? series : '05'
 
-      this.$refs.left.scrollAble()
-
-      let recaptchaScript = document.createElement('script')
-      recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
-      document.head.appendChild(recaptchaScript)      
+      this.$refs.left.scrollAble()    
     },
     inited (viewer) {
       this.$viewer = viewer
@@ -282,8 +283,8 @@ export default {
 
       return retVal;
     },
-    setSeries(series) {
-      this.series = series
+    setSeries() {
+      this.series = this.$route.params.series
       this.getData()
       document.body.scrollTop = 0;
     },

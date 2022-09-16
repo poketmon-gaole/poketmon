@@ -51,7 +51,6 @@
 <script>
 import $ from 'jquery'
 import _ from 'lodash'
-import Data from "@/components/data.json"
 
 export default {
   name: 'left',

@@ -6,8 +6,7 @@
   <div class="contents">
     <h1>{{ setTitle() }}</h1>
     <template v-for="grade in gradeList" :key="grade">
-      <h3 v-if="grade == 4 && searchData.isGrade4">GRADE {{ grade }}</h3>
-      <h3 v-if="grade == 5 && searchData.isGrade5">GRADE {{ grade }}</h3>
+      <h3>GRADE {{ grade }}</h3>
       <ul>
         <template v-for="(item, index) in data" :key="index">
           <li v-if="item.grade == grade">
@@ -57,7 +56,7 @@
     </template>
     <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div>
   </div>
-  <left :series=series ref="left"></left>
+  <left ref="left"></left>
   <template>
     <Teleport to="body">
       <modal :show="visible" @close="visible = false">
@@ -87,7 +86,7 @@
                       </span>
                        <img :src="require(`@/assets/img/disk/${item.imageName}`)">
                       <span :class="[item.skill === undefined? 'sub-title':'skill']">
-                          {{ getSeries(item) }}
+                          {{ getSeries(item, true) }}
                         &nbsp;
                       </span>
                     </div>
@@ -128,7 +127,8 @@ export default {
   data() {
     return {
       visible: false,
-      data: Data,
+      list: Data,
+      data: [],
       info: Data[0],
       gradeList: [],
       searchData: {
@@ -180,20 +180,18 @@ export default {
       }
     }
   },
+  watch: {
+    $route(to, from) {
+      this.setData()
+    }
+  },
   mounted() {
     this.init()
-    this.getGradeList()
+    this.setData()
   },
   methods: { 
     init() {
-      const series = this.$route.params.series
-      this.series = series !== undefined? series : '05'
-
       this.$refs.left.scrollAble()
-
-      let recaptchaScript = document.createElement('script')
-      recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
-      document.head.appendChild(recaptchaScript)      
     },
     inited (viewer) {
       this.$viewer = viewer
@@ -240,25 +238,20 @@ export default {
 
       return retVal
     },
-    getGradeList() {
-      const data = _.find(this.data, {'name': this.name})
+    setData() {
+      this.gradeList = []
+      const data = _.filter(this.list, {'name': this.$route.params.name})
       
-      if (data !== undefined) {
-        this.data = data
-      } else {
-        this.data = []
-      }
+      if (data === undefined) return
 
-      let arr = _.find(data, {'grade': 4})
+      this.data = _.orderBy(data, ['id'], ['asc']);
 
-      if (arr !== undefined) {
-        this.gradeList.push(4)
-      }
-
-      arr = _.find(data, {'grade': 5})
-
-      if (arr !== undefined) {
+      if (_.find(data, {'grade': 5}) !== undefined) {
         this.gradeList.push(5)
+      }
+
+      if (_.find(data, {'grade': 4}) !== undefined) {
+        this.gradeList.push(4)
       }
     },    
     getData() {
@@ -296,13 +289,16 @@ export default {
       return retVal
     },
     setTitle() {
-      return "\"" + this.name + "\" 검색 결과"
+      return "\"" + this.$route.params.name + "\" 검색 결과"
     },
-    getSeries(item) {
+    getSeries(item, isSkill) {
       let retVal, skill
 
       const series = Number(item.id.substr(0, 2))
+
       skill = item.skill !== undefined? item.skill : ""
+
+      if (!isSkill) skill = ''
 
       if (series < 5) {
         retVal = "가오레" + series + "탄 " + skill
@@ -342,7 +338,8 @@ export default {
       }
     },
     getCorrelation(item) {
-      const data = _.filter(this.data, {correlation: item});
+      console.log("@@ getCorrelation")
+      const data = _.filter(this.list, {correlation: item});
       let retVal = _.orderBy(data, ['grade', "luckYn", 'skill', 'id'], ['desc', 'desc', 'asc', 'asc'])
 
       // 짝수로 안될경우 데이터 생성 후 감추기

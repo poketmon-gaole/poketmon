@@ -6,6 +6,11 @@
 <script>
 export default {
   name: 'App',
+  mounted() {
+    let recaptchaScript = document.createElement('script')
+    recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
+    document.head.appendChild(recaptchaScript)
+  }
 }
 </script>
 
