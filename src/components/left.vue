@@ -2,7 +2,7 @@
   <div v-show="isShow" class="left-background" @click="leave()"></div>
   <div class="left">
       <div class="search">
-        <b-form-input id="searchBox" v-model="text" type="search" placeholder="Search" @keyup.enter="doSearch()"></b-form-input>
+        <b-form-input id="searchBox" v-model="text" type="search" placeholder="검색어 입력" @keyup.enter="doSearch()"></b-form-input>
         <img src="../assets/img/search.png" @click="doSearch()">
         <!--<div class="close close-btn" @click="leave()"></div>-->
       </div>

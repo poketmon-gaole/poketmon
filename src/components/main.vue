@@ -191,6 +191,7 @@ export default {
       this.series = series !== undefined? series : '05'
 
       this.$refs.left.scrollAble()
+      document.body.scrollTop = 0
 
       let recaptchaScript = document.createElement('script')
       recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
@@ -291,7 +292,7 @@ export default {
     setSeries() {
       this.series = this.$route.params.series
       this.getData()
-      document.body.scrollTop = 0;
+      document.body.scrollTop = 0
     },
     doModal(item) {
       this.visible = !this.visible

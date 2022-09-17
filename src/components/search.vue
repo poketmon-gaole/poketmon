@@ -58,6 +58,15 @@
         </template>
       </ul>
     </template>
+    <template v-if="gradeList.length == 0">
+      <div style="padding:20px 0 35px 0; background: #f5f5f5;">
+        <img src="../assets/img/document.png" style="width: 85px">
+        <p style="margin:0; font-size:24px; font-weight:bolder;">
+          검색 결과가 없습니다.</p>
+        <p style="margin:2px 0 0 0px; font-size:18px;">
+          다른 검색어를 입력해주세요.</p>
+      </div>
+    </template>
     <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div>
   </div>
   <left ref="left"></left>
@@ -248,7 +257,14 @@ export default {
     },
     setData() {
       this.gradeList = []
-      const data = this.list.filter(o => o.name.includes(this.$route.query.name))
+      let data = []
+      const name = this.$route.query.name
+
+      if (name == 'Z기술' || name == '메가진화') {
+        data =_.filter(this.list, {'skill': name})
+      } else {
+        data = this.list.filter(o => o.name.includes(name))
+      }
 
       if (data === undefined) return
 
@@ -261,30 +277,9 @@ export default {
       if (_.find(data, {'grade': 4}) !== undefined) {
         this.gradeList.push(4)
       }
+
+      document.body.scrollTop = 0
     },    
-    getData() {
-      let retVal = []
-
-      console.log("@@ getData")
-
-      this.data.forEach((item) => {
-        // 시리즈별 조회
-        if (item.name == this.name) {
-          // 디스크 존재 여부
-          if (item.grade == 4) {
-            this.searchData.isGrade4 = true
-          } else if (item.grade == 5) {
-            this.searchData.isGrade5 = true
-          }
-
-          // 행운디스크 제외
-          if (item.id.substr(3, item.id.length) == '000') return
-          retVal.push(item)
-        }
-      })
-
-      return _.orderBy(retVal, ['id'], ['asc']);
-    },
     getRecommendData() {
       let retVal;
 
