@@ -261,9 +261,13 @@ export default {
       const name = this.$route.query.name
 
       if (name == 'z기술' || name == 'Z기술' || name == '제트기술') {
-        data =_.filter(this.list, {'skill': 'Z기술'})
+        data = _.filter(this.list, function(o) { 
+          return o.skill == 'Z기술' && o.id.substr(3, o.id.length) != '000'
+        })
       } else if (name == '메가진화') {
-        data =_.filter(this.list, {'skill': name})
+        data = _.filter(this.list, function(o) {
+          return o.skill == name && o.id.substr(3, o.id.length) != '000'
+        })
       } else {
         data = this.list.filter(o => o.name.includes(name))
       }
