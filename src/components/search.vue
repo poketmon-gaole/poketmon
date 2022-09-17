@@ -247,8 +247,8 @@ export default {
       return retVal
     },
     setData() {
-      this.gradeList = []  
-      const data = this.list.filter(o => o.name.includes(this.$route.params.name))
+      this.gradeList = []
+      const data = this.list.filter(o => o.name.includes(this.$route.query.name))
 
       if (data === undefined) return
 
@@ -297,7 +297,7 @@ export default {
       return retVal
     },
     setTitle() {
-      return "\"" + this.$route.params.name + "\" 검색 결과"
+      return "\"" + this.$route.query.name + "\" 검색 결과"
     },
     getSeries(item, isSkill) {
       let retVal, skill

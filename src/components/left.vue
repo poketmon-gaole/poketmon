@@ -113,8 +113,8 @@ export default {
 
       this.leave()      
       this.$router.push({
-        name: "Search",
-        params: { name: this.text }
+        path: "/search",
+        query: { name: this.text }
       });
     },    
     scrollDisable() {
