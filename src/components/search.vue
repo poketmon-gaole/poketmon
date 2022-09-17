@@ -260,7 +260,9 @@ export default {
       let data = []
       const name = this.$route.query.name
 
-      if (name == 'Z기술' || name == '메가진화') {
+      if (name == 'z기술' || name == 'Z기술' || name == '제트기술') {
+        data =_.filter(this.list, {'skill': 'Z기술'})
+      } else if (name == '메가진화') {
         data =_.filter(this.list, {'skill': name})
       } else {
         data = this.list.filter(o => o.name.includes(name))
