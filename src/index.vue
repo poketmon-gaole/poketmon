@@ -1,16 +1,12 @@
 <template>
   <router-view />
-  <notifications position="bottom right" width="280"/>
+  <notifications group="top" position="top" width="100%"/>
+  <notifications group="bottom" position="bottom right" width="280"/>
 </template>
 
 <script>
 export default {
   name: 'App',
-  mounted() {
-    let recaptchaScript = document.createElement('script')
-    recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
-    document.head.appendChild(recaptchaScript)
-  }
 }
 </script>
 

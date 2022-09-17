@@ -190,7 +190,11 @@ export default {
       const series = this.$route.params.series
       this.series = series !== undefined? series : '05'
 
-      this.$refs.left.scrollAble()    
+      this.$refs.left.scrollAble()
+
+      let recaptchaScript = document.createElement('script')
+      recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
+      document.head.appendChild(recaptchaScript)
     },
     inited (viewer) {
       this.$viewer = viewer
@@ -200,6 +204,7 @@ export default {
 
       if (this.support.length == 0) {
         this.$notify({
+          group: "bottom",
           type: "warn",
           title: "[알림]",
           text: "추천 서포트 포켓몬이 없습니다."

@@ -2,7 +2,7 @@
   <div v-show="isShow" class="left-background" @click="leave()"></div>
   <div class="left">
       <div class="search">
-        <b-form-input id="searchBox" v-model="text" type="search" placeholder="Search"></b-form-input>
+        <b-form-input id="searchBox" v-model="text" type="search" placeholder="Search" autofocus></b-form-input>
         <img src="../assets/img/search.png" @click="doSearch()">
         <!--<div class="close close-btn" @click="leave()"></div>-->
       </div>
@@ -102,7 +102,15 @@ export default {
         params: { series: series }
       });
     },
-    doSearch() {     
+    doSearch() {
+      if (this.text == '') {
+        this.$notify({
+          group: "top",
+          text: "검색어를 입력해 주세요"
+        });        
+        return
+      }
+
       this.leave()      
       this.$router.push({
         name: "Search",

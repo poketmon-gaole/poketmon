@@ -6,6 +6,10 @@
   <div class="contents">
     <h1>{{ setTitle() }}</h1>
     <template v-for="grade in gradeList" :key="grade">
+      <ins v-if="gradeList.length > 1 && grade == 4" class="kakao_ad_area" style="display:none;"
+        data-ad-unit    = "DAN-p7nNGyfhJYBPvnQl"
+        data-ad-width   = "320"
+        data-ad-height  = "100"></ins>      
       <h3>GRADE {{ grade }}</h3>
       <ul>
         <template v-for="(item, index) in data" :key="index">
@@ -192,6 +196,10 @@ export default {
   methods: { 
     init() {
       this.$refs.left.scrollAble()
+
+      let recaptchaScript = document.createElement('script')
+      recaptchaScript.setAttribute('src', '//t1.daumcdn.net/kas/static/ba.min.js')
+      document.head.appendChild(recaptchaScript)      
     },
     inited (viewer) {
       this.$viewer = viewer
@@ -204,7 +212,7 @@ export default {
           type: "warn",
           title: "[알림]",
           text: "추천 서포트 포켓몬이 없습니다."
-        });
+        })
       } else {
         this.$viewer.view(this.options.initialViewIndex)
         this.$viewer.show()
@@ -239,9 +247,9 @@ export default {
       return retVal
     },
     setData() {
-      this.gradeList = []
-      const data = _.filter(this.list, {'name': this.$route.params.name})
-      
+      this.gradeList = []  
+      const data = this.list.filter(o => o.name.includes(this.$route.params.name))
+
       if (data === undefined) return
 
       this.data = _.orderBy(data, ['id'], ['asc']);
@@ -338,7 +346,6 @@ export default {
       }
     },
     getCorrelation(item) {
-      console.log("@@ getCorrelation")
       const data = _.filter(this.list, {correlation: item});
       let retVal = _.orderBy(data, ['grade', "luckYn", 'skill', 'id'], ['desc', 'desc', 'asc', 'asc'])
 
