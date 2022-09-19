@@ -338,6 +338,7 @@ export default {
       return retVal;
     },
     getDisk(type, isRecommend) {
+      let retVal
       let recommendArr = [] // 추천
       let weakEffectArr = [] // 효과 약함
       let notRecommendArr = [] // 미추천
@@ -568,7 +569,7 @@ export default {
           break                                                                                                                                                 
         }
       })
-      
+     
       if (isRecommend) {
         // 비추천 배열 합치기
         const tmpArr = _.concat(weakEffectArr, notRecommendArr);
@@ -581,10 +582,13 @@ export default {
           }
         })
 
-        return _.uniq(arr)
+        retVal = _.uniq(arr)
+        return _(retVal).sortBy().value()
       } else {
-        return _.uniq(notRecommendArr)
+        retVal = _.uniq(notRecommendArr)
+        return _(retVal).sortBy().value()
       }
+
     }
   }
 }
