@@ -378,6 +378,7 @@ export default {
           // 추천
           recommendArr.push("비행")
           recommendArr.push("에스퍼")
+          recommendArr.push("페어리")
 
           // 효과 약함
           weakEffectArr.push('벌레')
