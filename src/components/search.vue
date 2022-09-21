@@ -125,7 +125,7 @@ import 'viewerjs/dist/viewer.css'
 import { component as Viewer } from "v-viewer"
 
 export default {
-  name: 'PocktmonMain',
+  name: 'Search',
   components: {
     Modal,
     Left,
