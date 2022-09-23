@@ -152,7 +152,7 @@
     {
         "id": "05-004",
         "grade": 4,
-        "name": "솔라빔",
+        "name": "메가리움",
         "type": "풀",
         "correlation": "풀",
         "imageName": "05-004.png",
@@ -420,7 +420,7 @@
     {
         "id": "04-000",
         "grade": 4,
-        "name": "리자몽",
+        "name": "리자몽Y",
         "type": "불꽃/비행",
         "correlation": "불꽃",
         "imageName": "04-000.png",
@@ -1054,7 +1054,7 @@
     {
         "id": "02-008",
         "grade": 4,
-        "name": "리자몽",
+        "name": "리자몽Y",
         "type": "불꽃/비행",
         "correlation": "불꽃",
         "imageName": "02-008.png",
@@ -1419,7 +1419,7 @@
     {
         "id": "01-020",
         "grade": 4,
-        "name": "리자몽",
+        "name": "리자몽Y",
         "type": "불꽃/비행",
         "correlation": "불꽃",
         "imageName": "01-020.png",
@@ -1646,7 +1646,7 @@
     {
         "id": "01-070",
         "grade": 5,
-        "name": "흑자몽",
+        "name": "리자몽X",
         "type": "불꽃/비행",
         "correlation": "불꽃",
         "imageName": "01-070.png",
@@ -1660,7 +1660,7 @@
     {
         "id": "01-071",
         "grade": 5,
-        "name": "리자몽",
+        "name": "리자몽Y",
         "type": "불꽃/비행",
         "correlation": "불꽃",
         "imageName": "01-071.png",
