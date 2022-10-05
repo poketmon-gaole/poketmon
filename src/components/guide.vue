@@ -18,8 +18,8 @@
       <ins v-if="gradeList.length > 1 && grade == 4" class="kakao_ad_area" style="display:none;"
         data-ad-unit    = "DAN-p7nNGyfhJYBPvnQl"
         data-ad-width   = "320"
-        data-ad-height  = "100"></ins>      
-      <h3>GRADE {{ grade }}</h3>
+        data-ad-height  = "100"></ins>
+      <h3>GRADE {{ grade }} {{ getCount(grade) }}</h3>
       <ul>
         <template v-for="(item, index) in data" :key="index">
           <li v-if="item.grade == grade">
@@ -223,6 +223,10 @@ export default {
         this.$viewer.show()
       }
     },
+    getCount(grade) {
+      const list = _.filter(this.data, {'grade': grade})
+      return '(' + list.length + 'EA)'
+    },
     getImages(item) {
       let retVal = []
       let typeArr = []
@@ -280,6 +284,8 @@ export default {
       if (type !== '') {
         this.list.forEach((item) => {
           if (_.includes(item.type, type)) {
+            // 행운디스크 제외
+            if (item.id.substr(3, item.id.length) == '000') return            
             data.push(item)
           }
         })
