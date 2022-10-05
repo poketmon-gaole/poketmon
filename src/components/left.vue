@@ -119,7 +119,7 @@ export default {
         name: "Guide",
         params: { type: '노말' }
       })
-    },    
+    },
     doSearch() {
       if (this.text == '') {
         this.$notify({

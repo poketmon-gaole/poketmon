@@ -67,6 +67,7 @@
         </template>
       </ul>
     </template>
+    <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div>
   </div>
   <left :type=selected ref="left"></left>
   <template>
@@ -131,12 +132,6 @@ export default {
     Left,
     Viewer
   },
-  props: {
-    name: {
-      type: String,
-      default: "",
-    }
-  },  
   data() {
     return {
       visible: false,
@@ -274,15 +269,10 @@ export default {
     setData() {
       this.gradeList = []
       let data = []
-      let type = this.$route.query.type || this.type.t01
-      this.selected = 't01'
-      console.log("type")
-      console.log(type)
-      const selected = $('#sboxType').val()
+      let type = this.$route.params.type
 
       Object.entries(this.type).forEach(([key, value]) => {
-        if (selected === key) {
-          type = value
+        if (type === value) {
           this.selected = key
         }
       })
