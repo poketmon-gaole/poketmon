@@ -31,17 +31,17 @@
           </li>
         </ul>
       </div>
+      <div class="left-line"></div>
       <div>
         <ul>
           <li class="title">
             <div>▶ 포켓몬 가오레 정보</div>
           </li>
           <li>
-              <div :style="[type !== undefined? 'font-weight:bold; color:orangered;' : '']" @click="doGuide">- 포켓몬 속성</div>
+              <div :style="[type !== undefined? 'font-weight:bold; color:orangered;' : '']" @click="doGuide">- 포켓몬 타입</div>
           </li>
         </ul>
-      </div>      
-      <div class="left-line"></div>
+      </div>
       <div class="banner">
         <div class="banner-box">
           <iframe src="https://ads-partners.coupang.com/widgets.html?id=606219&template=carousel&trackingCode=AF3681542&subId=&width=150&height=150" width="150" height="150" frameborder="0" scrolling="no" referrerpolicy="unsafe-url"></iframe>

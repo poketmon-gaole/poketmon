@@ -315,7 +315,7 @@ export default {
       return retVal
     },
     setTitle() {
-      return "포켓몬 가오레 속성"
+      return "포켓몬 타입"
     },
     getSeries(item, isSkill) {
       let retVal, skill
