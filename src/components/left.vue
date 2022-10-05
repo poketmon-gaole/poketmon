@@ -31,6 +31,16 @@
           </li>
         </ul>
       </div>
+      <div>
+        <ul>
+          <li class="title">
+            <div>▶ 포켓몬 가오레 정보</div>
+          </li>
+          <li>
+              <div :style="[type !== undefined? 'font-weight:bold; color:orangered;' : '']" @click="doGuide">- 포켓몬 속성</div>
+          </li>
+        </ul>
+      </div>      
       <div class="left-line"></div>
       <div class="banner">
         <div class="banner-box">
@@ -55,7 +65,8 @@ import _ from 'lodash'
 export default {
   name: 'left',
   props: {
-    series: String
+    series: String,
+    type: String
   },
   data () {
     return {
@@ -100,8 +111,15 @@ export default {
       this.$router.push({
         name: "Series",
         params: { series: series }
-      });
+      })
     },
+    doGuide() {
+      this.leave()
+      this.$router.push({
+        name: "Guide",
+        params: { type: '노말' }
+      })
+    },    
     doSearch() {
       if (this.text == '') {
         this.$notify({
@@ -115,19 +133,19 @@ export default {
       this.$router.push({
         path: "/search",
         query: { name: this.text }
-      });
+      })
     },    
     scrollDisable() {
-      $('html, body').css({'overflow': 'hidden', 'height': '100%'});
+      $('html, body').css({'overflow': 'hidden', 'height': '100%'})
       $('#app').on('scroll touchmove mousewheel', function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        return false;
-      });
+        event.preventDefault()
+        event.stopPropagation()
+        return false
+      })
     },
     scrollAble() {
-      $('html, body').css({'overflow': 'auto', 'height': '100%'});
-      $('#app').off('scroll touchmove mousewheel');
+      $('html, body').css({'overflow': 'auto', 'height': '100%'})
+      $('#app').off('scroll touchmove mousewheel')
     }
   }
 }

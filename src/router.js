@@ -16,6 +16,12 @@ const routes = [
     name: 'Search',
     component: () => import('@/components/search'),
     props: true
+  },
+  {
+    path: '/guide/:type',
+    name: 'Guide',
+    component: () => import('@/components/guide'),
+    props: true
   }  
 ];
 
