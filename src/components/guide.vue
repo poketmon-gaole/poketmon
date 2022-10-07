@@ -6,6 +6,10 @@
   <div class="contents">
     <h1>{{ setTitle() }}</h1>
     <div class="filter">
+      <div style="text-align:left; margin:0 0 10px 5px">
+        <Toggle v-model="value" @change="setData()"/>
+        <label style="margin:0 5px 0 0">{{ getSearchTypeTitle() }}</label>
+      </div>
       <b-form-select 
         id="sboxType" 
         v-model="selected" 
@@ -124,18 +128,21 @@ import Modal from "@/components/common/modal.vue"
 import Left from '@/components/left.vue'
 import 'viewerjs/dist/viewer.css'
 import { component as Viewer } from "v-viewer"
+import Toggle from '@vueform/toggle'
 
 export default {
   name: 'Search',
   components: {
     Modal,
     Left,
-    Viewer
+    Viewer,
+    Toggle
   },
   data() {
     return {
       visible: false,
       selected: '',
+      value: false,
       list: Data,
       data: [],
       info: Data[0],
@@ -284,11 +291,21 @@ export default {
 
       if (type !== '') {
         this.list.forEach((item) => {
-          if (_.includes(item.type, type)) {
-            // 행운디스크 제외
-            if (item.id.substr(3, item.id.length) == '000') return            
-            data.push(item)
+          // 행운디스크 제외
+          if (item.id.substr(3, item.id.length) == '000') return
+
+          if (this.value) {
+            // 공격타입
+            if (_.includes(item.correlation, type)) {
+              data.push(item)
+            }
+          } else {
+            // 방어타입
+            if (_.includes(item.type, type)) {
+              data.push(item)
+            }            
           }
+          
         })
       }
 
@@ -314,6 +331,15 @@ export default {
       }
 
       return retVal
+    },
+    getSearchTypeTitle() {
+      let title = "포켓몬 방어타입"
+
+      if (this.value) {
+        title = "포켓몬 공격타입"
+      }
+      
+      return title
     },
     setTitle() {
       return "포켓몬 타입"
@@ -633,6 +659,7 @@ export default {
   }
 }
 </script>
+<style src="@vueform/toggle/themes/default.css"></style>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -830,6 +857,6 @@ input[type=radio]:checked + label{
 }
 .filter {
   text-align: left;
-  margin: 20px 0 0 5px;
+  margin: 30px 0 0 5px;
 }
 </style>
