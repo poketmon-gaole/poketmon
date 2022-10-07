@@ -117,7 +117,7 @@ export default {
       this.leave()
       this.$router.push({
         name: "Guide",
-        params: { type: '노말' }
+        params: { type: '노말', atckStts: 'N' }
       })
     },
     doSearch() {

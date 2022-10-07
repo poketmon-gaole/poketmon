@@ -7,14 +7,14 @@
     <h1>{{ setTitle() }}</h1>
     <div class="filter">
       <div style="text-align:left; margin:0 0 10px 5px">
-        <Toggle v-model="value" @change="setData()"/>
+        <Toggle v-model="value" @change="changeType()"/>
         <label style="margin:0 5px 0 0">{{ getSearchTypeTitle() }}</label>
       </div>
       <b-form-select 
         id="sboxType" 
         v-model="selected" 
         :options="type" 
-        @change="chageType"
+        @change="changeType()"
         >
       </b-form-select>
     </div>
@@ -263,7 +263,7 @@ export default {
 
       return retVal
     },
-    chageType() {
+    changeType() {
       const selected = $('#sboxType').val()
       let type
 
@@ -275,13 +275,15 @@ export default {
 
       this.$router.push({
         name: "Guide",
-        params: { type: type }
+        params: { type: type, atckStts: this.value ? 'Y' : 'N' }
       })
     },
     setData() {
       this.gradeList = []
       let data = []
-      let type = this.$route.params.type
+      const type = this.$route.params.type
+      const atckStts = this.$route.params.atckStts
+      this.value = atckStts === 'Y' ? true : false
 
       Object.entries(this.type).forEach(([key, value]) => {
         if (type === value) {

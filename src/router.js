@@ -18,7 +18,7 @@ const routes = [
     props: true
   },
   {
-    path: '/guide/:type',
+    path: '/guide/:type/:atckStts',
     name: 'Guide',
     component: () => import('@/components/guide'),
     props: true
