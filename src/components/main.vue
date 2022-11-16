@@ -140,6 +140,7 @@ export default {
         "t01-008.png",
         "t04-010.png",
         "t08-040.png",
+        "t09-022.png",
         "t09-023.png",
         "t10-019.png",
         "t11-005.png",
