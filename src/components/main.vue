@@ -189,7 +189,7 @@ export default {
   methods: { 
     init() {
       const series = this.$route.params.series
-      this.series = series !== undefined? series : '05'
+      this.series = series !== undefined? series : '06'
 
       this.$refs.left.scrollAble()
       document.body.scrollTop = 0
