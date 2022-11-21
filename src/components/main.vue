@@ -7,10 +7,12 @@
   <div class="contents">   
     <h1>{{ setTitle(msg, series) }}</h1>
     <template v-for="grade in gradeList" :key="grade">
+      <!--
       <ins v-if="grade == 4" class="kakao_ad_area" style="display:none;"
         data-ad-unit    = "DAN-jNUH2Cqc0qk39RrA"
         data-ad-width   = "320"
         data-ad-height  = "100"></ins>
+      -->
       <h3>GRADE {{ grade }}</h3>
       <ul>
         <template v-for="(item, index) in getData()" :key="index">
