@@ -4,7 +4,7 @@
   data-ad-width   = "320"
   data-ad-height  = "50"></ins>
   <img alt="Logo" src="@/assets/img/poketmon.png" height="170"/>
-  <div class="contents">   
+  <div class="contents">
     <h1>{{ setTitle(msg, series) }}</h1>
     <template v-for="grade in gradeList" :key="grade">
       <!--
@@ -250,6 +250,7 @@ export default {
     getData() {
       let retVal = []
 
+      this.$emit('start-loader', true)
       this.data.forEach((item) => {
         // 시리즈별 조회
         if (item.id.substr(0, 2) == this.series) {
@@ -258,6 +259,7 @@ export default {
           retVal.push(item)
         }
       })
+      this.$emit('start-loader', false)
 
       return _.orderBy(retVal, ['id'], ['asc']);
     },

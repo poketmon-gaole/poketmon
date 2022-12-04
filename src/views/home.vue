@@ -1,5 +1,7 @@
 <template>
-  <PoketmonMain msg="포캣몬"/>
+  <b-overlay :show="show" rounded="sm">
+    <PoketmonMain msg="포캣몬" :aria-hidden="show" @start-loader="startLoader"/>
+  </b-overlay>
 </template>
 
 <script>
@@ -9,6 +11,16 @@ export default {
   name: 'Home',
   components: {
     PoketmonMain
+  },
+  data() {
+    return {
+      show: false
+    }
+  },
+  methods: {
+    startLoader(value) {
+      this.show = value
+    }
   }
 }
 </script>
