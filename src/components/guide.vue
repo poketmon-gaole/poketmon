@@ -398,7 +398,7 @@ export default {
     },
     getCorrelation(item) {
       const data = _.filter(this.list, {correlation: item})
-      let retVal = _.orderBy(data, ['grade', "luckYn", 'skill', 'id'], ['desc', 'desc', 'asc', 'asc'])
+      let retVal = _.orderBy(data, ['grade', "luckYn", 'skill', 'id'], ['desc', 'desc', 'asc', 'desc'])
 
       // 짝수로 안될경우 데이터 생성 후 감추기
       if (retVal.length % 2 !== 0) {

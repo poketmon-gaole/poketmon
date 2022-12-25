@@ -74,6 +74,7 @@ export default {
       toggle: this.enter,
       text: '',
       seriesList: [
+        {content: '레전드 4탄', series: '08'},
         {content: '레전드 3탄', series: '07'},
         {content: '레전드 2탄', series: '06'},
         {content: '레전드 1탄', series: '05'},
