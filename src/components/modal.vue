@@ -67,6 +67,7 @@ export default {
     },
     doClose() {
       this.visible = false
+      this.$emit('close')
     },
     getCorrelation(item) {
       const data = _.filter(this.data, {correlation: item})

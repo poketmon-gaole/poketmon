@@ -76,7 +76,7 @@
     <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div>
   </div>
   <left :type=selected ref="left"></left>
-  <popup ref="modal"></popup>
+  <popup ref="modal" @close="doClose()"></popup>
 </template>
 
 <script>
@@ -332,7 +332,14 @@ export default {
       item.isRecommend = true
       
       this.$refs.modal.load(item)
+
+      // 스크롤 이동 방지
+      this.$refs.left.scrollDisable()      
     },
+    doClose() {
+      // 스크롤 이동 해제
+      this.$refs.left.scrollAble()
+    },    
     getSolution(type, isRecommend) {
       const result = this.getDisk(type, isRecommend)
 
