@@ -2802,5 +2802,18 @@
         "def":82,
         "spclDfns":82,
         "speed":131
-     }
+     },
+     {
+        "id":"08-060",
+        "grade":4,
+        "name":"멜메탈",
+        "type":"강철",
+        "correlation":"노말",
+        "imageName":"08-060.png",
+        "hp":215,
+        "atc":162,
+        "def":162,
+        "spclDfns":76,
+        "speed":40
+     }     
 ]
