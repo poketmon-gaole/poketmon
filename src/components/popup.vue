@@ -1,4 +1,5 @@
 <template>
+  <div>
     <Teleport to="body">
       <modal :show="visible" @close="doClose">
         <template #header>
@@ -41,7 +42,8 @@
         </template>
       </modal>
     </Teleport>
-  </template>
+  </div>
+</template>
 
 <script>
 import _ from 'lodash'
@@ -49,7 +51,7 @@ import Data from "@/components/data.json"
 import Modal from "@/components/common/modal.vue"
 
 export default {
-  name: 'PokemonModal',
+  name: 'Popup',
   components: {
     Modal
   },
