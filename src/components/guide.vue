@@ -7,17 +7,37 @@
   <div class="contents">
     <h1>{{ setTitle() }}</h1>
     <div class="filter">
-      <div style="text-align:left; margin:0 0 10px 5px">
-        <Toggle v-model="value" @change="changeType()"/>
-        <label style="margin:0 5px 0 0">{{ getSearchTypeTitle() }}</label>
+      <div class="search-toggle">
+        <Toggle v-model="value" @change="changeToggle()"/>
+        <label style="margin:0 5px 0 0">{{ getSearchRecommendTitle() }}</label>
       </div>
+      <div class="search" v-if="value">
+        <div class="form-check-first">
+          <input type="radio" v-model="status" @click="changeType()" id="radioGuide1" name="status" value="1">
+          <label for="radioGuide1">추천</label>
+        </div>
+        <div class="form-check-second">
+          <input type="radio" v-model="status" @click="changeType()" id="radioGuide2" name="status" value="2">
+          <label for="radioGuide2">비추천</label>
+        </div>
+      </div>
+      <div class="search" v-else>
+        <div class="form-check-first">
+          <input type="radio" v-model="status" @click="changeType()" id="radioGuide1" name="status" value="1">
+          <label for="radioGuide1">방어속성</label>
+        </div>
+        <div class="form-check-second">
+          <input type="radio" v-model="status" @click="changeType()" id="radioGuide2" name="status" value="2">
+          <label for="radioGuide2">공격속성</label>
+        </div>
+      </div>      
       <b-form-select 
         id="sboxType" 
         v-model="selected" 
         :options="getType"
         @change="changeType()"
         >
-      </b-form-select>
+      </b-form-select>      
     </div>
     <template v-for="grade in gradeList" :key="grade">
       <!--
@@ -74,6 +94,9 @@
         </template>
       </ul>
     </template>
+    <template v-if="gradeList.length === 0">
+      <div class="not-data">데이터가 없습니다.</div>
+    </template>
     <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div>
   </div>
   <left :type=selected ref="left"></left>
@@ -103,15 +126,13 @@ export default {
   mixins: [dataMixin],
   data() {
     return {
+      paramType: '',
       selected: '',
       value: false,
       list: Data,
+      status: '1',
       data: [],
       gradeList: [],
-      searchData: {
-        isGrade4: false,
-        isGrade5: false
-      },
       options: {
         loop: false,
         scalable: false,
@@ -130,12 +151,11 @@ export default {
   computed: {
     getType() {
       const retVal = []
-      const values = Object.values(this.type)
-  
-      _.forEach(Object.keys(this.type), function(key, index) {
-        retVal.push({value: key, text: values[index]})
+      
+      Object.entries(this.type).forEach(([key, value]) => {
+        retVal.push({value: key, text: value})
       })
-  
+ 
       return retVal
     }
   },
@@ -153,6 +173,23 @@ export default {
     },
     inited (viewer) {
       this.$viewer = viewer
+    },
+    onSearch(index) {
+      let type
+      const selected = $('#sboxType').val()
+
+      Object.entries(this.type).forEach(([key, value]) => {
+        if (selected === key) {
+          type = value
+        }
+      })
+
+      if (this.value) {
+          this.$router.push({
+          name: "Guide",
+          params: { type: type, option: this.value, status: index }
+        })
+      }
     },
     show(item) {
       this.support = this.getImages(item)
@@ -201,9 +238,16 @@ export default {
 
       return retVal
     },
+    changeToggle() {
+      this.doRouter(1)
+    },
     changeType() {
-      const selected = $('#sboxType').val()
+      const status = $("input[name='status']:checked").val()
+      this.doRouter(status)
+    },
+    doRouter(status) {
       let type
+      const selected = $('#sboxType').val()
 
       Object.entries(this.type).forEach(([key, value]) => {
         if (selected === key) {
@@ -213,41 +257,63 @@ export default {
 
       this.$router.push({
         name: "Guide",
-        params: { type: type, atckStts: this.value ? 'Y' : 'N' }
-      })
+        params: { type: type, option: this.value, status: status }
+      })      
     },
     setData() {
       this.gradeList = []
       let data = []
       const type = this.$route.params.type
-      const atckStts = this.$route.params.atckStts
-      this.value = atckStts === 'Y' ? true : false
+      const option = this.$route.params.option
+      const status = this.$route.params.status
 
+      this.value = option === 'false' ? false : true
+      this.status = status
+      
       Object.entries(this.type).forEach(([key, value]) => {
         if (type === value) {
           this.selected = key
         }
       })
 
-      if (type !== '') {
-        this.list.forEach((item) => {
-          // 행운디스크 제외
-          if (item.id.substr(3, item.id.length) == '000') return
+      this.list.forEach((item) => {
+        // 행운디스크 제외
+        if (item.id.substr(3, item.id.length) == '000') return
 
-          if (this.value) {
+        // 포켓몬 타입
+        if (option === 'false') {
+          if (status === '1') {
+            // 방어타입
+            if (_.includes(item.type, type)) {
+              data.push(item)
+            }
+          } else {
             // 공격타입
             if (_.includes(item.correlation, type)) {
               data.push(item)
             }
-          } else {
-            // 방어타입
-            if (_.includes(item.type, type)) {
-              data.push(item)
-            }            
           }
-          
-        })
-      }
+        // 포켓몬 약점
+        } else {
+          if (status === '1') {
+            // 추천
+            const recommendArray = this.getDisk(item.type, true)
+            recommendArray.forEach((recommend) => {
+              if (recommend === type) {
+                data.push(item)
+              }
+            })
+          } else {
+            // 비추천
+            const notRecommendArray = this.getDisk(item.type, false)
+            notRecommendArray.forEach((notRecommend) => {
+              if (notRecommend === type) {
+                data.push(item)
+              }
+            })
+          }
+        }
+      })
 
       this.data = _.orderBy(data, ['id'], ['desc'])
 
@@ -261,15 +327,15 @@ export default {
 
       document.body.scrollTop = 0
     },
-    getSearchTypeTitle() {
-      let title = "포켓몬 방어타입"
+    getSearchRecommendTitle() {
+      let title = "포켓몬 타입"
 
       if (this.value) {
-        title = "포켓몬 공격타입"
+        title = "포켓몬 약점"
       }
       
       return title
-    },
+    },    
     setTitle() {
       return "포켓몬 타입"
     },
@@ -370,6 +436,31 @@ img {
 strong {
   display: block;
 }
+input[type=radio]{
+	width: 0;
+  height: 0;
+  position: absolute;
+  left: -9999px;
+}
+input[type=radio] + label{
+  margin: 0;
+  width: 95px;
+  padding: 7px 0 7px 0;
+  box-sizing: border-box;
+  position: relative;
+  display: inline-block;
+  border: solid 1px #DDD;
+  background-color: #FFF;
+  line-height: 140%;
+  text-align: center;
+  box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  transition: border-color .15s ease-out,  color .25s ease-out,  background-color .15s ease-out, box-shadow .15s ease-out;
+}
+input[type=radio]:checked + label{
+  background-color: #999999;
+  color: #FFF;
+  z-index: 1;
+}
 .contents{
     text-align: center;
 }
@@ -453,5 +544,26 @@ strong {
 .filter {
   text-align: left;
   margin: 30px 0 0 5px;
+}
+.search-toggle {
+  text-align:left;
+  margin:0 0 13px 0;
+  display:inline-block;
+}
+.search {
+  display: inline-block;
+  border: 1px solid #f7f7f7;
+  width: 241px;
+}
+.form-check-first {
+  display: inline-block;
+  margin: 0 0 0 20px;
+}
+.form-check-second {
+  display: inline-block;
+  margin: 0 0 0 5px;
+}
+.not-data {
+  margin: 20px 0 20px 0px;
 }
 </style>

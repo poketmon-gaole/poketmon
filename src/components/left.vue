@@ -38,7 +38,7 @@
             <div>▶ 포켓몬 가오레 정보</div>
           </li>
           <li>
-              <div :style="[type !== undefined? 'font-weight:bold; color:orangered;' : '']" @click="doGuide">- 포켓몬 타입</div>
+              <div :style="[type !== undefined? 'font-weight:bold; color:orangered;' : '']" @click="doGuide()">- 포켓몬 타입</div>
           </li>
         </ul>
       </div>
@@ -118,7 +118,7 @@ export default {
       this.leave()
       this.$router.push({
         name: "Guide",
-        params: { type: '노말', atckStts: 'N' }
+        params: { type: '노말', option: false, status: '1' }
       })
     },
     doSearch() {

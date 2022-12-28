@@ -11,10 +11,10 @@
           <strong>{{ info.name }} [{{ info.type }}]</strong>
           <img class="poketmon-img" :src="require(`@/assets/img/disk/${info.imageName}`)">
           <div class="recommend-box" v-if="info.notRecommendArray.length > 0">
-            <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option1" name="test" value="option1" checked="checked">
-            <label for="option1">추천</label>
-            <input type="radio" @click="info.isRecommend = !info.isRecommend" id="option2" name="test" value="option2">
-            <label for="option2" >비추천</label>
+            <input type="radio" @click="info.isRecommend = true" id="radioPopup1" name="test" value="1" checked="checked">
+            <label for="radioPopup1">추천</label>
+            <input type="radio" @click="info.isRecommend = false" id="radioPopup2" name="test" value="2">
+            <label for="radioPopup2" >비추천</label>
           </div>
           <div class="summary-box" v-for="recommend in getRecommendData()" :key="recommend">
             <p>{{ recommend }}</p>

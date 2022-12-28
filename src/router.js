@@ -18,11 +18,11 @@ const routes = [
     props: true
   },
   {
-    path: '/guide/:type/:atckStts',
+    path: '/guide/:type/:option/:status',
     name: 'Guide',
     component: () => import('@/components/guide'),
     props: true
-  }  
+  }
 ];
 
 export const router = createRouter({
