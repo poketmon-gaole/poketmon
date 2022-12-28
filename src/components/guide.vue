@@ -552,7 +552,6 @@ input[type=radio]:checked + label{
 }
 .search {
   display: inline-block;
-  border: 1px solid #f7f7f7;
   width: 241px;
 }
 .form-check-first {
