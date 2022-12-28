@@ -65,9 +65,8 @@
         <div style="padding:20px 0 35px 0; background: #f5f5f5;">
           <img src="../assets/img/document.png" style="width: 85px">
           <p style="margin:0; font-size:24px; font-weight:bolder;">
-            검색 결과가 없습니다.</p>
-          <p style="margin:2px 0 0 0px; font-size:18px;">
-            다른 검색어를 입력해주세요.</p>
+            검색 결과가 없습니다.
+          </p>
         </div>
       </template>
       <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div>

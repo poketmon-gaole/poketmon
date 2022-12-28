@@ -95,7 +95,12 @@
       </ul>
     </template>
     <template v-if="gradeList.length === 0">
-      <div class="not-data">데이터가 없습니다.</div>
+      <div class="not-data">
+        <img src="../assets/img/document.png" style="width: 85px">
+        <p style="margin:0; font-size:24px; font-weight:bolder;">
+          해당 포켓몬이 없습니다.
+        </p>
+      </div>
     </template>
     <div class="footer">Copyright ⓒ By JW. All Rights Reserved.</div>
   </div>
@@ -459,7 +464,6 @@ input[type=radio] + label{
 input[type=radio]:checked + label{
   background-color: #999999;
   color: #FFF;
-  z-index: 1;
 }
 .contents{
     text-align: center;
